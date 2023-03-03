@@ -3,7 +3,6 @@ import routes from './routes';
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const pool = require('./db');
 
 //Middleware
 app.use('/', routes);
