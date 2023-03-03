@@ -21,5 +21,14 @@ CREATE TABLE Quizzes(
 CREATE TABLE Questions(
   question_id SERIAL PRIMARY KEY,
   quiz_id INT NOT NULL REFERENCES Quizzes(quiz_id),
+  subject VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+)
 
+CREATE TABLE Answers(
+  answer_id SERIAL PRIMARY KEY,
+  question_id INT NOT NULL REFERENCES Questions(question_id),
+  answer_text TEXT NOT NULL,
+  is_correct BOOLEAN NOT NULL DEFAULT false,
+  created_at TIMESTAMP DEFAULT NOW()
 )
