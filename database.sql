@@ -6,7 +6,7 @@ CREATE TABLE Users(
   email EMAIL NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
   created_at TIMESTAMP DEFAULT NOW()
-)
+);
 
 CREATE TABLE Quizzes(
   quiz_id SERIAL PRIMARY KEY,
@@ -17,14 +17,14 @@ CREATE TABLE Quizzes(
   is_admin_created BOOLEAN NOT NULL DEFAULT true,
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP NOT NULL NOW()
-)
+);
 
 CREATE TABLE Questions(
   question_id SERIAL PRIMARY KEY,
   quiz_id INT NOT NULL REFERENCES Quizzes(quiz_id),
   subject VARCHAR(255) NOT NULL,
   created_at TIMESTAMP DEFAULT NOW()
-)
+);
 
 CREATE TABLE Answers(
   answer_id SERIAL PRIMARY KEY,
@@ -32,7 +32,7 @@ CREATE TABLE Answers(
   answer_text TEXT NOT NULL,
   is_correct BOOLEAN NOT NULL DEFAULT false,
   created_at TIMESTAMP DEFAULT NOW()
-)
+);
 
 CREATE TABLE Scores(
   score_id SERIAL PRIMARY KEY,
@@ -40,7 +40,7 @@ CREATE TABLE Scores(
   user_id INT NOT NULL REFERENCES Users(user_id),
   score INT NOT NULL,
   created_at TIMESTAMP DEFAULT NOW()
-)
+);
 
 CREATE TABLE Leaderboard(
   leaderboard_id SERIAL PRIMARY KEY,
@@ -48,4 +48,4 @@ CREATE TABLE Leaderboard(
   user_id INT NOT NULL REFERENCES Users(user_id),
   score INT NOT NULL,
   created_at TIMESTAMP DEFAULT NOW()
-)
+);
