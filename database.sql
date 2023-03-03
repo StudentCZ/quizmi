@@ -34,7 +34,7 @@ CREATE TABLE Answers(
   created_at TIMESTAMP DEFAULT NOW()
 )
 
-CREATE TABLE Score(
+CREATE TABLE Scores(
   score_id SERIAL PRIMARY KEY,
   quiz_id INT NOT NULL REFERENCES Quizzes(quiz_id),
   user_id INT NOT NULL REFERENCES Users(user_id),
@@ -42,3 +42,10 @@ CREATE TABLE Score(
   created_at TIMESTAMP DEFAULT NOW()
 )
 
+CREATE TABLE Leaderboard(
+  leaderboard_id SERIAL PRIMARY KEY,
+  quiz_id INT NOT NULL REFERENCES Quizzes(quiz_id),
+  user_id INT NOT NULL REFERENCES Users(user_id),
+  score INT NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+)
