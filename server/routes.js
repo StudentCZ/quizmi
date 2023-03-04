@@ -14,17 +14,14 @@ router.get('/users', async (req, res) => {
 });
 router.post('/users', async (req, res) => {
   const { username, email, password } = req.body;
-  const query = {
-    text: `INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING *`,
-    values: [username, email, password],
-  };
-  console.log(query); // add this line
+  const queryText = `INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING *`;
+  const queryValues = [username, email, password];
   try {
-    const result = await pool.query(query);
-    res.status(201).json(result.rows[0]);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
+    const { rows } = await pool.query(queryText, queryValues);
+    res.status(201).json(rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json(error);
   }
 });
 
