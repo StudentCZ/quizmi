@@ -36,7 +36,7 @@ CREATE TABLE Answers (
 CREATE TABLE Scores (
   score_id SERIAL PRIMARY KEY,
   quiz_id INT NOT NULL REFERENCES Quizzes(quiz_id),
-  user_id INT NOT NULL REFERENCES Users(user_id),
+--   user_id INT NOT NULL REFERENCES Users(user_id),
   score INT NOT NULL,
   created_at TIMESTAMP DEFAULT NOW()
 );
