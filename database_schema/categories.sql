@@ -2,4 +2,4 @@ INSERT INTO Categories (
   name
 )
 VALUES
-('Math'),('Science'),('History'),('English'),('Geography'),('Sports'),('Gaming'),('Pop Culture'),('Anime'),('Art'),('Music'),('Trivia');
+('Mathematics'),('Science'),('History'),('English'),('Geography'),('Movies')('Sports'),('Gaming'),('Pop Culture'),('Anime'),('Art'),('Music'),('Astronomy')('Trivia');
