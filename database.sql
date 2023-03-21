@@ -22,7 +22,7 @@ CREATE TABLE Questions (
   quiz_id INT NOT NULL REFERENCES Quizzes(quiz_id),
   subject VARCHAR(255) NOT NULL,
   question_text TEXT NOT NULL,
-  image_url: VARCHAR(255),
+  image_url VARCHAR(255),
   created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
