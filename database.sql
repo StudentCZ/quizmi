@@ -23,6 +23,7 @@ CREATE TABLE Questions (
   subject VARCHAR(255) NOT NULL,
   question_text TEXT NOT NULL,
   image_url VARCHAR(255),
+  audio_url VARCHAR(255),
   created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
