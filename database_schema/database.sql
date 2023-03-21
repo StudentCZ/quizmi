@@ -9,13 +9,13 @@
 CREATE TABLE Categories(
   category_id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  created_at TIMESTAMP DEFAULT NOW(),
+  created_at TIMESTAMP DEFAULT NOW()
 );
 
 CREATE TABLE Subcategories(
   subcategories_id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  category_id INT NOT NULL REFERENCES Categories(category_id)
+  category_id INT NOT NULL REFERENCES Categories(category_id),
   created_at TIMESTAMP DEFAULT NOW(),
   CONSTRAINT unique_subcategory_name UNIQUE (name, category_id)
 );
