@@ -12,6 +12,12 @@ CREATE TABLE Categories(
   created_at TIMESTAMP DEFAULT NOW(),
 )
 
+CREATE TABLE Subcategories(
+  subcategories_id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  category_id INT NOT NULL REFERENCES Categories(category_id)
+)
+
 CREATE TABLE Quizzes (
   quiz_id SERIAL PRIMARY KEY,
   -- user_id INT NOT NULL REFERENCES Users(user_id),
