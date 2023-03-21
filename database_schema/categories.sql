@@ -2,4 +2,4 @@ INSERT INTO Categories (
   name
 )
 VALUES
-('Math');
+('Math'),('Science'),('History'),('English');
