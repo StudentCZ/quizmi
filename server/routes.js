@@ -4,14 +4,6 @@ const pool = require('./db');
 
 router.use(express.json());
 
-router.get('/users', async (req, res) => {
-  try {
-    const users = await pool.query(`SELECT * FROM Users`);
-    res.json(users.rows);
-  } catch (error) {
-    console.error(error.message);
-  }
-});
 router.post('/users', async (req, res) => {
   const { username, email, password } = req.body;
   const queryText = `INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING *`;
