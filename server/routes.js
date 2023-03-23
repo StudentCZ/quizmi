@@ -26,4 +26,12 @@ router.get('/subcategories', async (req, res) => {
   }
 });
 
+router.get('/quizzes', async (req, res) => {
+  try {
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: 'Server Erorr' });
+  }
+});
+
 module.exports = router;
