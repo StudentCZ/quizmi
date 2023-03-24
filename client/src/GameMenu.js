@@ -5,8 +5,8 @@ const GameMenu = () => {
   return (
     <div className={style.game_menu}>
       <h1>Welcome To QuizMi</h1>
-      <button>New Game</button>
-      <button>Settings</button>
+      <button className={style.game_menu_button}>New Game</button>
+      <button className={style.game_menu_button}>Settings</button>
     </div>
   );
 };
