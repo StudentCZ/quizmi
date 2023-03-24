@@ -8,6 +8,13 @@
   color: #ffffff;
 }
 
+h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid #ffffff;
+  padding-bottom: 0.5rem;
+}
+
 .game_menu_button {
   background-color: #ffffff;
   color: #f9a26c;
