@@ -8,8 +8,8 @@ const GameMenu = () => {
       <h1 className={style.game_menu_heading}>Welcome To QuizMi</h1>
       <button className={style.game_menu_button}>New Game</button>
       <button className={style.game_menu_button}>Settings</button>
-      <audio>
-        <source src='' />
+      <audio id='bg-music' loop controls={false} autoPlay muted>
+        <source src={music1} type='audio/mp3' />
       </audio>
     </div>
   );
