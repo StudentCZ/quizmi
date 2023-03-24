@@ -10,7 +10,9 @@ const GameMenu = () => {
     const audioElement = document.getElementById('bg-music');
     document.addEventListener('click', () => {
       setMusicPlaying(true);
-      audioElement.play();
+      if (audioElement) {
+        audioElement.play();
+      }
     });
   }, [setMusicPlaying]);
   return (
