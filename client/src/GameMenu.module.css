@@ -30,4 +30,10 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.game_menu_button:hover {
+  background-color: #f2c69d;
+  color: #ffffff;
 }
