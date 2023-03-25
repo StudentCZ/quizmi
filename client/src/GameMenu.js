@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import style from './GameMenu.module.css';
-import music1 from './audio/Q1.mp3';
 import { Link } from 'react-router-dom';
 
 const GameMenu = ({ musicPlaying, toggleMusic }) => {
@@ -21,11 +20,6 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
       <Link to='/settings'>
         <button className={style.game_menu_button}>Settings</button>
       </Link>
-      {musicPlaying && (
-        <audio id='bg-music' loop controls={false} autoPlay>
-          <source src={music1} type='audio/mp3' />
-        </audio>
-      )}
     </div>
   );
 };

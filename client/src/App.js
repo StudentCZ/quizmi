@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AppProvider } from './AppContext';
+import music1 from './audio/Q1.mp3';
 import GameMenu from './GameMenu';
 import Settings from './Settings';
 
@@ -13,6 +13,11 @@ function App() {
 
   return (
     <div className='App'>
+      {musicPlaying && (
+        <audio id='bg-music' loop controls={false} autoPlay>
+          <source src={music1} type='audio/mp3' />
+        </audio>
+      )}
       <Router>
         <Routes>
           <Route
