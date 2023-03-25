@@ -50,7 +50,8 @@ function App() {
       audioElement.pause();
     }
 
-    localStorage.setItem('musicVolume', musicVolume);
+    localStorage.setItem('musicVolume', musicVolume.toString());
+    localStorage.setItem('musicPlaying', musicPlaying.toString());
 
     return () => audioElement.removeEventListener('ended', playNextSong);
   }, [musicPlaying, musicVolume, currentSong, songs]);
