@@ -20,7 +20,9 @@ const Settings = ({
   return (
     <div className={style.settings_menu}>
       <h1 className={style.settings_heading}>Settings</h1>
-      <label htmlFor='music-toggle'>Enable/Disable Music</label>
+      <label htmlFor='music-toggle' className={style.settings_label}>
+        Enable/Disable Music
+      </label>
       <input
         type='checkbox'
         id='music-toggle'
@@ -28,7 +30,9 @@ const Settings = ({
         onChange={handleToggleMusic}
       />
 
-      <label htmlFor='music-volume'>Music Volume</label>
+      <label htmlFor='music-volume' className={style.settings_label}>
+        Music Volume
+      </label>
       <input
         type='range'
         min={0}
