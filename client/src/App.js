@@ -22,6 +22,7 @@ function App() {
   );
 
   const toggleMusic = () => {
+    console.log('toggleMusic called with musicPlaying', musicPlaying);
     setMusicPlaying((prevPlaying) => !prevPlaying);
   };
 
