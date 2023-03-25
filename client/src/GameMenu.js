@@ -5,13 +5,11 @@ import { Link } from 'react-router-dom';
 const GameMenu = ({ musicPlaying, toggleMusic }) => {
   useEffect(() => {
     const audioElement = document.getElementById('bg-music');
-    document.addEventListener('click', () => {
-      if (musicPlaying) {
-        audioElement.play();
-      } else {
-        audioElement.pause();
-      }
-    });
+    if (musicPlaying) {
+      audioElement.play();
+    } else {
+      audioElement.pause();
+    }
   }, [musicPlaying]);
   return (
     <div className={style.game_menu}>

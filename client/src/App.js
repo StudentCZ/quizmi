@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import music1 from './audio/Q1.mp3';
 import GameMenu from './GameMenu';
@@ -10,6 +10,15 @@ function App() {
   const toggleMusic = () => {
     setMusicPlaying(!musicPlaying);
   };
+
+  useEffect(() => {
+    const audioElement = document.getElementById('bg-music');
+    if (musicPlaying) {
+      audioElement.play();
+    } else {
+      audioElement.pause();
+    }
+  }, [musicPlaying]);
 
   return (
     <div className='App'>
