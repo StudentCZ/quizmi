@@ -11,6 +11,7 @@ const Settings = ({
   const handleToggleMusic = () => {
     toggleMusic();
   };
+
   const handleVolumeChange = (event) => {
     const volume = event.target.value;
     setMusicVolume(volume);
@@ -30,9 +31,9 @@ const Settings = ({
         <label htmlFor='music-volume'>Music Volume</label>
         <input
           type='range'
-          min='0'
-          max='1'
-          step='0.1'
+          min={0}
+          max={1}
+          step={0.1}
           id='music-volume'
           value={musicVolume}
           onChange={handleVolumeChange}

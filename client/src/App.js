@@ -15,16 +15,17 @@ function App() {
 
   useEffect(() => {
     const audioElement = document.getElementById('bg-music');
+    audioElement.volume = musicVolume;
     if (musicPlaying) {
       audioElement.play();
     } else {
       audioElement.pause();
     }
-  }, [musicPlaying]);
+  }, [musicPlaying, musicVolume]);
 
   return (
     <div className='App'>
-      <audio id='bg-music' loop controls={false} autoPlay volume={musicVolume}>
+      <audio id='bg-music' loop autoPlay volume={musicVolume}>
         {musicPlaying && <source src={music1} type='audio/mp3' />}
       </audio>
       <Router>
@@ -32,7 +33,12 @@ function App() {
           <Route
             path='/'
             element={
-              <GameMenu musicPlaying={musicPlaying} toggleMusic={toggleMusic} />
+              <GameMenu
+                musicPlaying={musicPlaying}
+                toggleMusic={toggleMusic}
+                musicVolume={musicVolume}
+                setMusicVolume={setMusicVolume}
+              />
             }
           />
           <Route
