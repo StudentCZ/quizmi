@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import music1 from './audio/Q1.mp3';
 import GameMenu from './GameMenu';
 import Settings from './Settings';
+import NewGame from './NewGame';
 
 function App() {
   const [musicPlaying, setMusicPlaying] = useState(false);
@@ -39,6 +40,7 @@ function App() {
               <Settings musicPlaying={musicPlaying} toggleMusic={toggleMusic} />
             }
           />
+          <Route path='/newgame' element={<NewGame />} />
         </Routes>
       </Router>
     </div>
