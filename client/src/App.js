@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import music1 from './audio/Q1.mp3';
+import music2 from './audio/Q2.mp3';
+import music3 from './audio/Q3.mp3';
 import GameMenu from './GameMenu';
 import Settings from './Settings';
 import NewGame from './NewGame';
+
+const songs = [music1, music2, music3];
 
 function App() {
   const [musicPlaying, setMusicPlaying] = useState(false);
