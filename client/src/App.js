@@ -22,25 +22,14 @@ function App() {
   );
 
   const toggleMusic = () => {
-    setMusicPlaying(!musicPlaying);
+    setMusicPlaying((prevPlaying) => !prevPlaying);
   };
 
   useEffect(() => {
     const audioElement = document.getElementById('bg-music');
     audioElement.volume = musicVolume;
-    if (musicPlaying) {
-      audioElement.play();
-    } else {
-      audioElement.pause();
-    }
-    localStorage.setItem('musicPlaying', musicPlaying);
-    localStorage.setItem('musicVolume', musicVolume);
-  }, [musicPlaying, musicVolume]);
-
-  useEffect(() => {
-    const audioElement = document.getElementById('bg-music');
     audioElement.src = currentSong;
-    audioElement.play();
+    audioElement.load();
 
     const playNextSong = () => {
       const randomSongIndex = Math.floor(Math.random() * songs.length);
@@ -48,8 +37,17 @@ function App() {
     };
 
     audioElement.addEventListener('ended', playNextSong);
+
+    if (musicPlaying) {
+      audioElement.play();
+    } else {
+      audioElement.pause();
+    }
+    localStorage.setItem('musicPlaying', musicPlaying);
+    localStorage.setItem('musicVolume', musicVolume);
+
     return () => audioElement.removeEventListener('ended', playNextSong);
-  }, [currentSong, songs]);
+  }, [musicPlaying, musicVolume, currentSong, songs]);
 
   return (
     <div className='App'>
