@@ -7,6 +7,7 @@ import NewGame from './NewGame';
 
 function App() {
   const [musicPlaying, setMusicPlaying] = useState(false);
+  const [musicVolume, setMusicVolume] = useState(0.5);
 
   const toggleMusic = () => {
     setMusicPlaying(!musicPlaying);
@@ -23,7 +24,7 @@ function App() {
 
   return (
     <div className='App'>
-      <audio id='bg-music' loop controls={false} autoPlay>
+      <audio id='bg-music' loop controls={false} autoPlay volume={musicVolume}>
         {musicPlaying && <source src={music1} type='audio/mp3' />}
       </audio>
       <Router>
@@ -37,7 +38,12 @@ function App() {
           <Route
             path='/settings'
             element={
-              <Settings musicPlaying={musicPlaying} toggleMusic={toggleMusic} />
+              <Settings
+                musicPlaying={musicPlaying}
+                toggleMusic={toggleMusic}
+                setMusicVolume={setMusicVolume}
+                musicVolume={musicVolume}
+              />
             }
           />
           <Route path='/newgame' element={<NewGame />} />
