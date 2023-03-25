@@ -14,3 +14,15 @@
   border-bottom: 3px solid #ffffff;
   padding-bottom: 0.5rem;
 }
+
+.settings_button {
+  background-color: #ffffff;
+  color: #f9a26c;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
