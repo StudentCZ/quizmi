@@ -27,19 +27,21 @@ const Settings = ({
         checked={musicPlaying}
         onChange={handleToggleMusic}
       />
-      <div>
-        <label htmlFor='music-volume'>Music Volume</label>
-        <input
-          type='range'
-          min={0}
-          max={1}
-          step={0.1}
-          id='music-volume'
-          value={musicVolume}
-          onChange={handleVolumeChange}
-        />
-      </div>
-      <Link to='/'>Back To Main Menu</Link>
+
+      <label htmlFor='music-volume'>Music Volume</label>
+      <input
+        type='range'
+        min={0}
+        max={1}
+        step={0.1}
+        id='music-volume'
+        value={musicVolume}
+        onChange={handleVolumeChange}
+      />
+
+      <Link to='/'>
+        <button>Main Menu</button>
+      </Link>
     </div>
   );
 };
