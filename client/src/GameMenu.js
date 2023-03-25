@@ -1,20 +1,19 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import style from './GameMenu.module.css';
 import music1 from './audio/Q1.mp3';
 import { Link } from 'react-router-dom';
-import { AppContext } from './AppContext';
 
-const GameMenu = () => {
-  const { musicPlaying, setMusicPlaying } = useContext(AppContext);
+const GameMenu = ({ musicPlaying, toggleMusic }) => {
   useEffect(() => {
     const audioElement = document.getElementById('bg-music');
     document.addEventListener('click', () => {
-      setMusicPlaying(true);
-      if (audioElement) {
+      if (musicPlaying) {
         audioElement.play();
+      } else {
+        audioElement.pause();
       }
     });
-  }, [setMusicPlaying]);
+  }, [musicPlaying]);
   return (
     <div className={style.game_menu}>
       <h1 className={style.game_menu_heading}>Welcome To QuizMi</h1>
