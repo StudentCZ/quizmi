@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import music1 from './audio/Q1.mp3';
 import music2 from './audio/Q2.mp3';
@@ -7,12 +7,11 @@ import GameMenu from './GameMenu';
 import Settings from './Settings';
 import NewGame from './NewGame';
 
-const songs = [music1, music2, music3];
-
 function App() {
   const [musicPlaying, setMusicPlaying] = useState(false);
   const [musicVolume, setMusicVolume] = useState(0.5);
   const [currentSong, setCurrentSong] = useState('');
+  const songs = useMemo(() => [music1, music2, music3], []);
 
   const toggleMusic = () => {
     setMusicPlaying(!musicPlaying);
@@ -27,6 +26,20 @@ function App() {
       audioElement.pause();
     }
   }, [musicPlaying, musicVolume]);
+
+  useEffect(() => {
+    const audioElement = document.getElementById('bg-music');
+    audioElement.src = currentSong;
+    audioElement.play();
+
+    const playNextSong = () => {
+      const randomSongIndex = Math.floor(Math.random() * songs.length);
+      setCurrentSong(songs[randomSongIndex]);
+    };
+
+    audioElement.addEventListener('ended', playNextSong);
+    return () => audioElement.removeEventListener('ended', playNextSong);
+  }, [currentSong, songs]);
 
   return (
     <div className='App'>
