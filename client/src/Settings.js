@@ -24,6 +24,7 @@ const Settings = ({
         Enable/Disable Music
       </label>
       <input
+        className={style.settings_input_checkbox}
         type='checkbox'
         id='music-toggle'
         checked={musicPlaying}
@@ -34,6 +35,7 @@ const Settings = ({
         Music Volume
       </label>
       <input
+        className={style.settings_input_range}
         type='range'
         min={0}
         max={1}
