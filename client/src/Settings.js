@@ -40,7 +40,7 @@ const Settings = ({
       />
 
       <Link to='/'>
-        <button>Main Menu</button>
+        <button className={style.settings_button}>Main Menu</button>
       </Link>
     </div>
   );
