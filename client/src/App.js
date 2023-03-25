@@ -11,8 +11,12 @@ import NewGame from './NewGame';
 
 function App() {
   const songs = useMemo(() => [music1, music2, music3, music4, music5], []);
-  const [musicPlaying, setMusicPlaying] = useState(false);
-  const [musicVolume, setMusicVolume] = useState(0.5);
+  const [musicPlaying, setMusicPlaying] = useState(
+    localStorage.getItem('musicPlaying') === 'true'
+  );
+  const [musicVolume, setMusicVolume] = useState(
+    parseFloat(localStorage.getItem('musicVolume')) || 0.5
+  );
   const [currentSong, setCurrentSong] = useState(
     songs[Math.floor(Math.random() * songs.length)]
   );
@@ -29,6 +33,8 @@ function App() {
     } else {
       audioElement.pause();
     }
+    localStorage.setItem('musicPlaying', musicPlaying);
+    localStorage.setItem('musicVolume', musicVolume);
   }, [musicPlaying, musicVolume]);
 
   useEffect(() => {
