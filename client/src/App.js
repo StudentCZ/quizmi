@@ -26,6 +26,11 @@ function App() {
   };
 
   useEffect(() => {
+    const localMusicPlaying = localStorage.getItem('musicPlaying') === 'true';
+    setMusicPlaying(localMusicPlaying);
+  }, []);
+
+  useEffect(() => {
     const audioElement = document.getElementById('bg-music');
     audioElement.volume = musicVolume;
     audioElement.src = currentSong;
@@ -43,7 +48,7 @@ function App() {
     } else {
       audioElement.pause();
     }
-    localStorage.setItem('musicPlaying', musicPlaying);
+
     localStorage.setItem('musicVolume', musicVolume);
 
     return () => audioElement.removeEventListener('ended', playNextSong);
