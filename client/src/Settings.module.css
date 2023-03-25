@@ -31,3 +31,8 @@
   background-color: #f2c69d;
   color: #ffffff;
 }
+
+.settings_label {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
