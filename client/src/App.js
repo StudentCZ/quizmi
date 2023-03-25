@@ -12,7 +12,7 @@ function App() {
   const [musicPlaying, setMusicPlaying] = useState(false);
   const [musicVolume, setMusicVolume] = useState(0.5);
   const [currentSong, setCurrentSong] = useState(
-    Math.floor(Math.random() * songs.length)
+    songs[Math.floor(Math.random() * songs.length)]
   );
 
   const toggleMusic = () => {
