@@ -46,7 +46,7 @@ function App() {
   return (
     <div className='App'>
       <audio id='bg-music' loop autoPlay volume={musicVolume}>
-        {musicPlaying && <source src={music1} type='audio/mp3' />}
+        {musicPlaying && <source src={currentSong} type='audio/mp3' />}
       </audio>
       <Router>
         <Routes>
