@@ -8,10 +8,12 @@ import Settings from './Settings';
 import NewGame from './NewGame';
 
 function App() {
+  const songs = useMemo(() => [music1, music2, music3], []);
   const [musicPlaying, setMusicPlaying] = useState(false);
   const [musicVolume, setMusicVolume] = useState(0.5);
-  const [currentSong, setCurrentSong] = useState('');
-  const songs = useMemo(() => [music1, music2, music3], []);
+  const [currentSong, setCurrentSong] = useState(
+    Math.floor(Math.random() * songs.length)
+  );
 
   const toggleMusic = () => {
     setMusicPlaying(!musicPlaying);
