@@ -19,7 +19,7 @@ const Settings = ({
 
   return (
     <div className={style.settings_menu}>
-      <h1>Settings</h1>
+      <h1 className={style.settings_heading}>Settings</h1>
       <label htmlFor='music-toggle'>Enable/Disable Music</label>
       <input
         type='checkbox'
