@@ -1,23 +1,22 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { AppContext } from './AppContext';
 import style from './Settings.module.css';
 
-const Settings = () => {
-  const { musicPlaying, setMusicPlaying } = useContext(AppContext);
-
+const Settings = ({ musicPlaying, toggleMusic }) => {
+  const handleToggleMusic = () => {
+    toggleMusic();
+  };
   return (
     <div>
       <h1>Settings</h1>
-      <label>
-        <input
-          type='checkbox'
-          checked={musicPlaying}
-          onChange={(e) => setMusicPlaying(e.target.checked)}
-        />
-        Music On/Off
-      </label>
-      <Link to='/'>Back To Menu</Link>
+      <label htmlFor='music-toggle'>Enable/Disable Music</label>
+      <input
+        type='checkbox'
+        id='music-toggle'
+        checked={musicPlaying}
+        onChange={handleToggleMusic}
+      />
+      <Link to='/'>Back To Main Menu</Link>
     </div>
   );
 };
