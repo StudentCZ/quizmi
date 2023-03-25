@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import music1 from './audio/Q1.mp3';
 import music2 from './audio/Q2.mp3';
 import music3 from './audio/Q3.mp3';
+import music4 from './audio/Q4.mp3';
+import music5 from './audio/Q5.mp3';
 import GameMenu from './GameMenu';
 import Settings from './Settings';
 import NewGame from './NewGame';
 
 function App() {
-  const songs = useMemo(() => [music1, music2, music3], []);
+  const songs = useMemo(() => [music1, music2, music3, music4, music5], []);
   const [musicPlaying, setMusicPlaying] = useState(false);
   const [musicVolume, setMusicVolume] = useState(0.5);
   const [currentSong, setCurrentSong] = useState(
