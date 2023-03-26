@@ -8,6 +8,7 @@ import music5 from './audio/Q5.mp3';
 import GameMenu from './GameMenu';
 import Settings from './Settings';
 import NewGame from './NewGame';
+import { getCategories } from './api';
 
 function App() {
   const songs = useMemo(() => [music1, music2, music3, music4, music5], []);
