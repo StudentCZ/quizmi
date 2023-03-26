@@ -25,8 +25,6 @@ function App() {
     setMusicPlaying((prevPlaying) => !prevPlaying);
   };
 
-  console.log(process.env.REACT_APP_API_URL);
-
   useEffect(() => {
     const localMusicPlaying = localStorage.getItem('musicPlaying') === 'true';
     setMusicPlaying(localMusicPlaying);
