@@ -23,7 +23,7 @@ const NewGame = () => {
         })}
       </ul>
       <Link to='/'>
-        <button>Main Menu</button>
+        <button className={style.new_game_button}>Main Menu</button>
       </Link>
     </div>
   );
