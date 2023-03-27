@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getCategories } from './api';
 import { Link } from 'react-router-dom';
+import style from './NewGame.module.css';
 
 const NewGame = () => {
   const [categories, setCategories] = useState([]);
@@ -14,7 +15,7 @@ const NewGame = () => {
   }, []);
 
   return (
-    <div>
+    <div className={style.new_game_menu}>
       <h1>Choose Category</h1>
       <ul>
         {categories.map((category) => {
