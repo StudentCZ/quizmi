@@ -20,10 +20,7 @@ const NewGame = () => {
       <ul className={style.new_game_unordered_list}>
         {categories.map((category) => {
           return (
-            <li
-              className={style.name_game_list_item}
-              key={category.category_id}
-            >
+            <li className={style.new_game_list_item} key={category.category_id}>
               {category.name}
             </li>
           );
