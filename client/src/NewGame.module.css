@@ -28,6 +28,8 @@
   background-color: #ffffff;
   color: #f9a26c;
   font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
 }
 
 .new_game_button {
