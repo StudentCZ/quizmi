@@ -19,7 +19,14 @@ const NewGame = () => {
       <h1 className={style.new_game_heading}>Choose Category</h1>
       <ul className={style.new_game_unordered_list}>
         {categories.map((category) => {
-          return <li key={category.category_id}>{category.name}</li>;
+          return (
+            <li
+              className={style.name_game_list_item}
+              key={category.category_id}
+            >
+              {category.name}
+            </li>
+          );
         })}
       </ul>
       <Link to='/'>
