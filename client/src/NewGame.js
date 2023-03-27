@@ -22,7 +22,9 @@ const NewGame = () => {
           return <li key={category.category_id}>{category.name}</li>;
         })}
       </ul>
-      <Link to='/'>Back To Main Menu</Link>
+      <Link to='/'>
+        <button>Main Menu</button>
+      </Link>
     </div>
   );
 };
