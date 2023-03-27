@@ -3,6 +3,8 @@ import { getCategories } from './api';
 import { Link } from 'react-router-dom';
 
 const NewGame = () => {
+  const [categories, setCategories] = useState([]);
+
   return (
     <div>
       <Link to='/'>Back To Main Menu</Link>
