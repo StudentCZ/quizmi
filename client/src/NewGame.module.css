@@ -15,6 +15,13 @@
   padding-bottom: 0.5rem;
 }
 
+.new_game_unordered_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  list-style-type: none;
+}
+
 .new_game_button {
   background-color: #ffffff;
   color: #f9a26c;
