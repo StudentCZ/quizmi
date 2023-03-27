@@ -17,7 +17,7 @@ const NewGame = () => {
   return (
     <div className={style.new_game_menu}>
       <h1 className={style.new_game_heading}>Choose Category</h1>
-      <ul>
+      <ul className={style.new_game_unordered_list}>
         {categories.map((category) => {
           return <li key={category.category_id}>{category.name}</li>;
         })}
