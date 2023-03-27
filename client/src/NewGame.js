@@ -16,6 +16,11 @@ const NewGame = () => {
   return (
     <div>
       <h1>Choose Category</h1>
+      <ul>
+        {categories.map((category) => {
+          return <li key={category.category_id}>{category.name}</li>;
+        })}
+      </ul>
       <Link to='/'>Back To Main Menu</Link>
     </div>
   );
