@@ -29,7 +29,13 @@
   color: #f9a26c;
   font-size: 1.5rem;
   padding: 1rem 2rem;
-  border-radius: 10px;
+  /* border-radius: 10px; */
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .new_game_button {
