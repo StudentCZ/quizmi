@@ -7,3 +7,10 @@
   background-color: #f9a26c;
   color: #ffffff;
 }
+
+.new_game_heading {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid #ffffff;
+  padding-bottom: 0.5rem;
+}
