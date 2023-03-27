@@ -15,6 +15,7 @@ const NewGame = () => {
 
   return (
     <div>
+      <h1>Choose Category</h1>
       <Link to='/'>Back To Main Menu</Link>
     </div>
   );
