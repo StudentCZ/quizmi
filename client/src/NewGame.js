@@ -13,8 +13,6 @@ const NewGame = () => {
     fetchData();
   }, []);
 
-  console.log(categories);
-
   return (
     <div>
       <Link to='/'>Back To Main Menu</Link>
