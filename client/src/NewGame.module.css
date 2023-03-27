@@ -38,6 +38,11 @@
   text-align: center;
 }
 
+.new_game_list_item:hover {
+  background-color: #f2c69d;
+  color: #ffffff;
+}
+
 .new_game_button {
   background-color: #ffffff;
   color: #f9a26c;
