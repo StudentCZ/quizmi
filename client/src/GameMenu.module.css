@@ -30,6 +30,6 @@
 }
 
 .game_menu_button:hover {
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--button-hover-color);
+  color: var(--button-background-color);
 }
