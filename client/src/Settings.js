@@ -15,8 +15,10 @@ const Settings = ({
   useEffect(() => {}, [theme]);
 
   const handleThemeChange = (e) => {
-    setTheme(e.target.value);
-    document.documentElement.setAttribute('class', e.target.value);
+    const newTheme = e.target.value;
+    setTheme(newTheme);
+    document.documentElement.setAttribute('class', newTheme);
+    localStorage.setItem('theme', newTheme);
   };
 
   const handleToggleMusic = () => {
