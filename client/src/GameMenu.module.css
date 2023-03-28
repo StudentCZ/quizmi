@@ -13,7 +13,7 @@
 .game_menu_heading {
   font-size: 3rem;
   margin-bottom: 2rem;
-  border-bottom: 3px solid #ffffff;
+  border-bottom: var(--border-bottom);
   padding-bottom: 0.5rem;
 }
 
@@ -30,6 +30,6 @@
 }
 
 .game_menu_button:hover {
-  background-color: var(--button-hover-color);
+  background-color: var(--button-hover-background-color);
   color: var(--button-background-color);
 }

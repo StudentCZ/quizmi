@@ -3,6 +3,7 @@
   --text-color: #ffffff;
   --button-background-color: #ffffff;
   --button-text-color: #f9a26c;
-  --button-hover-color: #f2c69d;
+  --button-hover-background-color: #f2c69d;
+  --button-hover-color: #ffffff;
   --border-bottom: 3px solid #ffffff;
 }
