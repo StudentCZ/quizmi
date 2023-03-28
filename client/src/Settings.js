@@ -11,6 +11,7 @@ const Settings = ({
   const [theme, setTheme] = useState(
     localStorage.getItem('theme') || 'default'
   );
+  console.log(theme);
 
   useEffect(() => {
     document.documentElement.setAttribute('class', theme);
