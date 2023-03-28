@@ -7,3 +7,13 @@
   --button-hover-color: #ffffff;
   --border-bottom: 3px solid #ffffff;
 }
+
+:root.green {
+  --background-color: #7cb48f;
+  --text-color: #ffffff;
+  --button-background-color: #ffffff;
+  --button-text-color: #7cb48f;
+  --button-hover-background-color: #9ed5a8;
+  --button-hover-color: #ffffff;
+  --border-bottom: 3px solid #ffffff;
+}
