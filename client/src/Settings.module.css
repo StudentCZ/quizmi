@@ -1,3 +1,5 @@
+@import url('./global.css');
+
 .settings_menu {
   display: flex;
   flex-direction: column;
