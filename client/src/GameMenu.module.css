@@ -6,8 +6,8 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f9a26c;
-  color: #ffffff;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .game_menu_heading {
@@ -18,8 +18,8 @@
 }
 
 .game_menu_button {
-  background-color: #ffffff;
-  color: #f9a26c;
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
   font-size: 1.5rem;
   padding: 1rem 2rem;
   margin: 1rem;
@@ -30,6 +30,6 @@
 }
 
 .game_menu_button:hover {
-  background-color: #f2c69d;
-  color: #ffffff;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
