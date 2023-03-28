@@ -33,6 +33,12 @@ const Settings = ({
   return (
     <div className={style.settings_menu}>
       <h1 className={style.settings_heading}>Settings</h1>
+      <label htmlFor='theme-select'>Select Theme</label>
+      <select id='theme-select' onChange={handleThemeChange} value={theme}>
+        <option value='default'>Default</option>
+        <option value='green'>Green</option>
+        <option value='dark'>Dark</option>
+      </select>
       <label htmlFor='music-toggle' className={style.settings_label}>
         Enable/Disable Music
       </label>
