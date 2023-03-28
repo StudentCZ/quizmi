@@ -1,3 +1,5 @@
+@import url('./global.css');
+
 .game_menu {
   display: flex;
   flex-direction: column;
