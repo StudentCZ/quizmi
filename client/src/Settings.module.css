@@ -6,20 +6,20 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f9a26c;
-  color: #ffffff;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .settings_heading {
   font-size: 3rem;
   margin-bottom: 2rem;
-  border-bottom: 3px solid #ffffff;
+  border-bottom: var(--border-bottom);
   padding-bottom: 0.5rem;
 }
 
 .settings_button {
-  background-color: #ffffff;
-  color: #f9a26c;
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
   font-size: 1.5rem;
   padding: 1rem 2rem;
   margin: 1rem;
@@ -30,8 +30,8 @@
 }
 
 .settings_button:hover {
-  background-color: #f2c69d;
-  color: #ffffff;
+  background-color: var(--button-hover-background-color);
+  color: var(--button-hover-color);
 }
 
 .settings_label {
