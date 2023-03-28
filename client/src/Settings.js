@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import style from './Settings.module.css';
 
@@ -8,6 +8,10 @@ const Settings = ({
   setMusicVolume,
   musicVolume,
 }) => {
+  const [selectedTheme, setSelectedThem] = useState(
+    localStorage.getItem('theme') || 'default'
+  );
+
   const handleToggleMusic = () => {
     toggleMusic();
   };
