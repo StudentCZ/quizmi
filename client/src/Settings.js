@@ -13,7 +13,7 @@ const Settings = ({
   );
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('class', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
