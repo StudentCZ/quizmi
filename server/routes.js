@@ -17,7 +17,13 @@ router.get('/categories', async (req, res) => {
 });
 
 router.get('/categories/:category_id/subcategories', async (req, res) => {
+  const { category_id } = req.params;
   try {
+    const result = await db.query(
+      `SELECT * FROM Subcategories WHERE category_id = $1`,
+      [category_id]
+    );
+    res.status(200).json(result.rows);
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ error: 'Server Error' });
