@@ -12,7 +12,13 @@ const Settings = ({
   const [theme, setTheme] = useState('default');
   console.log(theme);
 
-  useEffect(() => {}, [theme]);
+  useEffect(() => {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      setTheme(storedTheme);
+      document.documentElement.setAttribute('class', storedTheme);
+    }
+  }, []);
 
   const handleThemeChange = (e) => {
     const newTheme = e.target.value;
