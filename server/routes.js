@@ -16,6 +16,14 @@ router.get('/categories', async (req, res) => {
   }
 });
 
+router.get('/categories/:category_id/subcategories', async (req, res) => {
+  try {
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: 'Server Error' });
+  }
+});
+
 router.get('/subcategories', async (req, res) => {
   try {
     const result = await db.query(`SELECT * FROM Subcategories`);
