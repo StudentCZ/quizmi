@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import style from './Settings.module.css';
+import './global.css';
 
 const Settings = ({
   musicPlaying,
@@ -8,18 +9,14 @@ const Settings = ({
   setMusicVolume,
   musicVolume,
 }) => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem('theme') || 'default'
-  );
+  const [theme, setTheme] = useState('default');
   console.log(theme);
 
-  useEffect(() => {
-    document.documentElement.setAttribute('class', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+  useEffect(() => {}, [theme]);
 
   const handleThemeChange = (e) => {
     setTheme(e.target.value);
+    document.documentElement.setAttribute('class', e.target.value);
   };
 
   const handleToggleMusic = () => {
