@@ -40,6 +40,18 @@
 }
 
 .settings_select {
-  width: 15%;
-  height: 5%;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  background-color: #f5f5f5;
+  color: #333;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 240px;
+  appearance: none;
+}
+
+.settings_select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f9a26c;
 }
