@@ -26,7 +26,12 @@ const Settings = ({
       <label htmlFor='theme-select' className={style.settings_label}>
         Select Theme
       </label>
-      <select id='theme-select' onChange={handleThemeChange} value={theme}>
+      <select
+        className={style.settings_select}
+        id='theme-select'
+        onChange={handleThemeChange}
+        value={theme}
+      >
         <option value='orange'>Orange</option>
         <option value='green'>Green</option>
         <option value='dark'>Dark</option>
