@@ -42,3 +42,13 @@ body {
   --button-hover-color: #ffffff;
   --border-bottom: 3px solid #ffffff;
 }
+
+.blue {
+  --background-color: #6fb0d2;
+  --text-color: #ffffff;
+  --button-background-color: #ffffff;
+  --button-text-color: #6fb0d2;
+  --button-hover-background-color: #a3d4e9;
+  --button-hover-color: #ffffff;
+  --border-bottom: 3px solid #ffffff;
+}
