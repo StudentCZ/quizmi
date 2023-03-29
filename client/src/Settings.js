@@ -23,7 +23,9 @@ const Settings = ({
   return (
     <div className={style.settings_menu}>
       <h1 className={style.settings_heading}>Settings</h1>
-      <label htmlFor='theme-select'>Select Theme</label>
+      <label htmlFor='theme-select' className={style.settings_label}>
+        Select Theme
+      </label>
       <select id='theme-select' onChange={handleThemeChange} value={theme}>
         <option value='orange'>Orange</option>
         <option value='green'>Green</option>
