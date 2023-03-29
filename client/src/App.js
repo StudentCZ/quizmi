@@ -11,7 +11,7 @@ import NewGame from './NewGame';
 
 function App() {
   const songs = useMemo(() => [music1, music2, music3, music4, music5], []);
-  const [theme, setTheme] = useState('default');
+  const [theme, setTheme] = useState('orange');
   const [musicPlaying, setMusicPlaying] = useState(
     localStorage.getItem('musicPlaying') === 'true'
   );
