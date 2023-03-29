@@ -8,10 +8,10 @@ import music5 from './audio/Q5.mp3';
 import GameMenu from './GameMenu';
 import Settings from './Settings';
 import NewGame from './NewGame';
-import { getCategories } from './api';
 
 function App() {
   const songs = useMemo(() => [music1, music2, music3, music4, music5], []);
+  const [theme, setTheme] = useState('default');
   const [musicPlaying, setMusicPlaying] = useState(
     localStorage.getItem('musicPlaying') === 'true'
   );
@@ -24,6 +24,25 @@ function App() {
 
   const toggleMusic = () => {
     setMusicPlaying((prevPlaying) => !prevPlaying);
+  };
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      setTheme(storedTheme);
+      document.documentElement.setAttribute('class', storedTheme);
+    }
+  }, []);
+
+  const handleThemeChange = (e) => {
+    const newTheme = e.target.value;
+    setTheme(newTheme);
+    document.documentElement.setAttribute('class', newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    if (newTheme === 'default') {
+      localStorage.removeItem('theme');
+    }
   };
 
   useEffect(() => {
@@ -71,6 +90,8 @@ function App() {
                 toggleMusic={toggleMusic}
                 musicVolume={musicVolume}
                 setMusicVolume={setMusicVolume}
+                theme={theme}
+                handleThemeChange={handleThemeChange}
               />
             }
           />
@@ -82,6 +103,8 @@ function App() {
                 toggleMusic={toggleMusic}
                 setMusicVolume={setMusicVolume}
                 musicVolume={musicVolume}
+                theme={theme}
+                handleThemeChange={handleThemeChange}
               />
             }
           />

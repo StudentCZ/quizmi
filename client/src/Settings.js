@@ -10,7 +10,6 @@ const Settings = ({
   musicVolume,
 }) => {
   const [theme, setTheme] = useState('default');
-  console.log(theme);
 
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');
@@ -25,6 +24,10 @@ const Settings = ({
     setTheme(newTheme);
     document.documentElement.setAttribute('class', newTheme);
     localStorage.setItem('theme', newTheme);
+
+    if (newTheme === 'default') {
+      localStorage.removeItem('theme');
+    }
   };
 
   const handleToggleMusic = () => {
