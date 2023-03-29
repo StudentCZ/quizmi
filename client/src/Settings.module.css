@@ -39,6 +39,11 @@
   margin-bottom: 0.5rem;
 }
 
+.settings_input_checkbox {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .settings_select {
   padding: 8px;
   font-size: 16px;
