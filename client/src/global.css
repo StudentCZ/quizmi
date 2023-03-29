@@ -72,3 +72,13 @@ body {
   --button-hover-color: #ffffff;
   --border-bottom: 3px solid #ffffff;
 }
+
+.silver {
+  --background-color: #d9d9d9;
+  --text-color: #333333;
+  --button-background-color: #ffffff;
+  --button-text-color: #d9d9d9;
+  --button-hover-background-color: #f2f2f2;
+  --button-hover-color: #333333;
+  --border-bottom: 3px solid #333333;
+}
