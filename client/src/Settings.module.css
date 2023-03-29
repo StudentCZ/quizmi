@@ -38,3 +38,8 @@
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
+
+.settings_select {
+  width: 15%;
+  height: 5%;
+}
