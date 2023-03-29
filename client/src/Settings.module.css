@@ -44,6 +44,21 @@
   height: 1.5rem;
 }
 
+.settings_input_range {
+  width: 20%;
+  height: 2vw;
+  -webkit-appearance: none;
+  margin: 1vw 0;
+}
+
+.settings_input_range::-webkit-slider-thumb {
+  width: 2vw;
+  height: 2vw;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
 .settings_select {
   padding: 8px;
   font-size: 16px;
