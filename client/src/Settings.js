@@ -8,28 +8,9 @@ const Settings = ({
   toggleMusic,
   setMusicVolume,
   musicVolume,
+  theme,
+  handleThemeChange,
 }) => {
-  const [theme, setTheme] = useState('default');
-
-  useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) {
-      setTheme(storedTheme);
-      document.documentElement.setAttribute('class', storedTheme);
-    }
-  }, []);
-
-  const handleThemeChange = (e) => {
-    const newTheme = e.target.value;
-    setTheme(newTheme);
-    document.documentElement.setAttribute('class', newTheme);
-    localStorage.setItem('theme', newTheme);
-
-    if (newTheme === 'default') {
-      localStorage.removeItem('theme');
-    }
-  };
-
   const handleToggleMusic = () => {
     toggleMusic();
   };
