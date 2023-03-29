@@ -52,3 +52,13 @@ body {
   --button-hover-color: #ffffff;
   --border-bottom: 3px solid #ffffff;
 }
+
+.purple {
+  --background-color: #9370db;
+  --text-color: #ffffff;
+  --button-background-color: #ffffff;
+  --button-text-color: #9370db;
+  --button-hover-background-color: #baa8e0;
+  --button-hover-color: #ffffff;
+  --border-bottom: 3px solid #ffffff;
+}
