@@ -52,6 +52,8 @@ router.get('/quizzes', async (req, res) => {
 
 router.get('/questions', async (req, res) => {
   try {
+    const result = await db.query(`SELECT * FROM Questions`);
+    res.status(200).json(result.rows);
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ error: 'Server Error' });
