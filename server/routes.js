@@ -46,7 +46,15 @@ router.get('/quizzes', async (req, res) => {
     res.status(200).json(result.rows);
   } catch (error) {
     console.error(error.message);
-    res.status(500).json({ error: 'Server Erorr' });
+    res.status(500).json({ error: 'Server Error' });
+  }
+});
+
+router.get('/questions', async (req, res) => {
+  try {
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: 'Server Error' });
   }
 });
 
