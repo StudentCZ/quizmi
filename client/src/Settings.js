@@ -39,6 +39,7 @@ const Settings = ({
         <option value='purple'>Purple</option>
         <option value='red'>Red</option>
         <option value='silver'>Silver</option>
+        <option value='yellow'>Yellow</option>
       </select>
       <label htmlFor='music-toggle' className={style.settings_label}>
         Enable/Disable Music
