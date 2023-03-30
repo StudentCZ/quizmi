@@ -82,3 +82,13 @@ body {
   --button-hover-color: #333333;
   --border-bottom: 3px solid #333333;
 }
+
+.yellow {
+  --background-color: #fef3cd;
+  --text-color: #404040;
+  --button-background-color: #ffc107;
+  --button-text-color: #ffffff;
+  --button-hover-background-color: #ffd659;
+  --button-hover-color: #ffffff;
+  --border-bottom: 3px solid #ffc107;
+}
