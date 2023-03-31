@@ -10,3 +10,10 @@ export const getCategories = async () => {
     console.error(error.message);
   }
 };
+
+export const getSubCategories = async () => {
+  try {
+  } catch (error) {
+    console.error(error.message);
+  }
+};
