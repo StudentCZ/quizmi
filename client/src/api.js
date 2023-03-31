@@ -13,6 +13,10 @@ export const getCategories = async () => {
 
 export const getSubCategories = async () => {
   try {
+    const { data } = await axios.get(
+      `${API_URL}/categories/:category_id/subcategories`
+    );
+    return data;
   } catch (error) {
     console.error(error.message);
   }
