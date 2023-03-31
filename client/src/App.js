@@ -8,6 +8,7 @@ import music5 from './audio/Q5.mp3';
 import GameMenu from './GameMenu';
 import Settings from './Settings';
 import NewGame from './NewGame';
+import SubCategories from './SubCategories';
 
 function App() {
   const songs = useMemo(() => [music1, music2, music3, music4, music5], []);
@@ -109,7 +110,7 @@ function App() {
             }
           />
           <Route path='/game/new' element={<NewGame />} />
-          <Route path='/game/:categoryId' />
+          <Route path='/game/:categoryId' element={<SubCategories />} />
         </Routes>
       </Router>
     </div>
