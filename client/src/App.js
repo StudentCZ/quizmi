@@ -108,7 +108,8 @@ function App() {
               />
             }
           />
-          <Route path='/newgame' element={<NewGame />} />
+          <Route path='/game/new' element={<NewGame />} />
+          <Route path='/game/:categoryId' />
         </Routes>
       </Router>
     </div>

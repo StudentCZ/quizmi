@@ -14,7 +14,7 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
   return (
     <div className={style.game_menu}>
       <h1 className={style.game_menu_heading}>Welcome To QuizMi</h1>
-      <Link to='/newgame'>
+      <Link to='/game/new'>
         <button className={style.game_menu_button}>New Game</button>
       </Link>
       <Link to='/settings'>
