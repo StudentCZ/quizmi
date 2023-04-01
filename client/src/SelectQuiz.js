@@ -20,7 +20,11 @@ const SelectQuiz = () => {
       <h1 className={style.quiz_heading}>Choose Quiz</h1>
       <ul className={style.quiz_unordered_list}>
         {quizzes.map((quiz) => {
-          return <li>{quiz.title}</li>;
+          return (
+            <li className={style.quiz_list_item} key={quiz.quiz_id}>
+              {quiz.title}
+            </li>
+          );
         })}
       </ul>
       <Link to='/game/new'>
