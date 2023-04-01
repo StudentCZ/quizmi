@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { getCategories } from './api';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import style from './NewGame.module.css';
 
 const NewGame = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +27,7 @@ const NewGame = () => {
               key={category.category_id}
               onClick={() => {
                 setSelectedCategoryId(category.category_id);
-                history.push(`/category/${category.category_id}/subcategories`);
+                navigate(`/category/${category.category_id}/subcategories`);
               }}
             >
               {category.name}
