@@ -39,5 +39,10 @@
   text-align: center;
 }
 
+.sub_categories_list_item:hover {
+  background-color: var(--button-hover-background-color);
+  color: var(--button-hover-color);
+}
+
 .sub_categories_button {
 }
