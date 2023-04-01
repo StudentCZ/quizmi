@@ -21,7 +21,14 @@ const NewGame = () => {
       <ul className={style.new_game_unordered_list}>
         {categories.map((category) => {
           return (
-            <li className={style.new_game_list_item} key={category.category_id}>
+            <li
+              className={style.new_game_list_item}
+              key={category.category_id}
+              onClick={() => {
+                setSelectedCategoryId(category.category_id);
+                history.push(`/category/${category.category_id}/subcategories`);
+              }}
+            >
               {category.name}
             </li>
           );
