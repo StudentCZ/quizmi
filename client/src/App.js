@@ -110,7 +110,10 @@ function App() {
             }
           />
           <Route path='/game/new' element={<NewGame />} />
-          <Route path='/game/:categoryId' element={<SubCategories />} />
+          <Route
+            path='/category/:categoryId/subcategories'
+            element={<SubCategories />}
+          />
         </Routes>
       </Router>
     </div>

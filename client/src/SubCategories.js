@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SubCategories = () => {
-  return <></>;
+  return <>Hello</>;
 };
 
 export default SubCategories;
