@@ -30,7 +30,9 @@ const SubCategories = () => {
           );
         })}
       </ul>
-      <Link to='/game/new'>Back</Link>
+      <Link to='/game/new'>
+        <button className={style.sub_categories_button}>Back</button>
+      </Link>
     </div>
   );
 };
