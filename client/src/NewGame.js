@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { getCategories, getSubCategories } from './api';
-import { Link } from 'react-router-dom';
+import { getCategories } from './api';
+import { Link, useHistory } from 'react-router-dom';
 import style from './NewGame.module.css';
 
 const NewGame = () => {
   const [categories, setCategories] = useState([]);
-  const [subcategories, setSubCategories] = useState([]);
-  const [categoryId, setCategoryId] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,12 +14,6 @@ const NewGame = () => {
     };
     fetchData();
   }, []);
-
-  const handleCategoryClick = async (categoryId) => {
-    setCategories(categoryId);
-    const subCategoriesData = await getSubCategories(categoryId);
-    setSubCategories(subCategoriesData);
-  };
 
   return (
     <div className={style.new_game_menu}>
