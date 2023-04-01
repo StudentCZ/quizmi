@@ -16,8 +16,8 @@ const SubCategories = () => {
   }, [categoryId]);
 
   return (
-    <div>
-      <h1>Choose Sub-Category</h1>
+    <div className={style.sub_categories_menu}>
+      <h1 className={style.sub_categories_heading}>Choose Sub-Category</h1>
       <ul>
         {subCategories.map((subCategory) => {
           return (
