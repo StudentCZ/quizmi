@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getCategories } from './api';
+import { getCategories, getSubCategories } from './api';
 import { Link } from 'react-router-dom';
 import style from './NewGame.module.css';
 
