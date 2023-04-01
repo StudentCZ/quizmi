@@ -15,7 +15,15 @@ const SelectQuiz = () => {
     fetchData();
   }, [categoryId]);
 
-  return <div>Hello</div>;
+  return (
+    <div>
+      <h1></h1>
+      <ul></ul>
+      <Link to='/game/new'>
+        <button>Back</button>
+      </Link>
+    </div>
+  );
 };
 
 export default SelectQuiz;
