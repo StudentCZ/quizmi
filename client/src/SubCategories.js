@@ -29,6 +29,7 @@ const SubCategories = () => {
           );
         })}
       </ul>
+      <Link to='/game/new'>Back</Link>
     </div>
   );
 };
