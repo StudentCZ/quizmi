@@ -11,6 +11,10 @@
 }
 
 .sub_categories_heading {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  border-bottom: var(--border-bottom);
+  padding-bottom: 0.5rem;
 }
 
 .sub_categories_unordered_list {
