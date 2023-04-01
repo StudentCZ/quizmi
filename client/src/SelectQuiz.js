@@ -16,9 +16,9 @@ const SelectQuiz = () => {
   }, [categoryId]);
 
   return (
-    <div>
-      <h1>Choose Quiz</h1>
-      <ul>
+    <div className={style.quiz_menu}>
+      <h1 className={style.quiz_heading}>Choose Quiz</h1>
+      <ul className={style.quiz_unordered_list}>
         {quizzes.map((quiz) => {
           return <li>{quiz.title}</li>;
         })}
