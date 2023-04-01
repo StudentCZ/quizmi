@@ -23,7 +23,7 @@ const SubCategories = () => {
           return (
             <li
               className={style.sub_categories_list_item}
-              key={subCategory.sub_category_id}
+              key={subCategory.subcategories_id}
             >
               <Link>{subCategory.name}</Link>
             </li>
