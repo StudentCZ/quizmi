@@ -17,8 +17,12 @@ const SelectQuiz = () => {
 
   return (
     <div>
-      <h1></h1>
-      <ul></ul>
+      <h1>Choose Quiz</h1>
+      <ul>
+        {quizzes.map((quiz) => {
+          return <li>{quiz.title}</li>;
+        })}
+      </ul>
       <Link to='/game/new'>
         <button>Back</button>
       </Link>
