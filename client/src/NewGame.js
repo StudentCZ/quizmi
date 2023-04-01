@@ -16,6 +16,12 @@ const NewGame = () => {
     fetchData();
   }, []);
 
+  const handleCategoryClick = async (categoryId) => {
+    setCategories(categoryId);
+    const subCategoriesData = await getSubCategories(categoryId);
+    setSubCategories(subCategoriesData);
+  };
+
   return (
     <div className={style.new_game_menu}>
       <h1 className={style.new_game_heading}>Choose Category</h1>
