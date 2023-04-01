@@ -5,6 +5,8 @@ import style from './NewGame.module.css';
 
 const NewGame = () => {
   const [categories, setCategories] = useState([]);
+  const [subcategories, setSubCategories] = useState([]);
+  const [categoryId, setCategoryId] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
