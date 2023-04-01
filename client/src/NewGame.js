@@ -20,7 +20,7 @@ const NewGame = () => {
     if (subCategories.length > 0) {
       navigate(`/category/${categoryId}/subcategories`);
     } else {
-      navigate('/quiz/addLater');
+      navigate(`/category/${categoryId}/quizzes`);
     }
   };
 
