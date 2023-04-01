@@ -18,10 +18,13 @@ const SubCategories = () => {
   return (
     <div className={style.sub_categories_menu}>
       <h1 className={style.sub_categories_heading}>Choose Sub-Category</h1>
-      <ul>
+      <ul className={style.sub_categories_unordered_list}>
         {subCategories.map((subCategory) => {
           return (
-            <li>
+            <li
+              className={style.sub_categories_list_item}
+              key={subCategory.sub_category_id}
+            >
               <Link>{subCategory.name}</Link>
             </li>
           );
