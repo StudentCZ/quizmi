@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getCategories } from './api';
+import { getCategories, getSubCategories } from './api';
 import { Link, useNavigate } from 'react-router-dom';
 import style from './NewGame.module.css';
 
@@ -16,6 +16,15 @@ const NewGame = () => {
     fetchData();
   }, []);
 
+  const handleCategoryClick = async (categoryId) => {
+    const subCategories = await getSubCategories(categoryId);
+    if (subCategories.length > 0) {
+      navigate(`/category/${categoryId}/subcategories`);
+    } else {
+      navigate('/quiz/addLater');
+    }
+  };
+
   return (
     <div className={style.new_game_menu}>
       <h1 className={style.new_game_heading}>Choose Category</h1>
@@ -26,8 +35,7 @@ const NewGame = () => {
               className={style.new_game_list_item}
               key={category.category_id}
               onClick={() => {
-                setSelectedCategoryId(category.category_id);
-                navigate(`/category/${category.category_id}/subcategories`);
+                handleCategoryClick(category.category_id);
               }}
             >
               {category.name}

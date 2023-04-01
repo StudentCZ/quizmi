@@ -7,8 +7,6 @@ const SubCategories = () => {
   const { categoryId } = useParams();
   const [subCategories, setSubCategories] = useState([]);
 
-  console.log(subCategories);
-
   useEffect(() => {
     const fetchData = async () => {
       const subCategoriesData = await getSubCategories(categoryId);
