@@ -21,3 +21,13 @@ export const getSubCategories = async (categoryId) => {
     console.error(error.message);
   }
 };
+
+export const getQuizzes = async (categoryId) => {
+  try {
+    const { data } = await axios.get(
+      `${API_URL}/categories/${categoryId}/quizzes`
+    );
+  } catch (error) {
+    console.error(error.message);
+  }
+};
