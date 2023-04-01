@@ -115,7 +115,10 @@ function App() {
             path='/category/:categoryId/subcategories'
             element={<SubCategories />}
           />
-          <Route path='/category/:categoryId/quizzes' />
+          <Route
+            path='/category/:categoryId/quizzes'
+            element={<SelectQuiz />}
+          />
         </Routes>
       </Router>
     </div>
