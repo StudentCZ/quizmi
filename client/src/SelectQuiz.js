@@ -28,7 +28,7 @@ const SelectQuiz = () => {
         })}
       </ul>
       <Link to='/game/new'>
-        <button>Back</button>
+        <button className={style.quiz_button}>Back</button>
       </Link>
     </div>
   );
