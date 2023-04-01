@@ -25,7 +25,7 @@ const SubCategories = () => {
               className={style.sub_categories_list_item}
               key={subCategory.subcategories_id}
             >
-              <Link>{subCategory.name}</Link>
+              {subCategory.name}
             </li>
           );
         })}
