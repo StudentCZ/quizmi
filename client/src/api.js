@@ -27,6 +27,7 @@ export const getQuizzes = async (categoryId) => {
     const { data } = await axios.get(
       `${API_URL}/categories/${categoryId}/quizzes`
     );
+    return data;
   } catch (error) {
     console.error(error.message);
   }
