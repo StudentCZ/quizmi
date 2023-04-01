@@ -5,6 +5,7 @@ import style from './NewGame.module.css';
 
 const NewGame = () => {
   const [categories, setCategories] = useState([]);
+  const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   const history = useHistory();
 
   useEffect(() => {
