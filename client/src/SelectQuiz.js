@@ -4,6 +4,8 @@ import { Link, useParams } from 'react-router-dom';
 import style from './SelectQuiz.module.css';
 
 const SelectQuiz = () => {
+  const { categoryId } = useParams();
+  const [quizzes, setQuizzes] = useState([]);
   return <div>Hello</div>;
 };
 
