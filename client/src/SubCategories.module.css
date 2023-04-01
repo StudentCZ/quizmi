@@ -18,6 +18,12 @@
 }
 
 .sub_categories_unordered_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  list-style-type: none;
+  padding: 0;
+  margin: 2rem 0;
 }
 
 .sub_categories_list_item {
