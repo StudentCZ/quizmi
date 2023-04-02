@@ -30,7 +30,7 @@ const SubCategories = () => {
               className={style.sub_categories_list_item}
               key={subCategory.subcategories_id}
               onClick={() => {
-                handleCategoryClick(subCategory.category_id);
+                handleCategoryClick(subCategory.subcategories_id);
               }}
             >
               {subCategory.name}
