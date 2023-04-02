@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getQuizzes } from './api';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import style from './SelectQuiz.module.css';
 
 const SelectQuiz = () => {
   const { categoryId } = useParams();
   const [quizzes, setQuizzes] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,6 +15,11 @@ const SelectQuiz = () => {
     };
     fetchData();
   }, [categoryId]);
+
+  const handleBackClick = async () => {
+    if (quizzes.subcategories_id === null) {
+    }
+  };
 
   return (
     <div className={style.quiz_menu}>
