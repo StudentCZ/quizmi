@@ -16,8 +16,11 @@ const SelectQuiz = () => {
     fetchData();
   }, [categoryId]);
 
-  const handleBackClick = async () => {
+  const handleBackButtonClick = async () => {
     if (quizzes.subcategories_id === null) {
+      navigate('/game/new');
+    } else {
+      navigate(`/category/${categoryId}/subcategories`);
     }
   };
 
