@@ -55,3 +55,8 @@
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
+
+.quiz_button:hover {
+  background-color: var(--button-hover-background-color);
+  color: var(--button-hover-color);
+}
