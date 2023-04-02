@@ -29,6 +29,9 @@ const SubCategories = () => {
             <li
               className={style.sub_categories_list_item}
               key={subCategory.subcategories_id}
+              onClick={() => {
+                handleCategoryClick(subCategory.category_id);
+              }}
             >
               {subCategory.name}
             </li>
