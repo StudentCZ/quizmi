@@ -5,6 +5,7 @@ import style from './SubCategories.module.css';
 
 const SubCategories = () => {
   const { categoryId } = useParams();
+  const navigate = useNavigate();
   const [subCategories, setSubCategories] = useState([]);
 
   useEffect(() => {
@@ -14,6 +15,10 @@ const SubCategories = () => {
     };
     fetchData();
   }, [categoryId]);
+
+  const handleCategoryClick = async (categoryId) => {
+    navigate(`/category/${categoryId}/quizzes`);
+  };
 
   return (
     <div className={style.sub_categories_menu}>
