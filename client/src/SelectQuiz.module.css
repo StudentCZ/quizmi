@@ -11,6 +11,10 @@
 }
 
 .quiz_heading {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  border-bottom: var(--border-bottom);
+  padding-bottom: 0.5rem;
 }
 
 .quiz_unordered_list {
