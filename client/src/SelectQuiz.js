@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getQuizzes } from './api';
+import { getQuizzes, getSubCategories } from './api';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import style from './SelectQuiz.module.css';
 
@@ -17,7 +17,8 @@ const SelectQuiz = () => {
   }, [categoryId]);
 
   const handleBackButtonClick = async () => {
-    if (quizzes.subcategories_id === null) {
+    const subcategoriesData = await getSubCategories(categoryId);
+    if (subcategoriesData.length === 0) {
       navigate('/game/new');
     } else {
       navigate(`/category/${categoryId}/subcategories`);
@@ -36,9 +37,9 @@ const SelectQuiz = () => {
           );
         })}
       </ul>
-      <Link to='/game/new'>
-        <button className={style.quiz_button}>Back</button>
-      </Link>
+      <button className={style.quiz_button} onClick={handleBackButtonClick}>
+        Back
+      </button>
     </div>
   );
 };
