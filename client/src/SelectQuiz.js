@@ -7,6 +7,7 @@ const SelectQuiz = () => {
   const { categoryId } = useParams();
   const [quizzes, setQuizzes] = useState([]);
   const navigate = useNavigate();
+  console.log(quizzes);
 
   useEffect(() => {
     const fetchData = async () => {
