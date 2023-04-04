@@ -7,8 +7,8 @@ const NoSubCategories = () => {
     <div>
       <h1>Choose Quiz</h1>
       <ul></ul>
-      <Link>
-        <button></button>
+      <Link to='/game/new'>
+        <button>Back</button>
       </Link>
     </div>
   );
