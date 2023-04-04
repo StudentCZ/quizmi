@@ -22,10 +22,10 @@ export const getSubCategories = async (categoryId) => {
   }
 };
 
-export const getQuizzes = async (categoryId) => {
+export const getQuizzes = async (categoryId, subcategoryId) => {
   try {
     const { data } = await axios.get(
-      `${API_URL}/categories/${categoryId}/quizzes`
+      `${API_URL}/categories/${categoryId}/subcategories/${subcategoryId}/quizzes`
     );
     return data;
   } catch (error) {
