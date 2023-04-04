@@ -39,5 +39,10 @@
   text-align: center;
 }
 
+.quiz_list_item:hover {
+  background-color: var(--button-hover-background-color);
+  color: var(--button-hover-color);
+}
+
 .quiz_button {
 }
