@@ -47,7 +47,7 @@ router.get(
   }
 );
 
-router.get('/category/:category_id/quizzes', async (req, res) => {
+router.get('/categories/:category_id/quizzes', async (req, res) => {
   const { category_id } = req.params;
   try {
     const result = await db.query(

@@ -33,4 +33,9 @@ export const getSubCategoryQuiz = async (categoryId, subcategoryId) => {
   }
 };
 
-export const getNoSubCategoryQuiz = async () => {};
+export const getNoSubCategoryQuiz = async (categoryId) => {
+  try {
+  } catch (error) {
+    console.error(error.message);
+  }
+};
