@@ -7,7 +7,6 @@ const SubCategories = () => {
   const { categoryId } = useParams();
   const navigate = useNavigate();
   const [subCategories, setSubCategories] = useState([]);
-  console.log(subCategories);
 
   useEffect(() => {
     const fetchData = async () => {
