@@ -4,18 +4,17 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import style from './SelectQuiz.module.css';
 
 const SelectQuiz = () => {
-  const { categoryId } = useParams();
+  const { categoryId, subcategoryId } = useParams();
   const [quizzes, setQuizzes] = useState([]);
   const navigate = useNavigate();
-  console.log(quizzes);
 
   useEffect(() => {
     const fetchData = async () => {
-      const quizzesData = await getQuizzes(categoryId);
+      const quizzesData = await getQuizzes(categoryId, subcategoryId);
       setQuizzes(quizzesData);
     };
     fetchData();
-  }, [categoryId]);
+  }, [categoryId, subcategoryId]);
 
   const handleBackButtonClick = async () => {
     const subcategoriesData = await getSubCategories(categoryId);

@@ -15,7 +15,7 @@ const NewGame = () => {
     fetchData();
   }, []);
 
-  const handleCategoryClick = async (categoryId) => {
+  const handleCategoryClick = async (categoryId, subcategoryId) => {
     const subCategories = await getSubCategories(categoryId);
     if (subCategories.length > 0) {
       navigate(`/category/${categoryId}/subcategories`);
