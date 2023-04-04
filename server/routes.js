@@ -47,9 +47,13 @@ router.get(
   }
 );
 
-router.get('category/:category_id/quizzes', async (req, res) => {
+router.get('/category/:category_id/quizzes', async (req, res) => {
+  const { category_id } = req.params;
   try {
-    const result = await db.query(`SELECT * FROM Quizzes`);
+    const result = await db.query(
+      `SELECT * FROM Quizzes WHERE category_id = $1`,
+      [category_id]
+    );
     res.status(200).json(result.rows);
   } catch (error) {
     console.error(error.message);
