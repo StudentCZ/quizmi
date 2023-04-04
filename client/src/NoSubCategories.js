@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { getNoSubCategoryQuiz } from './api';
 import style from './NoSubCategories.module.css';
 
 const NoSubCategories = () => {
   const { categoryId } = useParams();
   const [quizzes, setQuizzes] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const quizData = await getNoSubCategoryQuiz(categoryId);
+      setQuizzes(quizData);
+    };
+    fetchData();
+  }, [categoryId]);
 
   return (
     <div>
