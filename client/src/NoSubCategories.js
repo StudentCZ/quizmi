@@ -1,8 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import style from './NoSubCategories.module.css';
 
 const NoSubCategories = () => {
+  const { categoryId } = useParams();
+  const [quizzes, setQuizzes] = useState([]);
+
   return (
     <div>
       <h1>Choose Quiz</h1>
