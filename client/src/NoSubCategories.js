@@ -18,7 +18,11 @@ const NoSubCategories = () => {
   return (
     <div>
       <h1>Choose Quiz</h1>
-      <ul></ul>
+      <ul>
+        {quizzes.map((quiz) => {
+          return <li>{quiz.title}</li>;
+        })}
+      </ul>
       <Link to='/game/new'>
         <button>Back</button>
       </Link>
