@@ -17,8 +17,8 @@ const SubCategories = () => {
     fetchData();
   }, [categoryId]);
 
-  const handleCategoryClick = async (categoryId) => {
-    navigate(`/category/${categoryId}/quizzes`);
+  const handleCategoryClick = async (categoryId, subcategoryId) => {
+    navigate(`/category/${categoryId}/subcategories/${subcategoryId}/quizzes`);
   };
 
   return (
