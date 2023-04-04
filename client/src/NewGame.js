@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getCategories, getSubCategories } from './api';
+import { getCategories, getQuizzes, getSubCategories } from './api';
 import { Link, useNavigate } from 'react-router-dom';
 import style from './NewGame.module.css';
 

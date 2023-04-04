@@ -8,6 +8,9 @@ const SelectQuiz = () => {
   const [quizzes, setQuizzes] = useState([]);
   const navigate = useNavigate();
 
+  console.log('categoryId:', categoryId);
+  console.log('subcategoryId:', subcategoryId);
+
   useEffect(() => {
     const fetchData = async () => {
       const quizzesData = await getQuizzes(categoryId, subcategoryId);
