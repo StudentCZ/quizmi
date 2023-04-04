@@ -35,6 +35,10 @@ export const getSubCategoryQuiz = async (categoryId, subcategoryId) => {
 
 export const getNoSubCategoryQuiz = async (categoryId) => {
   try {
+    const { data } = await axios.get(
+      `${API_URL}/categories/${categoryId}/quizzes`
+    );
+    return data;
   } catch (error) {
     console.error(error.message);
   }
