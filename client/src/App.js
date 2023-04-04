@@ -10,6 +10,7 @@ import Settings from './Settings';
 import NewGame from './NewGame';
 import SubCategories from './SubCategories';
 import SelectQuiz from './SelectQuiz';
+import NoSubCategories from './NoSubCategories';
 
 function App() {
   const songs = useMemo(() => [music1, music2, music3, music4, music5], []);
