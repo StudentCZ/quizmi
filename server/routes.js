@@ -61,6 +61,15 @@ router.get('/categories/:category_id/quizzes', async (req, res) => {
   }
 });
 
+router.get('/quizzes/:quiz_id/questions', async (req, res) => {
+  const { quiz_id } = req.params;
+  try {
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: 'Server Error' });
+  }
+});
+
 router.get('/questions', async (req, res) => {
   try {
     const result = await db.query(`SELECT * FROM Questions`);
