@@ -64,6 +64,11 @@ router.get('/categories/:category_id/quizzes', async (req, res) => {
 router.get('/quizzes/:quiz_id/questions', async (req, res) => {
   const { quiz_id } = req.params;
   try {
+    const result = await db.query(
+      `SELECT * FROM Quizzes JOIN Questions ON Quizzes.quiz_id = Questions.quiz_id WHERE Quizzes.quiz_id = $1`,
+      [quiz_id]
+    );
+    res.status(200).json(result.rows);
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ error: 'Server Error' });
