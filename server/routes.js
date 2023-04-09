@@ -65,7 +65,7 @@ router.get('/quizzes/:quiz_id/questions', async (req, res) => {
   const { quiz_id } = req.params;
   try {
     const result = await db.query(
-      `SELECT * FROM Quizzes JOIN Questions ON Quizzes.quiz_id = Questions.quiz_id WHERE Quizzes.quiz_id = $1`,
+      `SELECT Questions.question_id, Questions.quiz_id, Questions.subject, Questions.question_text, Questions.image_url, Questions.audio_url FROM Quizzes JOIN Questions ON Quizzes.quiz_id = Questions.quiz_id WHERE Quizzes.quiz_id = $1`,
       [quiz_id]
     );
     res.status(200).json(result.rows);
