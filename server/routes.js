@@ -76,8 +76,12 @@ router.get('/quizzes/:quiz_id/questions', async (req, res) => {
 });
 
 router.get('/questions/:question_id/answers', async (req, res) => {
+  const { question_id } = req.params;
   try {
-  } catch (error) {}
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: 'Server Error' });
+  }
 });
 
 router.get('/questions', async (req, res) => {
