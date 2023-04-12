@@ -75,6 +75,11 @@ router.get('/quizzes/:quiz_id/questions', async (req, res) => {
   }
 });
 
+router.get('/questions/:question_id/answers', async (req, res) => {
+  try {
+  } catch (error) {}
+});
+
 router.get('/questions', async (req, res) => {
   try {
     const result = await db.query(`SELECT * FROM Questions`);
