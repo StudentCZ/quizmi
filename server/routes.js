@@ -78,6 +78,11 @@ router.get('/quizzes/:quiz_id/questions', async (req, res) => {
 router.get('/questions/:question_id/answers', async (req, res) => {
   const { question_id } = req.params;
   try {
+    const result = await db.query(
+      `SELECT answer_id, question_id, answer_text, is_correct FROM Answers WHERE question_id = $1`,
+      [question_id]
+    );
+    res.status(200).json(result.rows);
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ error: 'Server Error' });
