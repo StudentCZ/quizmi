@@ -21,6 +21,10 @@ const SelectQuiz = () => {
     setSelectedQuiz(quiz);
   };
 
+  const handleStartGameClick = (quizId) => {
+    navigate(`/quizzes/${quizId}/questions`);
+  };
+
   const handleBackButtonClick = async () => {
     const subcategoriesData = await getSubCategories(categoryId);
     if (subcategoriesData.length === 0) {
