@@ -47,6 +47,7 @@ const SelectQuiz = () => {
                 isSelected ? style.selected : ''
               }`}
               key={quiz.quiz_id}
+              onClick={() => handleQuizSelect(quiz)}
             >
               {quiz.title}
             </li>
