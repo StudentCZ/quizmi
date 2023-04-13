@@ -125,7 +125,7 @@ function App() {
             path='/category/:categoryId/subcategories/:subcategoryId/quizzes'
             element={<SelectQuiz />}
           />
-          <Route path='/quizzes/:quizId/questions' />
+          <Route path='/quizzes/:quizId/questions' element={<PlayGame />} />
         </Routes>
       </Router>
     </div>
