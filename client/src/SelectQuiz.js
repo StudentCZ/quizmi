@@ -42,7 +42,12 @@ const SelectQuiz = () => {
           const isSelected =
             SelectedQuiz && SelectedQuiz.quiz_id === quiz.quiz_id;
           return (
-            <li className={style.quiz_list_item} key={quiz.quiz_id}>
+            <li
+              className={`${style.quiz_list_item} ${
+                isSelected ? style.selected : ''
+              }`}
+              key={quiz.quiz_id}
+            >
               {quiz.title}
             </li>
           );
