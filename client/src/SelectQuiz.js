@@ -55,7 +55,10 @@ const SelectQuiz = () => {
         })}
       </ul>
       {SelectedQuiz && (
-        <button className={style.start_button} onClick={handleStartGameClick}>
+        <button
+          className={style.start_button}
+          onClick={() => handleStartGameClick(SelectedQuiz.quiz_id)}
+        >
           Start Game
         </button>
       )}
