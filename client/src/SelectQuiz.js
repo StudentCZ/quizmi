@@ -39,6 +39,8 @@ const SelectQuiz = () => {
       <h1 className={style.quiz_heading}>Choose Quiz</h1>
       <ul className={style.quiz_unordered_list}>
         {quizzes.map((quiz) => {
+          const isSelected =
+            SelectedQuiz && SelectedQuiz.quiz_id === quiz.quiz_id;
           return (
             <li className={style.quiz_list_item} key={quiz.quiz_id}>
               {quiz.title}
