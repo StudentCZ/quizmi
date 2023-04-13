@@ -6,6 +6,7 @@ import style from './SelectQuiz.module.css';
 const SelectQuiz = () => {
   const { categoryId, subcategoryId } = useParams();
   const [quizzes, setQuizzes] = useState([]);
+  const [SelectedQuiz, setSelectedQuiz] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,6 +16,10 @@ const SelectQuiz = () => {
     };
     fetchData();
   }, [categoryId, subcategoryId]);
+
+  const handleQuizSelect = (quiz) => {
+    setSelectedQuiz(quiz);
+  };
 
   const handleBackButtonClick = async () => {
     const subcategoriesData = await getSubCategories(categoryId);
