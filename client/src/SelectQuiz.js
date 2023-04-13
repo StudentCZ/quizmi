@@ -54,7 +54,11 @@ const SelectQuiz = () => {
           );
         })}
       </ul>
-      {SelectedQuiz && <butoon>Start Game</butoon>}
+      {SelectedQuiz && (
+        <button className={style.start_button} onClick={handleStartGameClick}>
+          Start Game
+        </button>
+      )}
       <button className={style.quiz_button} onClick={handleBackButtonClick}>
         Back
       </button>
