@@ -11,6 +11,7 @@ import NewGame from './NewGame';
 import SubCategories from './SubCategories';
 import SelectQuiz from './SelectQuiz';
 import NoSubCategories from './NoSubCategories';
+import PlayGame from './PlayGame';
 
 function App() {
   const songs = useMemo(() => [music1, music2, music3, music4, music5], []);
@@ -124,6 +125,7 @@ function App() {
             path='/category/:categoryId/subcategories/:subcategoryId/quizzes'
             element={<SelectQuiz />}
           />
+          <Route path='/quizzes/:quizId/questions' />
         </Routes>
       </Router>
     </div>
