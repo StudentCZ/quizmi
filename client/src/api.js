@@ -43,3 +43,10 @@ export const getNoSubCategoryQuiz = async (categoryId) => {
     console.error(error.message);
   }
 };
+
+export const getQuizQuestions = async (quizId) => {
+  try {
+  } catch (error) {
+    console.error(error.message);
+  }
+};
