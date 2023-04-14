@@ -70,6 +70,8 @@ body {
   --button-text-color: #9370db;
   --button-hover-background-color: #baa8e0;
   --button-hover-color: #ffffff;
+  --selected-background-color: #c8b4e0;
+  --selected-text-color: #ffffff;
   --border-bottom: 3px solid #ffffff;
 }
 
