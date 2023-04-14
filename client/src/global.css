@@ -22,6 +22,8 @@ body {
   --button-text-color: #f9a26c;
   --button-hover-background-color: #f2c69d;
   --button-hover-color: #ffffff;
+  --selected-background-color: #ffcc99;
+  --selected-text-color: #ffffff;
   --border-bottom: 3px solid #ffffff;
 }
 
