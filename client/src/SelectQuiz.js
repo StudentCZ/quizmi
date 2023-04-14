@@ -18,7 +18,11 @@ const SelectQuiz = () => {
   }, [categoryId, subcategoryId]);
 
   const handleQuizSelect = (quiz) => {
-    setSelectedQuiz(quiz);
+    if (SelectedQuiz && SelectedQuiz.quiz_id === quiz.quiz_id) {
+      setSelectedQuiz(null);
+    } else {
+      setSelectedQuiz(quiz);
+    }
   };
 
   const handleStartGameClick = (quizId) => {
