@@ -106,5 +106,7 @@ body {
   --button-text-color: #ffffff;
   --button-hover-background-color: #ffd659;
   --button-hover-color: #ffffff;
+  --selected-background-color: #ffe082;
+  --selected-text-color: #404040;
   --border-bottom: 3px solid #ffc107;
 }
