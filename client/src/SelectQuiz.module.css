@@ -60,3 +60,8 @@
   background-color: var(--button-hover-background-color);
   color: var(--button-hover-color);
 }
+
+.selected {
+  background-color: var(--selected-background-color);
+  color: var(--selected-text-color);
+}
