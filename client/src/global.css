@@ -82,6 +82,8 @@ body {
   --button-text-color: #d96262;
   --button-hover-background-color: #e8a0a0;
   --button-hover-color: #ffffff;
+  --selected-background-color: #f0b6b6;
+  --selected-text-color: #ffffff;
   --border-bottom: 3px solid #ffffff;
 }
 
