@@ -46,6 +46,7 @@ const PlayGame = () => {
     <div>
       <h1>{`Question ${currentQuestionIndex + 1}`}</h1>
       <h2>{currentQuestion ? currentQuestion.question_text : ''}</h2>
+      <ul></ul>
       <button
         onClick={() => {
           setCurrentQuestionIndex(currentQuestionIndex + 1);
