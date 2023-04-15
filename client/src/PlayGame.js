@@ -30,7 +30,7 @@ const PlayGame = () => {
   return (
     <div>
       <h1>{`Question ${currentQuestionIndex + 1}`}</h1>
-      <h2>{currentQuestion.question_text}</h2>
+      <h2>{currentQuestion ? currentQuestion.question_text : ''}</h2>
       <Link to='/game/new'>
         <button>Back</button>
       </Link>
