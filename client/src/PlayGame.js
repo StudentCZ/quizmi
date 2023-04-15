@@ -39,6 +39,7 @@ const PlayGame = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    navigate(`/quizzes/${quizId}/score`);
   };
 
   return (
