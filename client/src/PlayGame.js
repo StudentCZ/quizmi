@@ -46,7 +46,15 @@ const PlayGame = () => {
     <div>
       <h1>{`Question ${currentQuestionIndex + 1}`}</h1>
       <h2>{currentQuestion ? currentQuestion.question_text : ''}</h2>
-      <ul></ul>
+      <ul>
+        {questions[currentQuestionIndex]?.answers.map((answer) => {
+          return (
+            <li>
+              <button>{answer.answer_text}</button>
+            </li>
+          );
+        })}
+      </ul>
       <button
         onClick={() => {
           setCurrentQuestionIndex(currentQuestionIndex + 1);
