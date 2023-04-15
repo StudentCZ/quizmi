@@ -27,7 +27,7 @@ const PlayGame = () => {
 
   return (
     <div>
-      <h1>{`Question ${1}`}</h1>
+      <h1>{`Question ${currentQuestionIndex + 1}`}</h1>
       <Link to='/game/new'>
         <button>Back</button>
       </Link>
