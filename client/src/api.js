@@ -52,3 +52,10 @@ export const getQuizQuestions = async (quizId) => {
     console.error(error.message);
   }
 };
+
+export const getQuestionAnswers = async (questionId) => {
+  try {
+  } catch (error) {
+    console.error(error.message);
+  }
+};
