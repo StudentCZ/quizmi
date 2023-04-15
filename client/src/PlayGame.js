@@ -5,6 +5,7 @@ import style from './PlayGame.module.css';
 
 const PlayGame = () => {
   const [questions, setQuestions] = useState([]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const { quizId } = useParams();
 
   useEffect(() => {
