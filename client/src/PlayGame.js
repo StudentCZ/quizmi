@@ -25,7 +25,9 @@ const PlayGame = () => {
     fetchData();
   }, [quizId]);
 
-  const handleBackButtonClick = async () => {};
+  const handleBackButtonClick = async () => {
+    navigate(`/quizzes/${quizId}/questions`);
+  };
 
   return (
     <div>
