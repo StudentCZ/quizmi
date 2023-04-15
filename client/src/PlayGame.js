@@ -25,6 +25,8 @@ const PlayGame = () => {
     fetchData();
   }, [quizId]);
 
+  const currentQuestion = questions[currentQuestionIndex];
+
   return (
     <div>
       <h1>{`Question ${currentQuestionIndex + 1}`}</h1>
