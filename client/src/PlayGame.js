@@ -7,6 +7,7 @@ const PlayGame = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const { quizId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,6 +35,10 @@ const PlayGame = () => {
       selectedAnswer: answerId,
     };
     setQuestions(updatedQuestions);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
   };
 
   return (
