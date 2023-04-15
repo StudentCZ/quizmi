@@ -5,15 +5,17 @@ import style from './PlayGame.module.css';
 
 const PlayGame = () => {
   const [questions, setQuestions] = useState([]);
-  const { questionId } = useParams();
+  const { quizId } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
-      const questionsData = await getQuizQuestions(questionId);
+      const questionsData = await getQuizQuestions(quizId);
       setQuestions(questionsData);
     };
     fetchData();
-  }, [questionId]);
+  }, [quizId]);
+
+  console.log(questions);
   return <div>Hello</div>;
 };
 
