@@ -27,10 +27,27 @@ const PlayGame = () => {
 
   const currentQuestion = questions[currentQuestionIndex];
 
+  const handleAnswerSelect = (answerId) => {
+    const updatedQuestions = [...questions];
+    updatedQuestions[currentQuestionIndex] = {
+      ...updatedQuestions[currentQuestionIndex],
+      selectedAnswer: answerId,
+    };
+    setQuestions(updatedQuestions);
+  };
+
   return (
     <div>
       <h1>{`Question ${currentQuestionIndex + 1}`}</h1>
       <h2>{currentQuestion ? currentQuestion.question_text : ''}</h2>
+      <button
+        onClick={() => {
+          setCurrentQuestionIndex(currentQuestionIndex + 1);
+        }}
+        disabled={currentQuestionIndex === questions.length - 1}
+      >
+        Next
+      </button>
       <Link to='/game/new'>
         <button>Back</button>
       </Link>
