@@ -26,7 +26,7 @@ const PlayGame = () => {
 
   return (
     <div>
-      Hello
+      <h1>{`Question ${1}`}</h1>
       <Link to='/game/new'>
         <button>Back</button>
       </Link>
