@@ -6,7 +6,6 @@ import style from './PlayGame.module.css';
 const PlayGame = () => {
   const [questions, setQuestions] = useState([]);
   const { quizId } = useParams();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,14 +24,12 @@ const PlayGame = () => {
     fetchData();
   }, [quizId]);
 
-  const handleBackButtonClick = async () => {
-    navigate(`/quizzes/${quizId}/questions`);
-  };
-
   return (
     <div>
       Hello
-      <button>Back</button>
+      <Link to='/game/new'>
+        <button>Back</button>
+      </Link>
     </div>
   );
 };
