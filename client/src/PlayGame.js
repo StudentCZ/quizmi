@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getQuizQuestions, getQuestionAnswers } from './api';
 import style from './PlayGame.module.css';
 
 const PlayGame = () => {
   const [questions, setQuestions] = useState([]);
   const { quizId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
