@@ -55,6 +55,10 @@ export const getQuizQuestions = async (quizId) => {
 
 export const getQuestionAnswers = async (questionId) => {
   try {
+    const { data } = await axios.get(
+      `${API_URL}/questions/${questionId}/answers`
+    );
+    return data;
   } catch (error) {
     console.error(error.message);
   }
