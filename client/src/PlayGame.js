@@ -24,6 +24,8 @@ const PlayGame = () => {
     fetchData();
   }, [quizId]);
 
+  console.log(questions);
+
   return <div>Hello</div>;
 };
 
