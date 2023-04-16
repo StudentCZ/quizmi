@@ -49,8 +49,8 @@ const PlayGame = () => {
       }`}</h1>
       <div className={style.question}>
         <h2>{currentQuestion ? currentQuestion.question_text : ''}</h2>
-        <img></img>
-        <audio></audio>
+        <img src={currentQuestion?.image_url} alt=''></img>
+        <audio src={currentQuestion?.image_url} controls></audio>
       </div>
       <ul className={style.answers}>
         {questions[currentQuestionIndex]?.answers.map((answer) => {
