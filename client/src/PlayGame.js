@@ -44,7 +44,9 @@ const PlayGame = () => {
 
   return (
     <div className={style.game_menu}>
-      <h1>{`Question ${currentQuestionIndex + 1}`}</h1>
+      <h1 className={style.heading}>{`Question ${
+        currentQuestionIndex + 1
+      }`}</h1>
       <h2>{currentQuestion ? currentQuestion.question_text : ''}</h2>
       <ul>
         {questions[currentQuestionIndex]?.answers.map((answer) => {
