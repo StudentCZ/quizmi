@@ -47,9 +47,11 @@ const PlayGame = () => {
       <h1 className={style.heading}>{`Question ${
         currentQuestionIndex + 1
       }`}</h1>
-      <h2>{currentQuestion ? currentQuestion.question_text : ''}</h2>
-      <img></img>
-      <audio></audio>
+      <div className={style.question}>
+        <h2>{currentQuestion ? currentQuestion.question_text : ''}</h2>
+        <img></img>
+        <audio></audio>
+      </div>
       <ul>
         {questions[currentQuestionIndex]?.answers.map((answer) => {
           return (
