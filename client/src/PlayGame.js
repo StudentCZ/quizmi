@@ -59,6 +59,13 @@ const PlayGame = () => {
       </ul>
       <button
         onClick={() => {
+          setCurrentQuestionIndex(currentQuestionIndex - 1);
+        }}
+      >
+        Back
+      </button>
+      <button
+        onClick={() => {
           setCurrentQuestionIndex(currentQuestionIndex + 1);
         }}
         disabled={currentQuestionIndex === questions.length - 1}
