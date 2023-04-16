@@ -72,7 +72,7 @@ const PlayGame = () => {
       </ul>
       <div>
         <Link to='/game/new'>
-          <button>Main Menu</button>
+          <button className={style.button}>Main Menu</button>
         </Link>
         <button
           onClick={() => {
