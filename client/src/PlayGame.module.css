@@ -25,3 +25,13 @@
   width: 100%;
   text-align: center;
 }
+
+.answers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 60rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+}
