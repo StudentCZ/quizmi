@@ -35,3 +35,8 @@
   margin: 0 auto;
   padding: 1rem;
 }
+
+.answers_list_item {
+  width: calc(50% - 1rem);
+  margin-bottom: 2rem;
+}
