@@ -57,7 +57,7 @@ const PlayGame = () => {
       <ul className={style.answers}>
         {questions[currentQuestionIndex]?.answers.map((answer) => {
           return (
-            <li key={answer.answer_id}>
+            <li key={answer.answer_id} className={style.answers_list_item}>
               <button onClick={() => handleAnswerSelect(answer.answer_id)}>
                 {answer.answer_text}
               </button>
