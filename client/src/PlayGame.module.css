@@ -9,3 +9,10 @@
   background-color: var(--background-color);
   color: var(--text-color);
 }
+
+.heading {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  border-bottom: var(--border-bottom);
+  padding-bottom: 0.5rem;
+}
