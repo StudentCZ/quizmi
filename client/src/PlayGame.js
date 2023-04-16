@@ -54,7 +54,7 @@ const PlayGame = () => {
           <audio src={currentQuestion.audio_url} controls></audio>
         )}
       </div>
-      <ul className={style.answers}>
+      <ul className={style.answers_unordered_list}>
         {questions[currentQuestionIndex]?.answers.map((answer) => {
           return (
             <li key={answer.answer_id} className={style.answers_list_item}>

@@ -26,7 +26,7 @@
   text-align: center;
 }
 
-.answers {
+.answers_unordered_list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -34,6 +34,7 @@
   width: 100%;
   margin: 0 auto;
   padding: 1rem;
+  list-style: none;
 }
 
 .answers_list_item {
