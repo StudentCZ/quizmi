@@ -52,7 +52,7 @@ const PlayGame = () => {
         <img></img>
         <audio></audio>
       </div>
-      <ul>
+      <ul className={style.answers}>
         {questions[currentQuestionIndex]?.answers.map((answer) => {
           return (
             <li key={answer.answer_id}>
