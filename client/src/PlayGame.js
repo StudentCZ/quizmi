@@ -70,25 +70,27 @@ const PlayGame = () => {
           );
         })}
       </ul>
-      <button
-        onClick={() => {
-          setCurrentQuestionIndex(currentQuestionIndex - 1);
-        }}
-        disabled={currentQuestionIndex === 0}
-      >
-        Back
-      </button>
-      <button
-        onClick={() => {
-          setCurrentQuestionIndex(currentQuestionIndex + 1);
-        }}
-        disabled={currentQuestionIndex === questions.length - 1}
-      >
-        Next
-      </button>
-      <Link to='/game/new'>
-        <button>Main Menu</button>
-      </Link>
+      <div>
+        <button
+          onClick={() => {
+            setCurrentQuestionIndex(currentQuestionIndex - 1);
+          }}
+          disabled={currentQuestionIndex === 0}
+        >
+          Back
+        </button>
+        <button
+          onClick={() => {
+            setCurrentQuestionIndex(currentQuestionIndex + 1);
+          }}
+          disabled={currentQuestionIndex === questions.length - 1}
+        >
+          Next
+        </button>
+        <Link to='/game/new'>
+          <button>Main Menu</button>
+        </Link>
+      </div>
     </div>
   );
 };
