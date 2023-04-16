@@ -13,7 +13,7 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
   }, [musicPlaying]);
   return (
     <div className={style.game_menu}>
-      <h1 className={style.game_menu_heading}>Welcome To QuizMi</h1>
+      <h1 className={style.game_menu_heading}>QuizMi</h1>
       <Link to='/game/new'>
         <button className={style.game_menu_button}>New Game</button>
       </Link>
