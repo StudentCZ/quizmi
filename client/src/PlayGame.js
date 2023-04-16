@@ -50,7 +50,9 @@ const PlayGame = () => {
         {questions[currentQuestionIndex]?.answers.map((answer) => {
           return (
             <li>
-              <button>{answer.answer_text}</button>
+              <button onClick={() => handleAnswerSelect(answer.answer_id)}>
+                {answer.answer_text}
+              </button>
             </li>
           );
         })}
