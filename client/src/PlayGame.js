@@ -64,7 +64,7 @@ const PlayGame = () => {
         Next
       </button>
       <Link to='/game/new'>
-        <button>Back</button>
+        <button>Main Menu</button>
       </Link>
     </div>
   );
