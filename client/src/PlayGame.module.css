@@ -51,9 +51,9 @@
   font-weight: bold;
   padding: 0.5rem 10rem;
   margin: 0.1rem;
-  border: none;
+  border: 2px solid var(--border-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
   border-radius: 5px;
-  background-color: #a0a0a0;
-  color: white;
   cursor: pointer;
 }
