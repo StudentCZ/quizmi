@@ -71,6 +71,9 @@ const PlayGame = () => {
         })}
       </ul>
       <div>
+        <Link to='/game/new'>
+          <button>Main Menu</button>
+        </Link>
         <button
           onClick={() => {
             setCurrentQuestionIndex(currentQuestionIndex - 1);
@@ -87,9 +90,6 @@ const PlayGame = () => {
         >
           Next
         </button>
-        <Link to='/game/new'>
-          <button>Main Menu</button>
-        </Link>
       </div>
     </div>
   );
