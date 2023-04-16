@@ -13,6 +13,7 @@ body {
   --selected-background-color: #ffcc99;
   --selected-text-color: #ffffff;
   --border-bottom: 3px solid #ffffff;
+  --border-color: #ffffff;
 }
 
 .orange {

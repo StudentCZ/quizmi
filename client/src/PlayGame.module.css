@@ -16,3 +16,7 @@
   border-bottom: var(--border-bottom);
   padding-bottom: 0.5rem;
 }
+
+.question {
+  border: 2px solid var(--border-color);
+}
