@@ -48,7 +48,9 @@ const PlayGame = () => {
         currentQuestionIndex + 1
       }`}</h1>
       <div className={style.question}>
-        <h2>{currentQuestion ? currentQuestion.question_text : ''}</h2>
+        <h2 className={style.question_text}>
+          {currentQuestion ? currentQuestion.question_text : ''}
+        </h2>
         <img src={currentQuestion?.image_url} alt=''></img>
         {currentQuestion?.audio_url && (
           <audio src={currentQuestion.audio_url} controls></audio>
