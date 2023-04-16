@@ -75,6 +75,7 @@ const PlayGame = () => {
           <button className={style.button}>Main Menu</button>
         </Link>
         <button
+          className={style.button}
           onClick={() => {
             setCurrentQuestionIndex(currentQuestionIndex - 1);
           }}
@@ -83,6 +84,7 @@ const PlayGame = () => {
           Back
         </button>
         <button
+          className={style.button}
           onClick={() => {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
           }}
