@@ -48,6 +48,8 @@ const PlayGame = () => {
         currentQuestionIndex + 1
       }`}</h1>
       <h2>{currentQuestion ? currentQuestion.question_text : ''}</h2>
+      <img></img>
+      <audio></audio>
       <ul>
         {questions[currentQuestionIndex]?.answers.map((answer) => {
           return (
