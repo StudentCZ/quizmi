@@ -41,3 +41,9 @@
   width: calc(50% - 1rem);
   margin-bottom: 2rem;
 }
+
+.answers_button {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0.5rem 10rem;
+}
