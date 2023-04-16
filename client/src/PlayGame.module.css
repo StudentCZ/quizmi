@@ -1,1 +1,11 @@
 @import url('./global.css');
+
+.game_menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
