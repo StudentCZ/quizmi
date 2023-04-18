@@ -9,8 +9,6 @@ const PlayGame = () => {
   const { quizId } = useParams();
   const navigate = useNavigate();
 
-  console.log(questions);
-
   useEffect(() => {
     const fetchData = async () => {
       const questionsData = await getQuizQuestions(quizId);
