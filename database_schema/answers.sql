@@ -1,1 +1,1 @@
-INSERT INTO Answers(question_id, answer_text, is_correct) VALUES (1, '4', true), (1, '5', false), (1 , '1', false), (1, '2', false),(2, '7', false),(2, '4', false),(2, '5', false), (2, '3', true), (3, );
+INSERT INTO Answers(question_id, answer_text, is_correct) VALUES (1, '4', true), (1, '5', false), (1 , '1', false), (1, '2', false),(2, '7', false),(2, '4', false),(2, '5', false), (2, '3', true), (3, '5', false), (3, '8', false ), (3, '3', false ), (3, '2', true );
