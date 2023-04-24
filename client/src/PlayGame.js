@@ -51,7 +51,11 @@ const PlayGame = () => {
         <h2 className={style.question_text}>
           {currentQuestion ? currentQuestion.question_text : ''}
         </h2>
-        <img src={currentQuestion?.image_url} alt=''></img>
+        <img
+          src={currentQuestion?.image_url}
+          className={style.images}
+          alt=''
+        ></img>
         {currentQuestion?.audio_url && (
           <audio src={currentQuestion.audio_url} controls></audio>
         )}
