@@ -74,3 +74,7 @@
   background-color: var(--button-hover-background-color);
   color: var(--button-hover-color);
 }
+
+.images {
+  width: 15%;
+}
