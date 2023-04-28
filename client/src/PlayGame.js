@@ -75,7 +75,7 @@ const PlayGame = () => {
                 className={`${style.answers_button} ${
                   selectedAnswer === answer.answer_id && style.selected_answer
                 }`}
-                onClick={() => handleAnswerSelect(answer.answer_id)}
+                onClick={() => handleSelectedAnswer(answer.answer_id)}
               >
                 {answer.answer_text}
               </button>
