@@ -38,7 +38,7 @@ const PlayGame = () => {
     setQuestions(updatedQuestions);
   };
 
-  const handleAnswerSelect = (answerId) => {
+  const handleSelectedAnswer = (answerId) => {
     setSelectedAnswer(answerId);
   };
 
