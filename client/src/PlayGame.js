@@ -44,6 +44,10 @@ const PlayGame = () => {
     setShowNextButton(true);
   };
 
+  const handleNextQuestion = () => {
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     navigate(`/quizzes/${quizId}/score`);
