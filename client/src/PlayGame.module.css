@@ -78,3 +78,8 @@
 .images {
   width: 15%;
 }
+
+.selected_answer {
+  background-color: var(--selected-background-color);
+  color: var(--selected-text-color);
+}
