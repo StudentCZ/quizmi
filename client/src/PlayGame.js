@@ -28,14 +28,6 @@ const PlayGame = () => {
     fetchData();
   }, [quizId]);
 
-  useEffect(() => {
-    // ...
-    console.log('selectedAnswer changed: ', selectedAnswer);
-    if (selectedAnswer !== null) {
-      handleAnswerSelect(selectedAnswer);
-    }
-  }, [currentQuestionIndex, selectedAnswer]);
-
   const currentQuestion = questions[currentQuestionIndex];
 
   const handleAnswerSelect = (answerId) => {
@@ -43,13 +35,7 @@ const PlayGame = () => {
     const currentQuestion = updatedQuestions[currentQuestionIndex];
     const selectedAnswer = currentQuestion.selectedAnswer;
 
-    // console.log('currentQuestionIndex: ', currentQuestionIndex);
-    // console.log('selectedAnswer before update: ', selectedAnswer);
-
     const newSelectedAnswer = selectedAnswer === answerId ? null : answerId;
-
-    // console.log('answerId: ', answerId);
-    // console.log('newSelectedAnswer: ', newSelectedAnswer);
 
     updatedQuestions[currentQuestionIndex] = {
       ...currentQuestion,
@@ -60,9 +46,6 @@ const PlayGame = () => {
   };
 
   const handleSelectedAnswer = (answerId) => {
-    // console.log('selectedAnswer: ', selectedAnswer);
-    // console.log('handleSelectedAnswer called');
-    // console.log('answerId: ', answerId);
     setSelectedAnswer(answerId);
     handleAnswerSelect(answerId);
     setShowNextButton(true);
@@ -105,7 +88,7 @@ const PlayGame = () => {
                 className={`${style.answers_button} ${
                   selectedAnswer === answer.answer_id && style.selected_answer
                 }`}
-                onClick={() => handleSelectedAnswer(answer.answer_id)}
+                onClick={() => handleAnswerSelect(answer.answer_id)}
                 disabled={showNextButton}
               >
                 {answer.answer_text}
