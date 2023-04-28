@@ -32,9 +32,15 @@ const PlayGame = () => {
 
   const handleAnswerSelect = (answerId) => {
     const updatedQuestions = [...questions];
+    const currentQuestion = updatedQuestions[currentQuestionIndex];
+    const currentAnswer = currentQuestion.selectedAnswer;
+
+    // deselect current answer if the same answer is selected again
+    const newSelectedAnswer = currentAnswer === answerId ? null : answerId;
+
     updatedQuestions[currentQuestionIndex] = {
-      ...updatedQuestions[currentQuestionIndex],
-      selectedAnswer: answerId,
+      ...currentQuestion,
+      selectedAnswer: newSelectedAnswer,
     };
     setQuestions(updatedQuestions);
   };
