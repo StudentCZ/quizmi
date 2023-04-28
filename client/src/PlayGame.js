@@ -43,11 +43,6 @@ const PlayGame = () => {
     };
     setQuestions(updatedQuestions);
     setSelectedAnswer(newSelectedAnswer);
-  };
-
-  const handleSelectedAnswer = (answerId) => {
-    setSelectedAnswer(answerId);
-    handleAnswerSelect(answerId);
     setShowNextButton(true);
   };
 
