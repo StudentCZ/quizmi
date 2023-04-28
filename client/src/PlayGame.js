@@ -46,6 +46,8 @@ const PlayGame = () => {
 
   const handleNextQuestion = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    setSelectedAnswer(null);
+    setShowNextButton(false);
   };
 
   const handleSubmit = (event) => {
