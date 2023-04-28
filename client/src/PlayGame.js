@@ -38,6 +38,10 @@ const PlayGame = () => {
     setQuestions(updatedQuestions);
   };
 
+  const handleAnswerSelect = (answerId) => {
+    setSelectedAnswer(answerId);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     navigate(`/quizzes/${quizId}/score`);
