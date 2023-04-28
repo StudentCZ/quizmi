@@ -20,6 +20,7 @@ const PlayGame = () => {
           return {
             ...question,
             answers,
+            selectedAnswer: null,
           };
         })
       );
@@ -34,16 +35,14 @@ const PlayGame = () => {
     const updatedQuestions = [...questions];
     const currentQuestion = updatedQuestions[currentQuestionIndex];
     const selectedAnswer = currentQuestion.selectedAnswer;
-
     const newSelectedAnswer = selectedAnswer === answerId ? null : answerId;
-
     updatedQuestions[currentQuestionIndex] = {
       ...currentQuestion,
       selectedAnswer: newSelectedAnswer,
     };
     setQuestions(updatedQuestions);
-    setSelectedAnswer(newSelectedAnswer);
     setShowNextButton(true);
+    console.log('hitting this function');
   };
 
   const handleNextQuestion = () => {
