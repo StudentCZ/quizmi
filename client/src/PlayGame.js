@@ -41,6 +41,7 @@ const PlayGame = () => {
 
   const handleSelectedAnswer = (answerId) => {
     setSelectedAnswer(answerId);
+    setShowNextButton(true);
   };
 
   const handleSubmit = (event) => {
