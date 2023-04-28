@@ -82,6 +82,7 @@ const PlayGame = () => {
                   selectedAnswer === answer.answer_id && style.selected_answer
                 }`}
                 onClick={() => handleSelectedAnswer(answer.answer_id)}
+                disabled={showNextButton}
               >
                 {answer.answer_text}
               </button>
@@ -102,17 +103,11 @@ const PlayGame = () => {
         >
           Back
         </button> */}
-        {showNextButton && (
-          <button
-            className={style.button}
-            onClick={() => {
-              setCurrentQuestionIndex(currentQuestionIndex + 1);
-            }}
-            disabled={currentQuestionIndex === questions.length - 1}
-          >
-            Next
+        {showNextButton ? (
+          <button className={style.button} onClick={handleNextQuestion}>
+            {currentQuestionIndex === questions.length - 1 ? 'Submit' : 'Next'}
           </button>
-        )}
+        ) : null}
       </div>
     </div>
   );
