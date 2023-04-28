@@ -72,7 +72,9 @@ const PlayGame = () => {
           return (
             <li key={answer.answer_id} className={style.answers_list_item}>
               <button
-                className={style.answers_button}
+                className={`${style.answers_button} ${
+                  selectedAnswer === answer.answer_id && style.selected_answer
+                }`}
                 onClick={() => handleAnswerSelect(answer.answer_id)}
               >
                 {answer.answer_text}
