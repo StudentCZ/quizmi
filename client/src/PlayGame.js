@@ -28,23 +28,41 @@ const PlayGame = () => {
     fetchData();
   }, [quizId]);
 
+  useEffect(() => {
+    // ...
+    console.log('selectedAnswer changed: ', selectedAnswer);
+    if (selectedAnswer !== null) {
+      handleAnswerSelect(selectedAnswer);
+    }
+  }, [currentQuestionIndex, selectedAnswer]);
+
   const currentQuestion = questions[currentQuestionIndex];
 
   const handleAnswerSelect = (answerId) => {
     const updatedQuestions = [...questions];
     const currentQuestion = updatedQuestions[currentQuestionIndex];
-    const currentAnswer = currentQuestion.selectedAnswer;
+    const selectedAnswer = currentQuestion.selectedAnswer;
 
-    const newSelectedAnswer = currentAnswer === answerId ? null : answerId;
+    // console.log('currentQuestionIndex: ', currentQuestionIndex);
+    // console.log('selectedAnswer before update: ', selectedAnswer);
+
+    const newSelectedAnswer = selectedAnswer === answerId ? null : answerId;
+
+    // console.log('answerId: ', answerId);
+    // console.log('newSelectedAnswer: ', newSelectedAnswer);
 
     updatedQuestions[currentQuestionIndex] = {
       ...currentQuestion,
       selectedAnswer: newSelectedAnswer,
     };
     setQuestions(updatedQuestions);
+    setSelectedAnswer(newSelectedAnswer);
   };
 
   const handleSelectedAnswer = (answerId) => {
+    // console.log('selectedAnswer: ', selectedAnswer);
+    // console.log('handleSelectedAnswer called');
+    // console.log('answerId: ', answerId);
     setSelectedAnswer(answerId);
     handleAnswerSelect(answerId);
     setShowNextButton(true);
