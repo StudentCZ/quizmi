@@ -78,7 +78,7 @@ const PlayGame = () => {
         <Link to='/game/new'>
           <button className={style.button}>Main Menu</button>
         </Link>
-        <button
+        {/* <button
           className={style.button}
           onClick={() => {
             setCurrentQuestionIndex(currentQuestionIndex - 1);
@@ -86,7 +86,7 @@ const PlayGame = () => {
           disabled={currentQuestionIndex === 0}
         >
           Back
-        </button>
+        </button> */}
         <button
           className={style.button}
           onClick={() => {
