@@ -48,6 +48,7 @@ const PlayGame = () => {
   const handleSelectedAnswer = (answerId) => {
     setSelectedAnswer(answerId);
     setShowNextButton(true);
+    handleAnswerSelect(answerId);
   };
 
   const handleNextQuestion = () => {
