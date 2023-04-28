@@ -35,7 +35,6 @@ const PlayGame = () => {
     const currentQuestion = updatedQuestions[currentQuestionIndex];
     const currentAnswer = currentQuestion.selectedAnswer;
 
-    // deselect current answer if the same answer is selected again
     const newSelectedAnswer = currentAnswer === answerId ? null : answerId;
 
     updatedQuestions[currentQuestionIndex] = {
@@ -47,8 +46,8 @@ const PlayGame = () => {
 
   const handleSelectedAnswer = (answerId) => {
     setSelectedAnswer(answerId);
-    setShowNextButton(true);
     handleAnswerSelect(answerId);
+    setShowNextButton(true);
   };
 
   const handleNextQuestion = () => {
@@ -101,7 +100,7 @@ const PlayGame = () => {
         <Link to='/game/new'>
           <button className={style.button}>Main Menu</button>
         </Link>
-        {/* <button
+        <button
           className={style.button}
           onClick={() => {
             setCurrentQuestionIndex(currentQuestionIndex - 1);
@@ -109,7 +108,7 @@ const PlayGame = () => {
           disabled={currentQuestionIndex === 0}
         >
           Back
-        </button> */}
+        </button>
         {showNextButton ? (
           <button className={style.button} onClick={handleNextQuestion}>
             {currentQuestionIndex === questions.length - 1 ? 'Submit' : 'Next'}
