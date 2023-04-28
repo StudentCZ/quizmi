@@ -96,15 +96,17 @@ const PlayGame = () => {
         >
           Back
         </button> */}
-        <button
-          className={style.button}
-          onClick={() => {
-            setCurrentQuestionIndex(currentQuestionIndex + 1);
-          }}
-          disabled={currentQuestionIndex === questions.length - 1}
-        >
-          Next
-        </button>
+        {showNextButton && (
+          <button
+            className={style.button}
+            onClick={() => {
+              setCurrentQuestionIndex(currentQuestionIndex + 1);
+            }}
+            disabled={currentQuestionIndex === questions.length - 1}
+          >
+            Next
+          </button>
+        )}
       </div>
     </div>
   );
