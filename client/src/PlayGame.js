@@ -6,6 +6,7 @@ import style from './PlayGame.module.css';
 const PlayGame = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
   const { quizId } = useParams();
   const navigate = useNavigate();
 
