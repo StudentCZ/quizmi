@@ -42,7 +42,6 @@ const PlayGame = () => {
     };
     setQuestions(updatedQuestions);
     setShowNextButton(true);
-    console.log('hitting this function');
   };
 
   const handleNextQuestion = () => {
