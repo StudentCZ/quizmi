@@ -78,7 +78,6 @@ const PlayGame = () => {
         {questions[currentQuestionIndex]?.answers.map((answer) => {
           return (
             <Answers
-              key={answer.answer_id}
               answerId={answer.answer_id}
               answerText={answer.answer_text}
               isSelected={currentQuestion.selectedAnswer === answer.answer_id}
