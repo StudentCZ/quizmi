@@ -50,7 +50,11 @@ const PlayGame = () => {
 
   const handleNextQuestion = () => {
     const currentQuestion = questions[currentQuestionIndex];
-    if (currentQuestion.selectedAnswer === currentQuestion.correct_answer_id) {
+    const selectedAnswer = currentQuestion.selectedAnswer;
+    const isAnswerCorrect = currentQuestion.answers.find(
+      (answer) => answer.answer_id === selectedAnswer
+    ).is_correct;
+    if (isAnswerCorrect) {
       setScore((prevScore) => prevScore + 1);
     }
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
