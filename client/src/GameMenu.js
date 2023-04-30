@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './GameMenu.module.css';
 import { Link } from 'react-router-dom';
 
 const GameMenu = ({ musicPlaying, toggleMusic }) => {
+  const [hasSavedGame, setHasSavedGame] = useState(false);
   useEffect(() => {
     const audioElement = document.getElementById('bg-music');
     if (musicPlaying) {
