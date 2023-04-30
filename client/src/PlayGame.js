@@ -112,11 +112,11 @@ const PlayGame = () => {
         >
           Back
         </button>
-        {showNextButton ? (
-          <button className={style.button} onClick={handleNextQuestion}>
-            {currentQuestionIndex === questions.length - 1 ? 'Submit' : 'Next'}
-          </button>
-        ) : null}
+        {currentQuestionIndex === questions.length - 1 ? (
+          <button></button>
+        ) : (
+          <button></button>
+        )}
       </div>
     </div>
   );
