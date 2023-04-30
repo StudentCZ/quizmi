@@ -77,17 +77,13 @@ const PlayGame = () => {
       <ul className={style.answers_unordered_list}>
         {questions[currentQuestionIndex]?.answers.map((answer) => {
           return (
-            <li key={answer.answer_id} className={style.answers_list_item}>
-              <button
-                className={`${style.answers_button} ${
-                  selectedAnswer === answer.answer_id && style.selected_answer
-                }`}
-                onClick={() => handleAnswerSelect(answer.answer_id)}
-                disabled={showNextButton}
-              >
-                {answer.answer_text}
-              </button>
-            </li>
+            <Answers
+              key={answer.answer_id}
+              answer={answer}
+              isSelected={currentQuestion.selectedAnswer === answer.answer_id}
+              handleAnswerSelect={handleAnswerSelect}
+              disabled={showNextButton}
+            />
           );
         })}
       </ul>
