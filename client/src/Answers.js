@@ -13,7 +13,7 @@ const Answers = ({
   };
 
   return (
-    <li>
+    <li key={answerId} className={style.answers_list_item}>
       <button>{answerText}</button>
     </li>
   );
