@@ -4,6 +4,14 @@ import { Link } from 'react-router-dom';
 
 const GameMenu = ({ musicPlaying, toggleMusic }) => {
   const [hasSavedGame, setHasSavedGame] = useState(false);
+
+  useEffect(() => {
+    const savedGame = localStorage.getItem('quizGame');
+    if (savedGame) {
+      setHasSavedGame(true);
+    }
+  }, []);
+
   useEffect(() => {
     const audioElement = document.getElementById('bg-music');
     if (musicPlaying) {
