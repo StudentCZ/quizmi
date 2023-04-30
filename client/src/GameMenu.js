@@ -27,7 +27,14 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
         <button className={style.game_menu_button}>New Game</button>
       </Link>
       <Link to='/playgame?continue=true'>
-        <button className={style.game_menu_button} disabled={!hasSavedGame}>
+        <button
+          className={
+            hasSavedGame
+              ? style.game_menu_button
+              : style.game_menu_button_disabled
+          }
+          disabled={!hasSavedGame}
+        >
           Continue Game
         </button>
       </Link>
