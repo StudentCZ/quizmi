@@ -7,4 +7,8 @@ const Answers = ({
   isSelected,
   handleAnswerSelect,
   disabled,
-}) => {};
+}) => {
+  const handleClick = () => {
+    handleAnswerSelect(answerId);
+  };
+};
