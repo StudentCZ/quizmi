@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getQuizQuestions, getQuestionAnswers } from './api';
 import style from './PlayGame.module.css';
+import Answers from './Answers';
 
 const PlayGame = () => {
   const [questions, setQuestions] = useState([]);
