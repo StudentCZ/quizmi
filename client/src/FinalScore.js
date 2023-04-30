@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import style from './FinalScore.module.css';
 
 const FinalScore = () => {
