@@ -112,10 +112,18 @@ const PlayGame = () => {
         >
           Back
         </button>
-        {currentQuestionIndex === questions.length - 1 ? (
-          <button></button>
-        ) : (
-          <button></button>
+        {selectedAnswer && (
+          <>
+            {currentQuestionIndex === questions.length - 1 ? (
+              <button className={style.button} onClick={handleSubmit}>
+                Submit
+              </button>
+            ) : (
+              <button className={style.button} onClick={handleNextQuestion}>
+                Next
+              </button>
+            )}
+          </>
         )}
       </div>
     </div>
