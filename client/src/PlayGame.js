@@ -64,7 +64,7 @@ const PlayGame = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate(`/quizzes/${quizId}/score`);
+    navigate(`/quizzes/${quizId}/score`, { state: { score } });
   };
 
   return (
