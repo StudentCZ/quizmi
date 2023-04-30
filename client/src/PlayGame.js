@@ -48,6 +48,10 @@ const PlayGame = () => {
   };
 
   const handleNextQuestion = () => {
+    const currentQuestion = questions[currentQuestionIndex];
+    if (currentQuestion.selectedAnswer === currentQuestion.correct_answer_id) {
+      setScore((prevScore) => prevScore + 1);
+    }
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     setSelectedAnswer(null);
     setShowNextButton(false);
