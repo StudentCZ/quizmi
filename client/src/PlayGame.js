@@ -10,6 +10,7 @@ const PlayGame = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showNextButton, setShowNextButton] = useState(false);
   const [score, setScore] = useState(0);
+  console.log('this is the score', score);
   const { quizId } = useParams();
   const navigate = useNavigate();
 
@@ -84,6 +85,7 @@ const PlayGame = () => {
         {questions[currentQuestionIndex]?.answers.map((answer) => {
           return (
             <Answers
+              key={answer.answer_id}
               answerId={answer.answer_id}
               answerText={answer.answer_text}
               isSelected={currentQuestion.selectedAnswer === answer.answer_id}
