@@ -4,7 +4,8 @@ import style from './FinalScore.module.css';
 
 const FinalScore = () => {
   const location = useLocation();
-  const score = location.score?.score ?? 0;
+  const score = location.state?.score ?? 0;
+  console.log(score);
   return <div className={style.score_menu}>Your score is: {score}</div>;
 };
 
