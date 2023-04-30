@@ -12,6 +12,7 @@ import SubCategories from './SubCategories';
 import SelectQuiz from './SelectQuiz';
 import NoSubCategories from './NoSubCategories';
 import PlayGame from './PlayGame';
+import FinalScore from './FinalScore';
 
 function App() {
   const songs = useMemo(() => [music1, music2, music3, music4, music5], []);
@@ -126,6 +127,7 @@ function App() {
             element={<SelectQuiz />}
           />
           <Route path='/quizzes/:quizId/questions' element={<PlayGame />} />
+          <Route path='/quizzes/:quizId/score' element={<FinalScore />} />
         </Routes>
       </Router>
     </div>
