@@ -1,0 +1,23 @@
+@import url('./global.css');
+
+.answers_list_item {
+  width: calc(50% - 1rem);
+  margin-bottom: 2rem;
+}
+
+.answers_button {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.5rem 10rem;
+  margin: 0.1rem;
+  border: 2px solid var(--border-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.selected_answer {
+  background-color: var(--selected-background-color);
+  color: var(--selected-text-color);
+}
