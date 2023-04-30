@@ -14,7 +14,15 @@ const Answers = ({
 
   return (
     <li key={answerId} className={style.answers_list_item}>
-      <button>{answerText}</button>
+      <button
+        className={`${style.answers_button} ${
+          isSelected ? style.selected_answer : ''
+        }`}
+        onClick={handleClick}
+        disabled={disabled}
+      >
+        {answerText}
+      </button>
     </li>
   );
 };
