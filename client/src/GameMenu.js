@@ -26,7 +26,7 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
       <Link to='/game/new'>
         <button className={style.game_menu_button}>New Game</button>
       </Link>
-      <Link>
+      <Link to='/playgame?continue=true'>
         <button>Continue Game</button>
       </Link>
       <Link to='/settings'>
