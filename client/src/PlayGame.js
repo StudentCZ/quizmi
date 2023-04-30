@@ -42,6 +42,7 @@ const PlayGame = () => {
       selectedAnswer: newSelectedAnswer,
     };
     setQuestions(updatedQuestions);
+    setSelectedAnswer(newSelectedAnswer);
     setShowNextButton(true);
   };
 
