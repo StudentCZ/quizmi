@@ -19,7 +19,6 @@ const Answers = ({
           isSelected ? style.selected_answer : ''
         }`}
         onClick={handleClick}
-        disabled={disabled}
       >
         {answerText}
       </button>
