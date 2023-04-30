@@ -79,7 +79,8 @@ const PlayGame = () => {
           return (
             <Answers
               key={answer.answer_id}
-              answer={answer}
+              answerId={answer.answer_id}
+              answerText={answer.answer_text}
               isSelected={currentQuestion.selectedAnswer === answer.answer_id}
               handleAnswerSelect={handleAnswerSelect}
               disabled={showNextButton}
