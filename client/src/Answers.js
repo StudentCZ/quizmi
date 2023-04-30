@@ -11,4 +11,10 @@ const Answers = ({
   const handleClick = () => {
     handleAnswerSelect(answerId);
   };
+
+  return (
+    <li>
+      <button>{answerText}</button>
+    </li>
+  );
 };
