@@ -18,3 +18,5 @@ const Answers = ({
     </li>
   );
 };
+
+export default Answers;
