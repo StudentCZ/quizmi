@@ -46,6 +46,15 @@ const PlayGame = () => {
   const currentQuestion = questions[currentQuestionIndex];
 
   const handleAnswerSelect = (answerId) => {
+    const updatedQuestions = [...questions];
+    const currentQuestion = updatedQuestions[currentQuestionIndex];
+    const selectedAnswer = currentQuestion.selectedAnswer;
+    const newSelectedAnswer = selectedAnswer === answerId ? null : answerId;
+    updatedQuestions[currentQuestionIndex] = {
+      ...currentQuestion,
+      selectedAnswer: newSelectedAnswer,
+    };
+
     const updateQuizProgress = {
       ...quizProgress,
       selectedAnswer: {
@@ -59,14 +68,6 @@ const PlayGame = () => {
       JSON.stringify(updateQuizProgress)
     );
 
-    const updatedQuestions = [...questions];
-    const currentQuestion = updatedQuestions[currentQuestionIndex];
-    const selectedAnswer = currentQuestion.selectedAnswer;
-    const newSelectedAnswer = selectedAnswer === answerId ? null : answerId;
-    updatedQuestions[currentQuestionIndex] = {
-      ...currentQuestion,
-      selectedAnswer: newSelectedAnswer,
-    };
     setQuestions(updatedQuestions);
     setSelectedAnswer(newSelectedAnswer);
     setShowNextButton(true);
