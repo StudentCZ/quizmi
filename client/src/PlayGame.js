@@ -81,6 +81,7 @@ const PlayGame = () => {
       selectedAnswer: null,
       showNextButton: false,
       score,
+      quizId,
     };
     localStorage.setItem(
       `quiz-${quizId}-progress`,
