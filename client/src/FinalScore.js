@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import style from './FinalScore.module.css';
 
 const FinalScore = () => {
@@ -9,7 +9,9 @@ const FinalScore = () => {
   return (
     <div className={style.score_menu}>
       <h1>Your score is: {score}</h1>
-      <button>Main Menu</button>
+      <Link to='/'>
+        <button>Main Menu</button>
+      </Link>
     </div>
   );
 };
