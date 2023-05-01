@@ -10,6 +10,11 @@ const PlayGame = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showNextButton, setShowNextButton] = useState(false);
   const [score, setScore] = useState(0);
+  const [quizProgress, setQuizProgress] = useState({
+    currentQuestionIndex: 0,
+    selectedAnswers: {},
+    score: 0,
+  });
   const { quizId } = useParams();
   const navigate = useNavigate();
 
