@@ -8,6 +8,7 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
   const [savedQuizId, setSavedQuizId] = useState(null);
   const { quizId } = useParams();
   const navigate = useNavigate();
+  console.log('savedQuizId:', savedQuizId);
 
   useEffect(() => {
     const audioElement = document.getElementById('bg-music');
@@ -26,7 +27,7 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
   }, [musicPlaying, quizId]);
 
   const handleContinueGame = () => {
-    navigate(`/quizzes/${quizId}/questions?continue=true`);
+    navigate(`/quizzes/${savedQuizId}/questions?continue=true`);
   };
 
   const continueButton = hasSavedGame ? (

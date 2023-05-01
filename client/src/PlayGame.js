@@ -10,6 +10,7 @@ const PlayGame = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showNextButton, setShowNextButton] = useState(false);
   const [score, setScore] = useState(0);
+  const [quizIdx, setQuizIdx] = useState(null);
   const { quizId } = useParams();
   const navigate = useNavigate();
 
@@ -41,6 +42,7 @@ const PlayGame = () => {
       setSelectedAnswer(savedProgress.selectedAnswer);
       setShowNextButton(savedProgress.showNextButton);
       setScore(savedProgress.score);
+      setQuizIdx(savedProgress.quizId);
     }
   }, []);
 
