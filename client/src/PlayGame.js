@@ -46,6 +46,19 @@ const PlayGame = () => {
   const currentQuestion = questions[currentQuestionIndex];
 
   const handleAnswerSelect = (answerId) => {
+    const updateQuizProgress = {
+      ...quizProgress,
+      selectedAnswer: {
+        ...quizProgress.selectedAnswers,
+        [currentQuestion.question_id]: answerId,
+      },
+    };
+    setQuizProgress(updateQuizProgress);
+    localStorage.setItem(
+      `quiz-${quizId}-progress`,
+      JSON.stringify(updateQuizProgress)
+    );
+
     const updatedQuestions = [...questions];
     const currentQuestion = updatedQuestions[currentQuestionIndex];
     const selectedAnswer = currentQuestion.selectedAnswer;
