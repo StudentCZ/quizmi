@@ -10,11 +10,6 @@ const PlayGame = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showNextButton, setShowNextButton] = useState(false);
   const [score, setScore] = useState(0);
-  const [quizProgress, setQuizProgress] = useState({
-    currentQuestionIndex: 0,
-    selectedAnswers: {},
-    score: 0,
-  });
   const { quizId } = useParams();
   const navigate = useNavigate();
 
@@ -47,20 +42,6 @@ const PlayGame = () => {
       ...currentQuestion,
       selectedAnswer: newSelectedAnswer,
     };
-
-    const updateQuizProgress = {
-      ...quizProgress,
-      selectedAnswers: {
-        ...quizProgress.selectedAnswers,
-        [currentQuestion.question_id]: answerId,
-      },
-    };
-    setQuizProgress(updateQuizProgress);
-    localStorage.setItem(
-      `quiz-${quizId}-progress`,
-      JSON.stringify(updateQuizProgress)
-    );
-
     setQuestions(updatedQuestions);
     setSelectedAnswer(newSelectedAnswer);
     setShowNextButton(true);
@@ -75,17 +56,6 @@ const PlayGame = () => {
     if (isAnswerCorrect) {
       setScore((prevScore) => prevScore + 1);
     }
-
-    const updatedQuizProgress = {
-      ...quizProgress,
-      currentQuestionIndex: quizProgress.currentQuestionIndex + 1,
-    };
-    setQuizProgress(updatedQuizProgress);
-    localStorage.setItem(
-      `quiz-${quizId}-progress`,
-      JSON.stringify(updatedQuizProgress)
-    );
-
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     setSelectedAnswer(null);
     setShowNextButton(false);
@@ -93,7 +63,6 @@ const PlayGame = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    localStorage.removeItem(`quiz-${quizId}-progress`);
     navigate(`/quizzes/${quizId}/score`, { state: { score } });
   };
 
