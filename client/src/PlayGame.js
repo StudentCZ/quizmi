@@ -19,6 +19,9 @@ const PlayGame = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const savedQuizProgress = JSON.parse(
+      localStorage.getItem(`quiz-${quizId}-progress`)
+    );
     const fetchData = async () => {
       const questionsData = await getQuizQuestions(quizId);
       const questionAnswers = await Promise.all(
