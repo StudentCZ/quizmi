@@ -32,7 +32,9 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
       <Link to='/game/new'>
         <button className={style.game_menu_button}>New Game</button>
       </Link>
-      <button className={style.game_menu_button}>Continue Game</button>
+      <button className={style.game_menu_button} onClick={handleContinueGame}>
+        Continue Game
+      </button>
       <Link to='/settings'>
         <button className={style.game_menu_button}>Settings</button>
       </Link>
