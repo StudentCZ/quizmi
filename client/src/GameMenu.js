@@ -30,15 +30,23 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
     navigate(`/quizzes/${quizId}/questions?continue=true`);
   };
 
+  const continueButton = hasSavedGame ? (
+    <button className={style.game_menu_button} onClick={handleContinueGame}>
+      Continue Game
+    </button>
+  ) : (
+    <button className={style.game_menu_button_disabled} disabled>
+      Continue Game
+    </button>
+  );
+
   return (
     <div className={style.game_menu}>
       <h1 className={style.game_menu_heading}>QuizMi</h1>
       <Link to='/game/new'>
         <button className={style.game_menu_button}>New Game</button>
       </Link>
-      <button className={style.game_menu_button} onClick={handleContinueGame}>
-        Continue Game
-      </button>
+      {continueButton}
       <Link to='/settings'>
         <button className={style.game_menu_button}>Settings</button>
       </Link>
