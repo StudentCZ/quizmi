@@ -31,6 +31,19 @@ const PlayGame = () => {
     fetchData();
   }, [quizId]);
 
+  useEffect(() => {
+    const savedProgress = JSON.parse(
+      localStorage.getItem(`quiz-${quizId}-progress`)
+    );
+    if (savedProgress) {
+      setQuestions(savedProgress.questions);
+      setCurrentQuestionIndex(savedProgress.currentQuestionIndex);
+      setSelectedAnswer(savedProgress.selectedAnswer);
+      setShowNextButton(savedProgress.showNextButton);
+      setScore(savedProgress.score);
+    }
+  }, []);
+
   const currentQuestion = questions[currentQuestionIndex];
 
   const handleAnswerSelect = (answerId) => {
