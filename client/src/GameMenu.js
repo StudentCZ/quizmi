@@ -7,6 +7,11 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
   const [hasSavedGame, setHasSavedGame] = useState(false);
   const [savedQuizId, setSavedQuizId] = useState(null);
   const { quizId } = useParams();
+  const savedProgress = JSON.parse(
+    localStorage.getItem(`quiz-${quizId}-progress`)
+  );
+  const idx = savedProgress.quizId;
+  console.log(idx);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,19 +21,10 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
     } else {
       audioElement.pause();
     }
-    const savedProgress = JSON.parse(
-      localStorage.getItem(`quiz-${quizId}-progress`)
-    );
-    if (savedProgress) {
-      setHasSavedGame(true);
-      setSavedQuizId(savedProgress.quizId);
-    } else {
-      setSavedQuizId(quizId);
-    }
-  }, [musicPlaying, quizId]);
+  }, [musicPlaying]);
 
   const handleContinueGame = () => {
-    navigate(`/quizzes/${savedQuizId}/questions?continue=true`);
+    navigate(`/quizzes/${idx}/questions?continue=true`);
   };
 
   const continueButton = hasSavedGame ? (

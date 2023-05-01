@@ -33,9 +33,7 @@ const PlayGame = () => {
   }, [quizId]);
 
   useEffect(() => {
-    const savedProgress = JSON.parse(
-      localStorage.getItem(`quiz-${quizId}-progress`)
-    );
+    const savedProgress = JSON.parse(localStorage.getItem(`quiz-progress`));
     if (savedProgress) {
       setQuestions(savedProgress.questions);
       setCurrentQuestionIndex(savedProgress.currentQuestionIndex);
@@ -83,15 +81,12 @@ const PlayGame = () => {
       score,
       quizId,
     };
-    localStorage.setItem(
-      `quiz-${quizId}-progress`,
-      JSON.stringify(quizProgress)
-    );
+    localStorage.setItem(`quiz-progress`, JSON.stringify(quizProgress));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    localStorage.removeItem(`quiz-${quizId}-progress`);
+    localStorage.removeItem(`quiz-progress`);
     navigate(`/quizzes/${quizId}/score`, { state: { score } });
   };
 
