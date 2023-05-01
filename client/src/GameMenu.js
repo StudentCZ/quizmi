@@ -17,13 +17,17 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
     }
   }, [musicPlaying]);
 
-  const handleContinueGame = () => {
+  useEffect(() => {
     const savedProgress = JSON.parse(
       localStorage.getItem(`quiz-${quizId}-progress`)
     );
     if (savedProgress) {
-      navigate(`/quizzes/${quizId}/questions`);
+      setHasSavedGame(true);
     }
+  }, [quizId]);
+
+  const handleContinueGame = () => {
+    navigate(`/quizzes/${quizId}/questions?continue=true`);
   };
 
   return (
