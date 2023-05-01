@@ -6,12 +6,8 @@ import { Link } from 'react-router-dom';
 const GameMenu = ({ musicPlaying, toggleMusic }) => {
   const [hasSavedGame, setHasSavedGame] = useState(false);
   const [savedQuizId, setSavedQuizId] = useState(null);
-  const { quizId } = useParams();
-  const savedProgress = JSON.parse(
-    localStorage.getItem(`quiz-${quizId}-progress`)
-  );
-  const idx = savedProgress.quizId;
-  console.log(idx);
+  const savedProgress = JSON.parse(localStorage.getItem(`quiz-progress`));
+  const quizId = savedProgress.quizId;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,10 +17,13 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
     } else {
       audioElement.pause();
     }
+    if (savedProgress) {
+      setHasSavedGame(true);
+    }
   }, [musicPlaying]);
 
   const handleContinueGame = () => {
-    navigate(`/quizzes/${idx}/questions?continue=true`);
+    navigate(`/quizzes/${quizId}/questions?continue=true`);
   };
 
   const continueButton = hasSavedGame ? (
