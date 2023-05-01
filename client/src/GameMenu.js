@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import style from './GameMenu.module.css';
 import { Link } from 'react-router-dom';
 
 const GameMenu = ({ musicPlaying, toggleMusic }) => {
   const [hasSavedGame, setHasSavedGame] = useState(false);
   const { quizId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const audioElement = document.getElementById('bg-music');
