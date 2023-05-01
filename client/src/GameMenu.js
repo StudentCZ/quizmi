@@ -4,7 +4,8 @@ import style from './GameMenu.module.css';
 import { Link } from 'react-router-dom';
 
 const GameMenu = ({ musicPlaying, toggleMusic }) => {
-  const [hasSavedGame, setHasSavedGame] = useState(null);
+  const [hasSavedGame, setHasSavedGame] = useState(false);
+  const [savedQuizId, setSavedQuizId] = useState(null);
   const { quizId } = useParams();
   const navigate = useNavigate();
 
@@ -15,16 +16,14 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
     } else {
       audioElement.pause();
     }
-  }, [musicPlaying]);
-
-  useEffect(() => {
     const savedProgress = JSON.parse(
       localStorage.getItem(`quiz-${quizId}-progress`)
     );
     if (savedProgress) {
       setHasSavedGame(true);
+      setSavedQuizId(savedProgress.quiz_id);
     }
-  }, [quizId]);
+  }, [musicPlaying, quizId]);
 
   const handleContinueGame = () => {
     navigate(`/quizzes/${quizId}/questions?continue=true`);
