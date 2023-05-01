@@ -9,6 +9,7 @@ const FinalScore = () => {
   return (
     <div className={style.score_menu}>
       <h1>Your score is: {score}</h1>
+      <button>Main Menu</button>
     </div>
   );
 };
