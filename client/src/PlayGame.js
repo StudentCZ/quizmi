@@ -14,8 +14,6 @@ const PlayGame = () => {
   const { quizId } = useParams();
   const navigate = useNavigate();
 
-  console.log(questions);
-
   useEffect(() => {
     const fetchData = async () => {
       const questionsData = await getQuizQuestions(quizId);
@@ -36,15 +34,16 @@ const PlayGame = () => {
 
   useEffect(() => {
     const savedProgress = JSON.parse(localStorage.getItem(`quiz-progress`));
-    if (savedProgress) {
+    if (savedProgress && savedProgress.quizId === quizId) {
       setQuestions(savedProgress.questions);
       setCurrentQuestionIndex(savedProgress.currentQuestionIndex);
       setSelectedAnswer(savedProgress.selectedAnswer);
       setShowNextButton(savedProgress.showNextButton);
       setScore(savedProgress.score);
       setQuizIdx(savedProgress.quizId);
+    } else {
+      localStorage.removeItem(`quiz-progress`);
     }
-    localStorage.removeItem(`quiz-progress`);
   }, [quizId]);
 
   const currentQuestion = questions[currentQuestionIndex];
@@ -66,11 +65,14 @@ const PlayGame = () => {
   const handleNextQuestion = () => {
     const currentQuestion = questions[currentQuestionIndex];
     const selectedAnswer = currentQuestion.selectedAnswer;
-    const isAnswerCorrect = currentQuestion.answers.find(
-      (answer) => answer.answer_id === selectedAnswer
-    ).is_correct;
+    const isAnswerCorrect = selectedAnswer
+      ? currentQuestion.answers.find(
+          (answer) => answer.answer_id === selectedAnswer
+        ).is_correct
+      : false;
+    let updatedScore = score;
     if (isAnswerCorrect) {
-      setScore((prevScore) => prevScore + 1);
+      updatedScore += 1;
     }
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     setSelectedAnswer(null);
@@ -81,14 +83,16 @@ const PlayGame = () => {
       currentQuestionIndex: currentQuestionIndex + 1,
       selectedAnswer: null,
       showNextButton: false,
-      score,
+      score: updatedScore,
       quizId,
     };
+    setScore(updatedScore);
     localStorage.setItem(`quiz-progress`, JSON.stringify(quizProgress));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setScore(score);
     localStorage.removeItem(`quiz-progress`);
     navigate(`/quizzes/${quizId}/score`, { state: { score } });
   };
