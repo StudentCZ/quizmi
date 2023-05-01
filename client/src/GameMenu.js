@@ -8,7 +8,6 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
   const [savedQuizId, setSavedQuizId] = useState(null);
   const { quizId } = useParams();
   const navigate = useNavigate();
-  console.log('savedQuizId:', savedQuizId);
 
   useEffect(() => {
     const audioElement = document.getElementById('bg-music');
@@ -22,7 +21,9 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
     );
     if (savedProgress) {
       setHasSavedGame(true);
-      setSavedQuizId(savedProgress.quiz_id);
+      setSavedQuizId(savedProgress.quizId);
+    } else {
+      setSavedQuizId(quizId);
     }
   }, [musicPlaying, quizId]);
 

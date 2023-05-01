@@ -44,7 +44,7 @@ const PlayGame = () => {
       setScore(savedProgress.score);
       setQuizIdx(savedProgress.quizId);
     }
-  }, []);
+  }, [quizId]);
 
   const currentQuestion = questions[currentQuestionIndex];
 
