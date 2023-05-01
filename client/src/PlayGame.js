@@ -72,10 +72,23 @@ const PlayGame = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     setSelectedAnswer(null);
     setShowNextButton(false);
+
+    const quizProgress = {
+      questions,
+      currentQuestionIndex: currentQuestionIndex + 1,
+      selectedAnswer: null,
+      showNextButton: false,
+      score,
+    };
+    localStorage.setItem(
+      `quiz-${quizId}-progress`,
+      JSON.stringify(quizProgress)
+    );
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    localStorage.removeItem(`quiz-${quizId}-progess`);
     navigate(`/quizzes/${quizId}/score`, { state: { score } });
   };
 
