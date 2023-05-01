@@ -8,13 +8,6 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
   const { quizId } = useParams();
 
   useEffect(() => {
-    const savedGame = localStorage.getItem(`quiz-${quizId}-progress`);
-    if (savedGame) {
-      setHasSavedGame(true);
-    }
-  }, []);
-
-  useEffect(() => {
     const audioElement = document.getElementById('bg-music');
     if (musicPlaying) {
       audioElement.play();
@@ -29,18 +22,7 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
       <Link to='/game/new'>
         <button className={style.game_menu_button}>New Game</button>
       </Link>
-      <Link to='/playgame?continue=true'>
-        <button
-          className={
-            hasSavedGame
-              ? style.game_menu_button
-              : style.game_menu_button_disabled
-          }
-          disabled={!hasSavedGame}
-        >
-          Continue Game
-        </button>
-      </Link>
+
       <Link to='/settings'>
         <button className={style.game_menu_button}>Settings</button>
       </Link>
