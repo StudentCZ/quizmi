@@ -17,6 +17,15 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
     }
   }, [musicPlaying]);
 
+  const handleContinueGame = () => {
+    const savedProgress = JSON.parse(
+      localStorage.getItem(`quiz-${quizId}-progress`)
+    );
+    if (savedProgress) {
+      navigate(`/quizzes/${quizId}/questions`);
+    }
+  };
+
   return (
     <div className={style.game_menu}>
       <h1 className={style.game_menu_heading}>QuizMi</h1>
