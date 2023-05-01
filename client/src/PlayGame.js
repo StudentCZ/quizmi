@@ -100,6 +100,7 @@ const PlayGame = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    localStorage.removeItem(`quiz-${quizId}-progress`);
     navigate(`/quizzes/${quizId}/score`, { state: { score } });
   };
 
