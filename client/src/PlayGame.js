@@ -82,6 +82,17 @@ const PlayGame = () => {
     if (isAnswerCorrect) {
       setScore((prevScore) => prevScore + 1);
     }
+
+    const updatedQuizProgress = {
+      ...quizProgress,
+      currentQuestionIndex: quizProgress.currentQuestionIndex + 1,
+    };
+    setQuizProgress(updatedQuizProgress);
+    localStorage.setItem(
+      `quiz-${quizId}-progress`,
+      JSON.stringify(updatedQuizProgress)
+    );
+
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     setSelectedAnswer(null);
     setShowNextButton(false);
