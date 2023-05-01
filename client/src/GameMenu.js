@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import style from './GameMenu.module.css';
 import { Link } from 'react-router-dom';
 
 const GameMenu = ({ musicPlaying, toggleMusic }) => {
   const [hasSavedGame, setHasSavedGame] = useState(false);
+  const { quizId } = useParams();
 
   useEffect(() => {
-    const savedGame = localStorage.getItem('quizGame');
+    const savedGame = localStorage.getItem(`quiz-${quizId}-progress`);
     if (savedGame) {
       setHasSavedGame(true);
     }
@@ -20,6 +22,7 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
       audioElement.pause();
     }
   }, [musicPlaying]);
+
   return (
     <div className={style.game_menu}>
       <h1 className={style.game_menu_heading}>QuizMi</h1>
