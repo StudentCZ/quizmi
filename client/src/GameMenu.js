@@ -4,7 +4,7 @@ import style from './GameMenu.module.css';
 import { Link } from 'react-router-dom';
 
 const GameMenu = ({ musicPlaying, toggleMusic }) => {
-  const [hasSavedGame, setHasSavedGame] = useState(false);
+  const [hasSavedGame, setHasSavedGame] = useState(null);
   const { quizId } = useParams();
   const navigate = useNavigate();
 
