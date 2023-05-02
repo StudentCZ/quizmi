@@ -11,6 +11,7 @@ const PlayGame = () => {
   const [showNextButton, setShowNextButton] = useState(false);
   const [score, setScore] = useState(0);
   const [quizIdx, setQuizIdx] = useState(null);
+  const [questionsLength, setQuestionsLength] = useState(null);
   const { quizId } = useParams();
   const navigate = useNavigate();
 
