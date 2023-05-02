@@ -13,7 +13,6 @@ const PlayGame = () => {
   const [quizIdx, setQuizIdx] = useState(null);
   const { quizId } = useParams();
   const navigate = useNavigate();
-  console.log(score);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -93,15 +92,18 @@ const PlayGame = () => {
     event.preventDefault();
     const currentQuestion = questions[currentQuestionIndex];
     const selectedAnswer = currentQuestion.selectedAnswer;
-    const isAnswerCorrect = questions[currentQuestionIndex].answers.find(
-      (answer) => answer.answer_id === selectedAnswer
-    ).is_correct;
+    const isAnswerCorrect = selectedAnswer
+      ? currentQuestion.answers.find(
+          (answer) => answer.answer_id === selectedAnswer
+        ).is_correct
+      : false;
 
-    if (isAnswerCorrect) {
-      setScore(score + 1);
-    }
     localStorage.removeItem(`quiz-progress`);
-    navigate(`/quizzes/${quizId}/score`, { state: { score } });
+    if (isAnswerCorrect === true) {
+      navigate(`/quizzes/${quizId}/score`, { state: { score: score + 1 } });
+    } else {
+      navigate(`/quizzes/${quizId}/score`, { state: { score } });
+    }
   };
 
   return (
