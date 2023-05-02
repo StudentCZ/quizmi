@@ -6,10 +6,11 @@ const FinalScore = () => {
   const location = useLocation();
   console.log(location.state);
   const score = location.state?.score ?? 0;
+  const length = location.state?.length ?? 0;
 
   return (
     <div className={style.score_menu}>
-      <h1>Your score is: {score}</h1>
+      <h1>{`Your Score is ${score}/${length}`}</h1>
       <Link to='/'>
         <button>Main Menu</button>
       </Link>
