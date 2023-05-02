@@ -41,8 +41,6 @@ const PlayGame = () => {
       setShowNextButton(savedProgress.showNextButton);
       setScore(savedProgress.score);
       setQuizIdx(savedProgress.quizId);
-    } else {
-      localStorage.removeItem(`quiz-progress`);
     }
   }, [quizId]);
 
