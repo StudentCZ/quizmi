@@ -29,6 +29,7 @@ const PlayGame = () => {
         })
       );
       setQuestions(questionAnswers);
+      setQuestionsLength(questionAnswers.length);
     };
     fetchData();
   }, [quizId]);
