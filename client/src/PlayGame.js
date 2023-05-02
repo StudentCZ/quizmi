@@ -103,9 +103,13 @@ const PlayGame = () => {
 
     localStorage.removeItem(`quiz-progress`);
     if (isAnswerCorrect === true) {
-      navigate(`/quizzes/${quizId}/score`, { state: { score: score + 1 } });
+      navigate(`/quizzes/${quizId}/score`, {
+        state: { score: score + 1, length: questions.length },
+      });
     } else {
-      navigate(`/quizzes/${quizId}/score`, { state: { score } });
+      navigate(`/quizzes/${quizId}/score`, {
+        state: { score, length: questions.length },
+      });
     }
   };
 
