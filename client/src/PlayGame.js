@@ -11,7 +11,6 @@ const PlayGame = () => {
   const [showNextButton, setShowNextButton] = useState(false);
   const [score, setScore] = useState(0);
   const [quizIdx, setQuizIdx] = useState(null);
-  const [questionsLength, setQuestionsLength] = useState(null);
   const { quizId } = useParams();
   const navigate = useNavigate();
 
@@ -29,7 +28,6 @@ const PlayGame = () => {
         })
       );
       setQuestions(questionAnswers);
-      setQuestionsLength(questionAnswers.length);
     };
     fetchData();
   }, [quizId]);
@@ -43,7 +41,6 @@ const PlayGame = () => {
       setShowNextButton(savedProgress.showNextButton);
       setScore(savedProgress.score);
       setQuizIdx(savedProgress.quizId);
-      setQuestionsLength(savedProgress.questions.length);
     } else {
       localStorage.removeItem(`quiz-progress`);
     }
