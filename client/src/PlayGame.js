@@ -48,6 +48,18 @@ const PlayGame = () => {
 
   const currentQuestion = questions[currentQuestionIndex];
 
+  useEffect(() => {
+    const handleEnterKey = (event) => {
+      if (event.key === 'Enter' && selectedAnswer) {
+        handleNextQuestion();
+      }
+    };
+    window.addEventListener('keydown', handleEnterKey);
+    return () => {
+      window.removeEventListener('keydown', handleEnterKey);
+    };
+  }, [currentQuestionIndex, selectedAnswer]);
+
   const handleAnswerSelect = (answerId) => {
     const updatedQuestions = [...questions];
     const currentQuestion = updatedQuestions[currentQuestionIndex];
