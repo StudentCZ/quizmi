@@ -20,5 +20,6 @@ VALUES (1, 'Mathematics', '2+2 = ?', '', ''),
        (2, 'Science,' 'What is a baby cow called?', '',''),
        (2, 'Science,' 'What is the boiling point of water in Celcius?', '',''),
        (2, 'Science,' 'What group of animals have scales?', '',''),
-       (2, 'Science,' 'What is the boiling point of water in Fahrenheit?', '','')
+       (2, 'Science,' 'What is the boiling point of water in Fahrenheit?', '',''),
+       (2, 'Science,' 'A male cow is called what?', '','')
        ;
