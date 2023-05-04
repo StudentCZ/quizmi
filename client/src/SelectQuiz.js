@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getSubCategoryQuiz, getSubCategories } from './api';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import style from './SelectQuiz.module.css';
 
 const SelectQuiz = () => {
