@@ -62,13 +62,10 @@ const PlayGame = () => {
         const isLastQuestion = currentQuestionIndex === questions.length - 1;
         const currentQuestion = questions[currentQuestionIndex];
         const correctAnswer = currentQuestion.answers.find(
-          (answer) => answer.answer_id
+          (answer) => answer.answer_id === selectedAnswer
         ).is_correct;
-        const isAnswerCorrect = selectedAnswer === correctAnswer;
-        console.log(selectedAnswer);
-        console.log(isAnswerCorrect);
         if (isLastQuestion) {
-          if (isAnswerCorrect === true) {
+          if (correctAnswer === true) {
             localStorage.removeItem(`quiz-progress`);
             navigate(`/quizzes/${quizId}/score`, {
               state: { score: score + 1, length: questions.length },
