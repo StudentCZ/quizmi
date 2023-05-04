@@ -4,7 +4,6 @@ import style from './FinalScore.module.css';
 
 const FinalScore = () => {
   const location = useLocation();
-  console.log(location.state);
   const score = location.state?.score ?? 0;
   const length = location.state?.length ?? 0;
 

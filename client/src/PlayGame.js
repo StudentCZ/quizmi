@@ -59,7 +59,29 @@ const PlayGame = () => {
   useEffect(() => {
     const handleEnterKey = (event) => {
       if (event.key === 'Enter' && selectedAnswer) {
-        handleNextQuestion();
+        const isLastQuestion = currentQuestionIndex === questions.length - 1;
+        const currentQuestion = questions[currentQuestionIndex];
+        const correctAnswer = currentQuestion.answers.find(
+          (answer) => answer.answer_id
+        ).is_correct;
+        const isAnswerCorrect = selectedAnswer === correctAnswer;
+        console.log(selectedAnswer);
+        console.log(isAnswerCorrect);
+        if (isLastQuestion) {
+          if (isAnswerCorrect === true) {
+            localStorage.removeItem(`quiz-progress`);
+            navigate(`/quizzes/${quizId}/score`, {
+              state: { score: score + 1, length: questions.length },
+            });
+          } else {
+            localStorage.removeItem(`quiz-progress`);
+            navigate(`/quizzes/${quizId}/score`, {
+              state: { score: score, length: questions.length },
+            });
+          }
+        } else {
+          handleNextQuestion();
+        }
       }
     };
     window.addEventListener('keydown', handleEnterKey);
