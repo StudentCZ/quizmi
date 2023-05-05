@@ -33,6 +33,44 @@ const PlayGame = () => {
   }, [quizId]);
 
   useEffect(() => {
+    const handleEnterKey = (event) => {
+      if (event.key === 'Enter' && selectedAnswer) {
+        const isLastQuestion = currentQuestionIndex === questions.length - 1;
+        const currentQuestion = questions[currentQuestionIndex];
+        const correctAnswer = currentQuestion.answers.find(
+          (answer) => answer.answer_id === selectedAnswer
+        ).is_correct;
+        if (isLastQuestion) {
+          if (correctAnswer === true) {
+            localStorage.removeItem(`quiz-progress`);
+            navigate(`/quizzes/${quizId}/score`, {
+              state: { score: score + 1, length: questions.length },
+            });
+          } else {
+            localStorage.removeItem(`quiz-progress`);
+            navigate(`/quizzes/${quizId}/score`, {
+              state: { score: score, length: questions.length },
+            });
+          }
+        } else {
+          handleNextQuestion();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleEnterKey);
+    return () => {
+      window.removeEventListener('keydown', handleEnterKey);
+    };
+  }, [
+    currentQuestionIndex,
+    navigate,
+    questions,
+    quizId,
+    score,
+    selectedAnswer,
+  ]);
+
+  useEffect(() => {
     const savedProgress = JSON.parse(localStorage.getItem(`quiz-progress`));
     if (savedProgress && savedProgress.quizId === quizId) {
       setQuestions(savedProgress.questions);
@@ -95,45 +133,6 @@ const PlayGame = () => {
     };
     localStorage.setItem(`quiz-progress`, JSON.stringify(quizProgress));
   };
-
-  useEffect(() => {
-    const handleEnterKey = (event) => {
-      if (event.key === 'Enter' && selectedAnswer) {
-        const isLastQuestion = currentQuestionIndex === questions.length - 1;
-        const currentQuestion = questions[currentQuestionIndex];
-        const correctAnswer = currentQuestion.answers.find(
-          (answer) => answer.answer_id === selectedAnswer
-        ).is_correct;
-        if (isLastQuestion) {
-          if (correctAnswer === true) {
-            localStorage.removeItem(`quiz-progress`);
-            navigate(`/quizzes/${quizId}/score`, {
-              state: { score: score + 1, length: questions.length },
-            });
-          } else {
-            localStorage.removeItem(`quiz-progress`);
-            navigate(`/quizzes/${quizId}/score`, {
-              state: { score: score, length: questions.length },
-            });
-          }
-        } else {
-          handleNextQuestion();
-        }
-      }
-    };
-    window.addEventListener('keydown', handleEnterKey);
-    return () => {
-      window.removeEventListener('keydown', handleEnterKey);
-    };
-  }, [
-    currentQuestionIndex,
-    handleNextQuestion,
-    navigate,
-    questions,
-    quizId,
-    score,
-    selectedAnswer,
-  ]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
