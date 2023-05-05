@@ -24,5 +24,6 @@ VALUES (1, 'Mathematics', '2+2 = ?', '', ''),
        (2, 'Science,' 'A male cow is called what?', '',''),
        (2, 'Science,' 'Which bird lays the biggest eggs?', '',''),
        (2, 'Science','What type of bird eats animals that are already dead?', '',''),
-       (3, 'History', 'How many states are there in the US?', '', '')
+       (3, 'History', 'How many states are there in the US?', '', ''),
+       (3, 'History', 'Which U.S. city is known as “the windy city”?', '', '')
        ;
