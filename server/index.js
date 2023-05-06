@@ -4,8 +4,8 @@ const routes = require('./routes');
 const app = express();
 const path = require('path');
 
-const _dirName = path.dirName('');
-const buildPath = path.join(_dirName, '../client/build');
+const _dirname = path.dirname('');
+const buildPath = path.join(_dirname, '../client/build');
 
 app.use(express.static(buildPath));
 
