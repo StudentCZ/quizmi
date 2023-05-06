@@ -4,6 +4,11 @@ const routes = require('./routes');
 const app = express();
 const path = require('path');
 
+const _dirName = path.dirName('');
+const buildPath = path.join(_dirName, '../client/build');
+
+app.use(express.static(buildPath));
+
 //Middleware
 app.use(cors());
 app.use(express.json());
