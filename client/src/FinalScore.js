@@ -14,7 +14,7 @@ const FinalScore = () => {
         <button className={style.button}>Main Menu</button>
       </Link>
       <Link>
-        <button>New Game</button>
+        <button className={style.button}>New Game</button>
       </Link>
     </div>
   );
