@@ -13,7 +13,9 @@ const FinalScore = () => {
       <Link to='/'>
         <button className={style.button}>Main Menu</button>
       </Link>
-      <Link>New Game</Link>
+      <Link>
+        <button>New Game</button>
+      </Link>
     </div>
   );
 };
