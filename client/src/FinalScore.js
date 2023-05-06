@@ -11,7 +11,7 @@ const FinalScore = () => {
     <div className={style.score_menu}>
       <h1>{`Your Score is ${score}/${length}`}</h1>
       <Link to='/'>
-        <button>Main Menu</button>
+        <button className={style.button}>Main Menu</button>
       </Link>
     </div>
   );
