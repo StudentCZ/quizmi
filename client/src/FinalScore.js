@@ -13,7 +13,7 @@ const FinalScore = () => {
       <Link to='/'>
         <button className={style.button}>Main Menu</button>
       </Link>
-      <Link>
+      <Link to='/game/new'>
         <button className={style.button}>New Game</button>
       </Link>
     </div>
