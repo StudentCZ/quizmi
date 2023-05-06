@@ -13,6 +13,7 @@ const FinalScore = () => {
       <Link to='/'>
         <button className={style.button}>Main Menu</button>
       </Link>
+      <Link>New Game</Link>
     </div>
   );
 };
