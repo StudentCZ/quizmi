@@ -26,5 +26,6 @@ VALUES (1, 'Mathematics', '2+2 = ?', '', ''),
        (2, 'Science','What type of bird eats animals that are already dead?', '',''),
        (3, 'History', 'How many states are there in the U.S.?', '', ''),
        (3, 'History', 'Which U.S. city is known as “the windy city”?', '', ''),
-       (3, 'History', 'Which is the smallest U.S. state?')
+       (3, 'History', 'Which is the smallest U.S. state?'),
+       (3, 'History', 'Which U.S. state is known as the Sunflower State?', '', '')
        ;
