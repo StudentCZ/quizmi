@@ -18,15 +18,19 @@ const NoSubCategories = () => {
   return (
     <div className={style.quiz_menu}>
       <h1 className={style.quiz_heading}>Choose Quiz</h1>
-      <ul className={style.quiz_unordered_list}>
-        {quizzes.map((quiz) => {
-          return (
-            <li className={style.quiz_list_item} key={quiz.quiz_id}>
-              {quiz.title}
-            </li>
-          );
-        })}
-      </ul>
+      {quizzes.length > 0 ? (
+        <ul className={style.quiz_unordered_list}>
+          {quizzes.map((quiz) => {
+            return (
+              <li className={style.quiz_list_item} key={quiz.quiz_id}>
+                {quiz.title}
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <h1>Currently in progress, please check back later</h1>
+      )}
       <Link to='/game/new'>
         <button className={style.quiz_button}>Back</button>
       </Link>
