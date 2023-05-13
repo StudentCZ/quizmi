@@ -221,7 +221,7 @@ const PlayGame = () => {
           </div>
         </>
       ) : (
-        <h1>Hello</h1>
+        <h1>Currently in progress, please check back later.</h1>
       )}
     </div>
   );
