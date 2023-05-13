@@ -158,63 +158,71 @@ const PlayGame = () => {
 
   return (
     <div className={style.game_menu}>
-      <h1 className={style.heading}>{`Question ${
-        currentQuestionIndex + 1
-      }`}</h1>
-      <div className={style.question}>
-        <h2 className={style.question_text}>
-          {currentQuestion ? currentQuestion.question_text : ''}
-        </h2>
-        <img
-          src={currentQuestion?.image_url}
-          className={style.images}
-          alt=''
-        ></img>
-        {currentQuestion?.audio_url && (
-          <audio src={currentQuestion.audio_url} controls></audio>
-        )}
-      </div>
-      <ul className={style.answers_unordered_list}>
-        {questions[currentQuestionIndex]?.answers.map((answer) => {
-          return (
-            <Answers
-              key={answer.answer_id}
-              answerId={answer.answer_id}
-              answerText={answer.answer_text}
-              isSelected={currentQuestion.selectedAnswer === answer.answer_id}
-              handleAnswerSelect={handleAnswerSelect}
-              disabled={showNextButton}
-            />
-          );
-        })}
-      </ul>
-      <div>
-        <Link to='/'>
-          <button className={style.button}>Main Menu</button>
-        </Link>
-        <button
-          className={style.button}
-          onClick={() => {
-            setCurrentQuestionIndex(currentQuestionIndex - 1);
-          }}
-          disabled={currentQuestionIndex === 0}
-        >
-          Back
-        </button>
-        {selectedAnswer && (
-          <>
-            {currentQuestionIndex === questions.length - 1 ? (
-              <button className={style.button} onClick={handleSubmit}>
-                Submit
-              </button>
-            ) : (
-              <button className={style.button} onClick={handleNextQuestion}>
-                Next
-              </button>
+      {questions.length ? (
+        <>
+          <h1 className={style.heading}>{`Question ${
+            currentQuestionIndex + 1
+          }`}</h1>
+          <div className={style.question}>
+            <h2 className={style.question_text}>
+              {currentQuestion ? currentQuestion.question_text : ''}
+            </h2>
+            <img
+              src={currentQuestion?.image_url}
+              className={style.images}
+              alt=''
+            ></img>
+            {currentQuestion?.audio_url && (
+              <audio src={currentQuestion.audio_url} controls></audio>
             )}
-          </>
-        )}
-      </div>
+          </div>
+          <ul className={style.answers_unordered_list}>
+            {questions[currentQuestionIndex]?.answers.map((answer) => {
+              return (
+                <Answers
+                  key={answer.answer_id}
+                  answerId={answer.answer_id}
+                  answerText={answer.answer_text}
+                  isSelected={
+                    currentQuestion.selectedAnswer === answer.answer_id
+                  }
+                  handleAnswerSelect={handleAnswerSelect}
+                  disabled={showNextButton}
+                />
+              );
+            })}
+          </ul>
+          <div>
+            <Link to='/'>
+              <button className={style.button}>Main Menu</button>
+            </Link>
+            <button
+              className={style.button}
+              onClick={() => {
+                setCurrentQuestionIndex(currentQuestionIndex - 1);
+              }}
+              disabled={currentQuestionIndex === 0}
+            >
+              Back
+            </button>
+            {selectedAnswer && (
+              <>
+                {currentQuestionIndex === questions.length - 1 ? (
+                  <button className={style.button} onClick={handleSubmit}>
+                    Submit
+                  </button>
+                ) : (
+                  <button className={style.button} onClick={handleNextQuestion}>
+                    Next
+                  </button>
+                )}
+              </>
+            )}
+          </div>
+        </>
+      ) : (
+        <h1>Hello</h1>
+      )}
     </div>
   );
 };
