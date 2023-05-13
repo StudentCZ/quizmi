@@ -62,7 +62,7 @@ const SelectQuiz = () => {
           })}
         </ul>
       ) : (
-        <h1>Currently in progress, please check back later</h1>
+        <h1>Currently in progress, please check back later.</h1>
       )}
       {SelectedQuiz && (
         <button
