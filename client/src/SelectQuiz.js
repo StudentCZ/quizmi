@@ -44,21 +44,25 @@ const SelectQuiz = () => {
     <div className={style.quiz_menu}>
       <h1 className={style.quiz_heading}>Choose Quiz</h1>
       <ul className={style.quiz_unordered_list}>
-        {quizzes.map((quiz) => {
-          const isSelected =
-            SelectedQuiz && SelectedQuiz.quiz_id === quiz.quiz_id;
-          return (
-            <li
-              className={`${style.quiz_list_item} ${
-                isSelected ? style.selected : ''
-              }`}
-              key={quiz.quiz_id}
-              onClick={() => handleQuizSelect(quiz)}
-            >
-              {quiz.title}
-            </li>
-          );
-        })}
+        {quizzes?.length > 0 ? (
+          quizzes.map((quiz) => {
+            const isSelected =
+              SelectedQuiz && SelectedQuiz.quiz_id === quiz.quiz_id;
+            return (
+              <li
+                className={`${style.quiz_list_item} ${
+                  isSelected ? style.selected : ''
+                }`}
+                key={quiz.quiz_id}
+                onClick={() => handleQuizSelect(quiz)}
+              >
+                {quiz.title}
+              </li>
+            );
+          })
+        ) : (
+          <h1>Currently in progress, please check back later</h1>
+        )}
       </ul>
       {SelectedQuiz && (
         <button
