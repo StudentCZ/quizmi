@@ -7,6 +7,7 @@ const SelectQuiz = () => {
   const { categoryId, subcategoryId } = useParams();
   const [quizzes, setQuizzes] = useState([]);
   const [SelectedQuiz, setSelectedQuiz] = useState(null);
+  const [quizzesAvailable, setQuizzesAvailable] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
