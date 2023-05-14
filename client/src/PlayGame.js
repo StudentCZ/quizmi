@@ -223,7 +223,7 @@ const PlayGame = () => {
       ) : (
         <>
           <h1>Currently in progress, please check back later.</h1>
-          <Link></Link>
+          <Link to='/'>Main Menu</Link>
         </>
       )}
     </div>
