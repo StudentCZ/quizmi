@@ -70,6 +70,19 @@ const PlayGame = () => {
     selectedAnswer,
   ]);
 
+  const saveQuizProgressToLocalStorage = () => {
+    const quizProgress = {
+      questions,
+      currentQuestionIndex,
+      selectedAnswer: null,
+      showNextButton: false,
+      score,
+      quizId,
+    };
+
+    localStorage.setItem(`quiz-progress`, JSON.stringify(quizProgress));
+  };
+
   useEffect(() => {
     const savedProgress = JSON.parse(localStorage.getItem(`quiz-progress`));
     if (savedProgress && savedProgress.quizId === quizId) {
@@ -79,18 +92,6 @@ const PlayGame = () => {
       setShowNextButton(savedProgress.showNextButton);
       setScore(savedProgress.score);
       setQuizIdx(savedProgress.quizId);
-    } else {
-      const quizProgress = {
-        questions,
-        currentQuestionIndex,
-        selectedAnswer: null,
-        showNextButton: false,
-        score,
-        quizId,
-      };
-      if (questions.length > 0) {
-        localStorage.setItem(`quiz-progress`, JSON.stringify(quizProgress));
-      }
     }
   }, [quizId]);
 
