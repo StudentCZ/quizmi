@@ -88,7 +88,9 @@ const PlayGame = () => {
         score,
         quizId,
       };
-      localStorage.setItem(`quiz-progress`, JSON.stringify(quizProgress));
+      if (questions.length > 0) {
+        localStorage.setItem(`quiz-progress`, JSON.stringify(quizProgress));
+      }
     }
   }, [quizId]);
 
