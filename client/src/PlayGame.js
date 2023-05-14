@@ -223,7 +223,9 @@ const PlayGame = () => {
       ) : (
         <>
           <h1>Currently in progress, please check back later.</h1>
-          <Link to='/'>Main Menu</Link>
+          <Link to='/'>
+            <button className={style.button}>Main Menu</button>
+          </Link>
         </>
       )}
     </div>
