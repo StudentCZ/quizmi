@@ -95,6 +95,12 @@ const PlayGame = () => {
     }
   }, [quizId]);
 
+  useEffect(() => {
+    if (questions.length > 0) {
+      saveQuizProgressToLocalStorage();
+    }
+  }, [questions]);
+
   const currentQuestion = questions[currentQuestionIndex];
 
   const handleAnswerSelect = (answerId) => {
