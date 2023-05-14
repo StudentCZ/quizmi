@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getQuizQuestions, getQuestionAnswers } from './api';
 import style from './PlayGame.module.css';
+import progress from './images/Progress.png';
 import Answers from './Answers';
 
 const PlayGame = () => {
@@ -232,6 +233,7 @@ const PlayGame = () => {
       ) : (
         <>
           <h1>Currently in progress, please check back later.</h1>
+          <img src={progress} alt='progress' />
           <Link to='/'>
             <button className={style.button}>Main Menu</button>
           </Link>
