@@ -14,7 +14,8 @@ VALUES (1, 'Mathematics', '2+2 = ?', '', ''),
        (1, 'Mathematics', 'How much is a Quarter worth in cents?', '', ''),
        (1, 'Mathematics', 'Where are decimals located in a number?', '', ''),
        (1, 'Mathematics', 'What is 50% of 10?', '', ''),
-       (1, 'Mathematics', 'Which coin does the image show?', 'https://upload.wikimedia.org/wikipedia/en/0/0f/2022_Washington_quarter_obverse.jpeg', '')
+       (1, 'Mathematics', 'Which coin does the image show?', 'https://upload.wikimedia.org/wikipedia/en/0/0f/2022_Washington_quarter_obverse.jpeg', ''),
+       (1, 'Mathematics', 'How many sides does a pentagon have?', '', '')
        (2, 'Science', 'What is another name for fall?', '', ''),
        (2, 'Science', 'Which organ covers the entire body and protects it?', '', ''),
        (2, 'Science,' 'What is a baby cow called?', '',''),
