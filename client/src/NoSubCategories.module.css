@@ -60,3 +60,7 @@
   background-color: var(--button-hover-background-color);
   color: var(--button-hover-color);
 }
+
+.progress_image {
+  width: 50vw;
+}
