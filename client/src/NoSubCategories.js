@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getNoSubCategoryQuiz } from './api';
+import progress from './images/Progress.png';
 import style from './NoSubCategories.module.css';
 
 const NoSubCategories = () => {
@@ -31,6 +32,7 @@ const NoSubCategories = () => {
       ) : (
         <>
           <h1>Currently in progress, please check back later.</h1>
+          <img src={progress} alt='progress' />
         </>
       )}
       <Link to='/game/new'>
