@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getSubCategoryQuiz, getSubCategories } from './api';
 import { useParams, useNavigate } from 'react-router-dom';
+import progress from './images/Progress.png';
 import style from './SelectQuiz.module.css';
 
 const SelectQuiz = () => {
@@ -64,7 +65,7 @@ const SelectQuiz = () => {
       ) : (
         <>
           <h1>Currently in progress, please check back later.</h1>
-          <img src='' alt='Progress' />
+          <img src={progress} alt='Progress' className={style.progress_image} />
         </>
       )}
       {SelectedQuiz && (
