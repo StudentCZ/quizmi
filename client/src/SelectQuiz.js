@@ -64,6 +64,7 @@ const SelectQuiz = () => {
       ) : (
         <>
           <h1>Currently in progress, please check back later.</h1>
+          <img src='' alt='Progress' />
         </>
       )}
       {SelectedQuiz && (
