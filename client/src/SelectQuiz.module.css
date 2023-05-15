@@ -65,3 +65,7 @@
   background-color: var(--selected-background-color);
   color: var(--selected-text-color);
 }
+
+.progress_image {
+  width: 40vw;
+}
