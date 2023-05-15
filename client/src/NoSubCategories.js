@@ -32,7 +32,7 @@ const NoSubCategories = () => {
       ) : (
         <>
           <h1>Currently in progress, please check back later.</h1>
-          <img src={progress} alt='progress' />
+          <img src={progress} alt='progress' className={style.progress_image} />
         </>
       )}
       <Link to='/game/new'>
