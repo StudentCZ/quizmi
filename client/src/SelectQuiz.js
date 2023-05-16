@@ -8,6 +8,7 @@ const SelectQuiz = () => {
   const { categoryId, subcategoryId } = useParams();
   const [quizzes, setQuizzes] = useState([]);
   const [SelectedQuiz, setSelectedQuiz] = useState(null);
+  const [countdown, setCountdown] = useState(3);
   const navigate = useNavigate();
 
   useEffect(() => {
