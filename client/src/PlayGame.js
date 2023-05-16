@@ -103,6 +103,20 @@ const PlayGame = () => {
     }
   }, [questions]);
 
+  useEffect(() => {
+    const countdownInterval = setInterval(() => {
+      setCountDown((countdown) => countdown - 1);
+    }, 1000);
+
+    if (countdown === 0) {
+      clearInterval(countdownInterval);
+    }
+
+    return () => {
+      clearInterval(countdownInterval);
+    };
+  }, [countdown]);
+
   const currentQuestion = questions[currentQuestionIndex];
 
   const handleAnswerSelect = (answerId) => {
