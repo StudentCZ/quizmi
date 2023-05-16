@@ -45,7 +45,7 @@ const SelectQuiz = () => {
     let countdownInterval;
     if (startGameClicked) {
       countdownInterval = setInterval(() => {
-        setCountdown((countdown) => countdown + 1);
+        setCountdown((countdown) => countdown - 1);
       }, 1000);
     }
     if (countdown === 0) {
@@ -60,39 +60,44 @@ const SelectQuiz = () => {
 
   return (
     <div className={style.quiz_menu}>
-      <h1 className={style.quiz_heading}>Choose Quiz</h1>
-      {quizzes.length > 0 ? (
-        <ul className={style.quiz_unordered_list}>
-          {quizzes.map((quiz) => {
-            const isSelected =
-              SelectedQuiz && SelectedQuiz.quiz_id === quiz.quiz_id;
-            return (
-              <li
-                className={`${style.quiz_list_item} ${
-                  isSelected ? style.selected : ''
-                }`}
-                key={quiz.quiz_id}
-                onClick={() => handleQuizSelect(quiz)}
-              >
-                {quiz.title}
-              </li>
-            );
-          })}
-        </ul>
+      {countdown > 0 && startGameClicked ? (
+        <h1>{countdown}</h1>
+      ) : quizzes.length > 0 ? (
+        <>
+          <h1 className={style.quiz_heading}>Choose Quiz</h1>
+          <ul className={style.quiz_unordered_list}>
+            {quizzes.map((quiz) => {
+              const isSelected =
+                SelectedQuiz && SelectedQuiz.quiz_id === quiz.quiz_id;
+              return (
+                <li
+                  className={`${style.quiz_list_item} ${
+                    isSelected ? style.selected : ''
+                  }`}
+                  key={quiz.quiz_id}
+                  onClick={() => handleQuizSelect(quiz)}
+                >
+                  {quiz.title}
+                </li>
+              );
+            })}
+          </ul>
+        </>
       ) : (
         <>
           <h1>Currently in progress, please check back later.</h1>
           <img src={progress} alt='Progress' className={style.progress_image} />
         </>
       )}
-      {SelectedQuiz && (
-        <button
-          className={style.quiz_button}
-          onClick={() => handleStartGameClick(SelectedQuiz.quiz_id)}
-        >
-          Start Game
-        </button>
-      )}
+      {SelectedQuiz &&
+        !startGameClicked && ( // Render button only when startGameClicked is false
+          <button
+            className={style.quiz_button}
+            onClick={() => handleStartGameClick(SelectedQuiz.quiz_id)}
+          >
+            Start Game
+          </button>
+        )}
       <button className={style.quiz_button} onClick={handleBackButtonClick}>
         Back
       </button>
