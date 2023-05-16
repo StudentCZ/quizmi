@@ -183,9 +183,7 @@ const PlayGame = () => {
 
   return (
     <div className={style.game_menu}>
-      {countdown > 0 ? (
-        <h1>The Game Start In {countdown}</h1>
-      ) : questions.length ? (
+      {questions.length ? (
         <>
           <h1 className={style.heading}>{`Question ${
             currentQuestionIndex + 1
