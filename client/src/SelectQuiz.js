@@ -29,8 +29,7 @@ const SelectQuiz = () => {
   };
 
   const handleStartGameClick = (quizId) => {
-    localStorage.removeItem(`quiz-progress`);
-    navigate(`/quizzes/${quizId}/questions`);
+    setStartGameClicked(true);
   };
 
   const handleBackButtonClick = async () => {
