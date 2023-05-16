@@ -13,6 +13,7 @@ const PlayGame = () => {
   const [score, setScore] = useState(0);
   const [quizIdx, setQuizIdx] = useState(null);
   const { quizId } = useParams();
+  const [countdown, setCountDown] = useState(3);
   const navigate = useNavigate();
 
   useEffect(() => {
