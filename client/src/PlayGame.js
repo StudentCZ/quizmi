@@ -13,7 +13,6 @@ const PlayGame = () => {
   const [score, setScore] = useState(0);
   const [quizIdx, setQuizIdx] = useState(null);
   const { quizId } = useParams();
-  const [countdown, setCountDown] = useState(3);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -102,20 +101,6 @@ const PlayGame = () => {
       saveQuizProgressToLocalStorage();
     }
   }, [questions]);
-
-  useEffect(() => {
-    const countdownInterval = setInterval(() => {
-      setCountDown((countdown) => countdown - 1);
-    }, 1000);
-
-    if (countdown === 0) {
-      clearInterval(countdownInterval);
-    }
-
-    return () => {
-      clearInterval(countdownInterval);
-    };
-  }, [countdown]);
 
   const currentQuestion = questions[currentQuestionIndex];
 
