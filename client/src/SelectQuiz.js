@@ -41,6 +41,23 @@ const SelectQuiz = () => {
     }
   };
 
+  useEffect(() => {
+    let countdownInterval;
+    if (startGameClicked) {
+      countdownInterval = setInterval(() => {
+        setCountdown((countdown) => countdown + 1);
+      }, 1000);
+    }
+    if (countdown === 0) {
+      clearInterval(countdownInterval);
+      localStorage.removeItem(`quiz-progress`);
+      navigate(`/quizzes/${SelectedQuiz.quiz_id}/questions`);
+    }
+    return () => {
+      clearInterval(countdownInterval);
+    };
+  }, [countdown, navigate, SelectedQuiz, startGameClicked]);
+
   return (
     <div className={style.quiz_menu}>
       <h1 className={style.quiz_heading}>Choose Quiz</h1>
