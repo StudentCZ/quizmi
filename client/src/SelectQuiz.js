@@ -9,6 +9,7 @@ const SelectQuiz = () => {
   const [quizzes, setQuizzes] = useState([]);
   const [SelectedQuiz, setSelectedQuiz] = useState(null);
   const [countdown, setCountdown] = useState(3);
+  const [startGameClicked, setStartGameClicked] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
