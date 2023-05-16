@@ -61,7 +61,7 @@ const SelectQuiz = () => {
   return (
     <div className={style.quiz_menu}>
       {countdown > 0 && startGameClicked ? (
-        <h1>{countdown}</h1>
+        <h1>Game starts in {countdown}</h1>
       ) : quizzes.length > 0 ? (
         <>
           <h1 className={style.quiz_heading}>Choose Quiz</h1>
@@ -89,15 +89,14 @@ const SelectQuiz = () => {
           <img src={progress} alt='Progress' className={style.progress_image} />
         </>
       )}
-      {SelectedQuiz &&
-        !startGameClicked && ( // Render button only when startGameClicked is false
-          <button
-            className={style.quiz_button}
-            onClick={() => handleStartGameClick(SelectedQuiz.quiz_id)}
-          >
-            Start Game
-          </button>
-        )}
+      {SelectedQuiz && !startGameClicked && (
+        <button
+          className={style.quiz_button}
+          onClick={() => handleStartGameClick(SelectedQuiz.quiz_id)}
+        >
+          Start Game
+        </button>
+      )}
       <button className={style.quiz_button} onClick={handleBackButtonClick}>
         Back
       </button>
