@@ -10,11 +10,13 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const audioElement = document.getElementById('bg-music');
-    if (musicPlaying) {
-      audioElement.play();
-    } else {
-      audioElement.pause();
+    if (process.env.NODE_ENV !== 'test') {
+      const audioElement = document.getElementById('bg-music');
+      if (savedProgress) {
+        audioElement.play();
+      } else {
+        audioElement.pause();
+      }
     }
     if (savedProgress) {
       setHasSavedGame(true);
