@@ -78,7 +78,7 @@ test('Navigate to correct route when clicking Continue button', () => {
   fireEvent.click(continueButton);
 
   expect(history.location.pathname).toBe('/quizzes/123/questions');
-  expect(history.location.search).toBe('?continue=true');
+  expect(history.location.state).toEqual({ continue: true });
 });
 
 test('Navigate to correct route when clicking Settings button', () => {
