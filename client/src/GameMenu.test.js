@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-conditional-expect */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
@@ -33,5 +34,13 @@ test('renders Continue Button', () => {
     </Router>
   );
   const continueButton = screen.getByText('Continue Game');
+
   expect(continueButton).toBeInTheDocument();
+
+  const savedProgress = JSON.parse(localStorage.getItem('quiz-progress'));
+  if (savedProgress) {
+    expect(continueButton).not.toBeDisabled();
+  } else {
+    expect(continueButton).toBeDisabled();
+  }
 });
