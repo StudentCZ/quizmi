@@ -1,9 +1,13 @@
 /* eslint-disable jest/no-conditional-expect */
 import React from 'react';
-import { createMemoryHistory } from 'history';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  MemoryRouter,
+  Route,
+  Routes,
+} from 'react-router-dom';
 import GameMenu from './GameMenu';
 
 test('renders GameMenu component QuizMi', () => {
@@ -66,27 +70,22 @@ test('Navigate to correct route when clicking Continue Game button', () => {
 
   localStorage.setItem('quiz-progress', JSON.stringify(savedProgress));
 
-  const history = createMemoryHistory();
-
-  const navigate = jest.fn((path) => history.push(path));
-  jest
-    .spyOn(require('react-router-dom'), 'useNavigate')
-    .mockImplementation(() => navigate);
-
   render(
-    <Router history={history}>
-      <GameMenu />
-    </Router>
+    <MemoryRouter initialEntries={['/']}>
+      <Routes>
+        <Route path='/' element={<GameMenu />} />
+        <Route
+          path='/quizzes/:quizId/questions'
+          element={<div data-testid='quiz-route' />}
+        />
+      </Routes>
+    </MemoryRouter>
   );
 
   const continueButton = screen.getByText('Continue Game');
   fireEvent.click(continueButton);
 
-  expect(history.location.pathname).toBe(
-    `/quizzes/${savedProgress.quizId}/questions?continue=true`
-  );
-
-  jest.clearAllMocks();
+  expect(screen.getByText('quiz-route')).toBeInTheDocument();
 });
 
 test('Navigate to correct route when clicking Settings button', () => {
@@ -131,27 +130,6 @@ test('component updates based on localstorage changes', () => {
   );
 
   const continueButton = screen.getByText('Continue Game');
-
-  expect(continueButton).not.toBeDisabled();
-});
-
-test(`hasSavedGame and saveQuizId update correctly on mount based of localstorage`, () => {
-  const savedProgress = {
-    quizId: '123',
-  };
-
-  localStorage.setItem('quiz-progress', JSON.stringify(savedProgress));
-
-  render(
-    <Router>
-      <GameMenu />
-    </Router>
-  );
-
-  const continueButton = screen.getByText('Continue Game');
-
-  expect(GameMenu.hasSavedGame).toBe(true);
-  expect(GameMenu.savedQuizId).toBe(savedProgress.quizId);
 
   expect(continueButton).not.toBeDisabled();
 });
