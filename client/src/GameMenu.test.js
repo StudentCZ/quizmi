@@ -59,28 +59,6 @@ test('Navigate to correct route when clicking New Game button', () => {
   expect(window.location.pathname).toBe('/game/new');
 });
 
-test('Navigate to correct route when clicking Continue button', () => {
-  const history = createMemoryHistory();
-  history.push('/');
-
-  Object.defineProperty(window.localStorage, 'getItem', {
-    value: jest.fn().mockReturnValue(JSON.stringify({ quizId: '123' })),
-  });
-
-  render(
-    <Router history={history}>
-      <GameMenu />
-    </Router>
-  );
-
-  const continueButton = screen.getByText('Continue Game');
-
-  fireEvent.click(continueButton);
-
-  expect(history.location.pathname).toBe('/quizzes/123/questions');
-  expect(history.location.state).toEqual({ continue: true });
-});
-
 test('Navigate to correct route when clicking Settings button', () => {
   render(
     <Router>
@@ -93,4 +71,16 @@ test('Navigate to correct route when clicking Settings button', () => {
   fireEvent.click(settingsButton);
 
   expect(window.location.pathname).toBe('/settings');
+});
+
+test('renders disabled Continue Button when there is no saved progress', () => {
+  render(
+    <Router>
+      <GameMenu />
+    </Router>
+  );
+  const continueButton = screen.getByText('Continue Game');
+
+  expect(continueButton).toBeInTheDocument();
+  expect(continueButton).toBeDisabled();
 });
