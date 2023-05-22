@@ -2,13 +2,8 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import GameMenu from './GameMenu';
-
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useNavigate: jest.fn(),
-}));
 
 test('renders GameMenu component QuizMi', () => {
   render(
@@ -65,7 +60,6 @@ test('Navigate to correct route when clicking New Game button', () => {
 
 test('Navigate to correct route when clicking Continue button', () => {
   const mockNavigate = jest.fn();
-  useNavigate.mockReturnValue(mockNavigate);
 
   Object.defineProperty(window.localStorage, 'getItem', {
     value: jest.fn().mockReturnValue(JSON.stringify({ quizId: '123' })),
