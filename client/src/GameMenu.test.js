@@ -67,7 +67,7 @@ test('Navigate to correct route when clicking Continue button', () => {
 
   render(
     <Router>
-      <GameMenu />
+      <GameMenu navigate={mockNavigate} />
     </Router>
   );
 
