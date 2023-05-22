@@ -85,7 +85,7 @@ test('Navigate to correct route when clicking Continue Game button', () => {
   const continueButton = screen.getByText('Continue Game');
   fireEvent.click(continueButton);
 
-  expect(screen.getByText('quiz-route')).toBeInTheDocument();
+  expect(screen.getByTestId('quiz-route')).toBeInTheDocument();
 });
 
 test('Navigate to correct route when clicking Settings button', () => {
