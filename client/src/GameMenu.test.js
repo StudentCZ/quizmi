@@ -59,6 +59,29 @@ test('Navigate to correct route when clicking New Game button', () => {
   expect(window.location.pathname).toBe('/game/new');
 });
 
+test('Navigate to correct route when clicking Continue Game button', () => {
+  const savedProgress = {
+    quizId: '123',
+  };
+
+  localStorage.setItem('quiz-progress', JSON.stringify(savedProgress));
+
+  const history = createMemoryHistory();
+
+  render(
+    <Router history={history}>
+      <GameMenu />
+    </Router>
+  );
+
+  const continueButton = screen.getByText('Continue Game');
+  fireEvent.click(continueButton);
+
+  expect(history.location.pathname).toBe(
+    `/quizzes/${savedProgress.quizId}/questions?continue=true`
+  );
+});
+
 test('Navigate to correct route when clicking Settings button', () => {
   render(
     <Router>
