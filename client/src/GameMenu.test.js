@@ -57,3 +57,17 @@ test('Navigate to correct route when clicking New Game button', () => {
 
   expect(window.location.pathname).toBe('/game/new');
 });
+
+test('Navigate to correct route when clicking Settings button', () => {
+  render(
+    <Router>
+      <GameMenu />
+    </Router>
+  );
+
+  const settingsButton = screen.getByText('Settings');
+
+  fireEvent.click(settingsButton);
+
+  expect(window.location.pathname).toBe('/settings');
+});
