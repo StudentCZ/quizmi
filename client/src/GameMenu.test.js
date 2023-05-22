@@ -44,3 +44,16 @@ test('renders Continue Button', () => {
     expect(continueButton).toBeDisabled();
   }
 });
+
+test('Navigate to correct route when clicking New Game button', () => {
+  render(
+    <Router>
+      <GameMenu />
+    </Router>
+  );
+  const newGameButton = screen.getByText('New Game');
+
+  fireEvent.click(newGameButton);
+
+  expect(window.location.pathname).toBe('/game/new');
+});
