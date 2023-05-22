@@ -97,6 +97,8 @@ test('Navigate to correct route when clicking Settings button', () => {
 });
 
 test('renders disabled Continue Button when there is no saved progress', () => {
+  localStorage.setItem('quiz-progress', null);
+
   render(
     <Router>
       <GameMenu />
