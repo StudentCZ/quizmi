@@ -134,3 +134,24 @@ test('component updates based on localstorage changes', () => {
 
   expect(continueButton).not.toBeDisabled();
 });
+
+test(`hasSavedGame and saveQuizId update correctly on mount based of localstorage`, () => {
+  const savedProgress = {
+    quizId: '123',
+  };
+
+  localStorage.setItem('quiz-progress', JSON.stringify(savedProgress));
+
+  render(
+    <Router>
+      <GameMenu />
+    </Router>
+  );
+
+  const continueButton = screen.getByText('Continue Game');
+
+  expect(GameMenu.hasSavedGame).toBe(true);
+  expect(GameMenu.savedQuizId).toBe(savedProgress.quizId);
+
+  expect(continueButton).not.toBeDisabled();
+});
