@@ -1,5 +1,6 @@
 /* eslint-disable jest/no-conditional-expect */
 import React from 'react';
+import { createMemoryHistory } from 'history';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -59,17 +60,16 @@ test('Navigate to correct route when clicking New Game button', () => {
 });
 
 test('Navigate to correct route when clicking Continue button', () => {
-  const mockNavigate = jest.fn();
-
-  console.log(mockNavigate);
+  const history = createMemoryHistory();
+  history.push('/');
 
   Object.defineProperty(window.localStorage, 'getItem', {
     value: jest.fn().mockReturnValue(JSON.stringify({ quizId: '123' })),
   });
 
   render(
-    <Router>
-      <GameMenu navigate={mockNavigate} />
+    <Router history={history}>
+      <GameMenu />
     </Router>
   );
 
@@ -77,9 +77,8 @@ test('Navigate to correct route when clicking Continue button', () => {
 
   fireEvent.click(continueButton);
 
-  expect(mockNavigate).toHaveBeenCalledWith(
-    '/quizzes/123/questions?continue=true'
-  );
+  expect(history.location.pathname).toBe('/quizzes/123/questions');
+  expect(history.location.search).toBe('?continue=true');
 });
 
 test('Navigate to correct route when clicking Settings button', () => {
