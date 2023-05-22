@@ -58,6 +58,28 @@ test('Navigate to correct route when clicking New Game button', () => {
   expect(window.location.pathname).toBe('/game/new');
 });
 
+test('Navigate to correct route when clicking Continue button', () => {
+  const mockNavigate = jest.fn();
+
+  jest
+    .spyOn(localStorage, 'getItem')
+    .mockReturnValue(JSON.stringify({ quizId: '123' }));
+
+  render(
+    <Router>
+      <GameMenu />
+    </Router>
+  );
+
+  const continueButton = screen.getByText('Continue Game');
+
+  fireEvent.click(continueButton);
+
+  expect(mockNavigate).toHaveBeenCalledWith(
+    '/quizzes/123/questions?continue=true'
+  );
+});
+
 test('Navigate to correct route when clicking Settings button', () => {
   render(
     <Router>
