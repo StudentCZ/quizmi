@@ -25,3 +25,13 @@ test('renders New Game Button', () => {
   const newGameButton = screen.getByText('New Game');
   expect(newGameButton).toBeInTheDocument();
 });
+
+test('renders Continue Button', () => {
+  render(
+    <Router>
+      <GameMenu />
+    </Router>
+  );
+  const continueButton = screen.getByText('Continue Game');
+  expect(continueButton).toBeInTheDocument();
+});
