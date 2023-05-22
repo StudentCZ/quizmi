@@ -10,19 +10,11 @@ const GameMenu = ({ musicPlaying, toggleMusic }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (process.env.NODE_ENV !== 'test') {
-      const audioElement = document.getElementById('bg-music');
-      if (savedProgress) {
-        audioElement.play();
-      } else {
-        audioElement.pause();
-      }
-    }
     if (savedProgress) {
       setHasSavedGame(true);
       setSavedQuizId(savedProgress.quizId);
     }
-  }, [musicPlaying, savedProgress]);
+  }, [savedProgress]);
 
   const handleContinueGame = () => {
     navigate(`/quizzes/${savedQuizId}/questions?continue=true`);

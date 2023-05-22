@@ -61,6 +61,8 @@ test('Navigate to correct route when clicking New Game button', () => {
 test('Navigate to correct route when clicking Continue button', () => {
   const mockNavigate = jest.fn();
 
+  console.log(mockNavigate);
+
   Object.defineProperty(window.localStorage, 'getItem', {
     value: jest.fn().mockReturnValue(JSON.stringify({ quizId: '123' })),
   });
