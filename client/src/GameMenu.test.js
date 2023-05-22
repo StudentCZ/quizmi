@@ -84,3 +84,36 @@ test('renders disabled Continue Button when there is no saved progress', () => {
   expect(continueButton).toBeInTheDocument();
   expect(continueButton).toBeDisabled();
 });
+
+test('renders disabled Continue button when saved progress is removed', () => {
+  const originalStorageState = window.localStorage;
+  window.localStorage = {
+    getItem: jest.fn().mockReturnValue(JSON.stringify({ quizId: '123' })),
+  };
+
+  render(
+    <Router>
+      <GameMenu />
+    </Router>
+  );
+
+  const continueButton = screen.getByText('Continue Game');
+
+  expect(continueButton).not.toBeDisabled();
+
+  window.localStorage = {
+    getItem: jest.fn().mockReturnValue(null),
+  };
+
+  render(
+    <Router>
+      <GameMenu />
+    </Router>
+  );
+
+  const updatedContinueButton = screen.getByText('Continue Game');
+
+  expect(updatedContinueButton).toBeDisabled();
+
+  window.localStorage = originalStorageState;
+});
