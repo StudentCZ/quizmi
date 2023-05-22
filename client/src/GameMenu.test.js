@@ -3,7 +3,7 @@ import React from 'react';
 import { createMemoryHistory } from 'history';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
 import GameMenu from './GameMenu';
 
 test('renders GameMenu component QuizMi', () => {
@@ -68,6 +68,11 @@ test('Navigate to correct route when clicking Continue Game button', () => {
 
   const history = createMemoryHistory();
 
+  const navigate = jest.fn((path) => history.push(path));
+  jest
+    .spyOn(require('react-router-dom'), 'useNavigate')
+    .mockImplementation(() => navigate);
+
   render(
     <Router history={history}>
       <GameMenu />
@@ -80,6 +85,8 @@ test('Navigate to correct route when clicking Continue Game button', () => {
   expect(history.location.pathname).toBe(
     `/quizzes/${savedProgress.quizId}/questions?continue=true`
   );
+
+  jest.clearAllMocks();
 });
 
 test('Navigate to correct route when clicking Settings button', () => {
@@ -108,4 +115,22 @@ test('renders disabled Continue Button when there is no saved progress', () => {
 
   expect(continueButton).toBeInTheDocument();
   expect(continueButton).toBeDisabled();
+});
+
+test('component updates based on localstorage changes', () => {
+  const savedProgress = {
+    quidId: '123',
+  };
+
+  localStorage.setItem('quiz-progress', JSON.stringify(savedProgress));
+
+  render(
+    <Router>
+      <GameMenu />
+    </Router>
+  );
+
+  const continueButton = screen.getByText('Continue Game');
+
+  expect(continueButton).not.toBeDisabled();
 });
