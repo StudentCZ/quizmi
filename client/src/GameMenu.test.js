@@ -13,15 +13,15 @@ test('renders GameMenu component QuizMi', () => {
 
   const headingElement = screen.getByText('QuizMi');
   expect(headingElement).toBeInTheDocument();
+});
 
-  test('renders New Game Button', () => {
-    render(
-      <Router>
-        <GameMenu />
-      </Router>
-    );
+test('renders New Game Button', () => {
+  render(
+    <Router>
+      <GameMenu />
+    </Router>
+  );
 
-    const newGameButton = screen.getByText('New Game');
-    expect(newGameButton).toBeInTheDocument();
-  });
+  const newGameButton = screen.getByText('New Game');
+  expect(newGameButton).toBeInTheDocument();
 });
