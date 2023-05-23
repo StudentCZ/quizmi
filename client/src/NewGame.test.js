@@ -2,9 +2,10 @@
 import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
-import { MemoryRouter, Route } from 'react-router-dom';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import NewGame from './NewGame';
-import { getCategories } from './api';
+import SubCategories from './SubCategories';
+import { getCategories, getSubCategories } from './api';
 
 jest.mock('./api');
 
@@ -38,17 +39,18 @@ test('Navigates to correct route when clicking a category', async () => {
   const mockCategory = [{ category_id: 1, name: 'Mathematics' }];
   getCategories.mockResolvedValue(mockCategory);
 
+  const mockSubcategory = [{ category_id: 1, name: '1st Grade Math' }];
+  getSubCategories.mockResolvedValue(mockSubcategory);
+
   render(
     <MemoryRouter initialEntries={['/newgame']}>
-      <Route path='/newgame'>
-        <NewGame />
-      </Route>
-      <Route path='/category/:categoryId/subcategories'>
-        <div>Subcategories Route</div>
-      </Route>
-      <Route path='/category/:categoryId/quizzes'>
-        <div>Quizzes Route</div>
-      </Route>
+      <Routes>
+        <Route path='/newgame' element={<NewGame />}></Route>
+        <Route
+          path='/category/:categoryId/subcategories'
+          element={<SubCategories />}
+        ></Route>
+      </Routes>
     </MemoryRouter>
   );
 
@@ -59,6 +61,6 @@ test('Navigates to correct route when clicking a category', async () => {
   fireEvent.click(screen.getByText('Mathematics'));
 
   await waitFor(() => {
-    expect(screen.getByText('Subcategories Route')).toBeInTheDocument();
+    expect(screen.getByText('1st Grade Math')).toBeInTheDocument();
   });
 });
