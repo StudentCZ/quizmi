@@ -5,7 +5,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 export const getCategories = async () => {
   try {
     const { data } = await axios.get(`${API_URL}/categories`);
-    return data;
+    return data || [];
   } catch (error) {
     console.error(error.message);
   }
@@ -16,7 +16,7 @@ export const getSubCategories = async (categoryId) => {
     const { data } = await axios.get(
       `${API_URL}/categories/${categoryId}/subcategories`
     );
-    return data;
+    return data || [];
   } catch (error) {
     console.error(error.message);
   }
@@ -27,7 +27,7 @@ export const getSubCategoryQuiz = async (categoryId, subcategoryId) => {
     const { data } = await axios.get(
       `${API_URL}/categories/${categoryId}/subcategories/${subcategoryId}/quizzes`
     );
-    return data;
+    return data || [];
   } catch (error) {
     console.error(error.message);
   }
