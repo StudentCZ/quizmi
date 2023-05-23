@@ -6,7 +6,7 @@ import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import NewGame from './NewGame';
 import SubCategories from './SubCategories';
 import NoSubCategories from './NoSubCategories';
-import { getCategories, getSubCategories } from './api';
+import { getCategories, getNoSubCategoryQuiz, getSubCategories } from './api';
 
 jest.mock('./api');
 
@@ -78,6 +78,9 @@ test('Navigate to quizzes routes when the category has no subcategories', async 
 
   const mockSubcategory = [];
   getSubCategories.mockResolvedValue(mockSubcategory);
+
+  const mockNoSubcategoryQuiz = [];
+  getNoSubCategoryQuiz.mockResolvedValue(mockNoSubcategoryQuiz);
 
   render(
     <MemoryRouter initialEntries={['/newgame']}>
