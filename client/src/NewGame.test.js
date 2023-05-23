@@ -6,6 +6,7 @@ import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import NewGame from './NewGame';
 import SubCategories from './SubCategories';
 import NoSubCategories from './NoSubCategories';
+import GameMenu from './GameMenu';
 import { getCategories, getNoSubCategoryQuiz, getSubCategories } from './api';
 
 jest.mock('./api');
