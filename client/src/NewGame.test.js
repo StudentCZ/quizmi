@@ -83,7 +83,21 @@ test('Navigate to quizzes routes when the category has no subcategories', async 
     <MemoryRouter initialEntries={['/newgame']}>
       <Routes>
         <Route path='/newgame' element={<NewGame />}></Route>
+        <Route
+          path='/category/:categoryId/quizzes'
+          element={<NoSubCategories />}
+        ></Route>
       </Routes>
     </MemoryRouter>
   );
+
+  await waitFor(() => {
+    expect(screen.getByText('Trivia')).toBeInTheDocument();
+  });
+
+  fireEvent.click(screen.getByText('Trivia'));
+
+  await waitFor(() => {
+    expect(screen.getByText('Choose Quiz')).toBeInTheDocument();
+  });
 });
