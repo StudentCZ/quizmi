@@ -5,8 +5,6 @@ import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import { MemoryRouter, Route } from 'react-router-dom';
 import NewGame from './NewGame';
 import { getCategories } from './api';
-import userEvent from '@testing-library/user-event';
-import axiosMock from 'axios';
 
 jest.mock('./api');
 
