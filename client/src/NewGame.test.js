@@ -39,7 +39,7 @@ test('Navigates to correct route when clicking a category', async () => {
   const mockCategory = [{ category_id: 1, name: 'Mathematics' }];
   getCategories.mockResolvedValue(mockCategory);
 
-  const mockSubcategory = [{ category_id: 1, name: '1st Grade Math' }];
+  const mockSubcategory = [{ subcategories_id: 1, name: '1st Grade Math' }];
   getSubCategories.mockResolvedValue(mockSubcategory);
 
   render(
