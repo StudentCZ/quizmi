@@ -10,8 +10,12 @@ const NoSubCategories = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const quizData = await getNoSubCategoryQuiz(categoryId);
-      setQuizzes(quizData);
+      try {
+        const quizData = await getNoSubCategoryQuiz(categoryId);
+        setQuizzes(quizData);
+      } catch (error) {
+        console.error(error);
+      }
     };
     fetchData();
   }, [categoryId]);
