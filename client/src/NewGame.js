@@ -6,6 +6,7 @@ import style from './NewGame.module.css';
 const NewGame = () => {
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
+  console.log(categories);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -5,6 +5,7 @@ import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import NewGame from './NewGame';
 import SubCategories from './SubCategories';
+import NoSubCategories from './NoSubCategories';
 import { getCategories, getSubCategories } from './api';
 
 jest.mock('./api');
@@ -63,4 +64,26 @@ test('Navigates to correct route when clicking a category', async () => {
   await waitFor(() => {
     expect(screen.getByText('1st Grade Math')).toBeInTheDocument();
   });
+});
+
+test('Navigate to quizzes routes when the category has no subcategories', async () => {
+  const mockCategory = [
+    {
+      category_id: 14,
+      name: 'Trivia',
+    },
+  ];
+
+  getCategories.mockResolvedValue(mockCategory);
+
+  const mockSubcategory = [];
+  getSubCategories.mockResolvedValue(mockSubcategory);
+
+  render(
+    <MemoryRouter initialEntries={['/newgame']}>
+      <Routes>
+        <Route path='/newgame' element={<NewGame />}></Route>
+      </Routes>
+    </MemoryRouter>
+  );
 });
