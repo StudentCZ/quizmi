@@ -105,3 +105,20 @@ test('Navigate to quizzes routes when the category has no subcategories', async 
     expect(screen.getByText('Choose Quiz')).toBeInTheDocument();
   });
 });
+
+test('Navigate to the home screen when the Main Menu button is clicked', async () => {
+  render(
+    <MemoryRouter initialEntries={['/newgame']}>
+      <Routes>
+        <Route path='/newgame' element={<NewGame />}></Route>
+        <Route path='/' element={<GameMenu />}></Route>
+      </Routes>
+    </MemoryRouter>
+  );
+
+  fireEvent.click(screen.getByText('Main Menu'));
+
+  await waitFor(() => {
+    expect(screen.getByText('QuizMi')).toBeInTheDocument();
+  });
+});
