@@ -33,3 +33,32 @@ test('fetches categories and renders on mount', async () => {
     expect(screen.getByText('History')).toBeInTheDocument();
   });
 });
+
+test('Navigates to correct route when clicking a category', async () => {
+  const mockCategory = [{ category_id: 1, name: 'Mathematics' }];
+  getCategories.mockResolvedValue(mockCategory);
+
+  render(
+    <MemoryRouter initialEntries={['/newgame']}>
+      <Route path='/newgame'>
+        <NewGame />
+      </Route>
+      <Route path='/category/:categoryId/subcategories'>
+        <div>Subcategories Route</div>
+      </Route>
+      <Route path='/category/:categoryId/quizzes'>
+        <div>Quizzes Route</div>
+      </Route>
+    </MemoryRouter>
+  );
+
+  await waitFor(() => {
+    expect(screen.getByText('Mathematics')).toBeInTheDocument();
+  });
+
+  fireEvent.click(screen.getByText('Mathematics'));
+
+  await waitFor(() => {
+    expect(screen.getByText('Subcategories Route')).toBeInTheDocument();
+  });
+});
