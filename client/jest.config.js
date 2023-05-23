@@ -3,4 +3,8 @@ module.exports = {
   moduleNameMapper: {
     '\\.css$': 'identity-obj-proxy',
   },
+  transform: {
+    '^.+\\.jsx?$': 'babel-jest',
+  },
+  transformIgnorePatterns: ['node_modules/(?!(axios)/)'],
 };
