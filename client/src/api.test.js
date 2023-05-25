@@ -57,4 +57,34 @@ describe('API functions', () => {
       `${process.env.REACT_APP_API_URL}/categories/${categoryId}/subcategories`
     );
   });
+
+  it('get subcategory quiz', async () => {
+    const subcategoryquizzes = [
+      {
+        category_id: 1,
+        subcategory_id: 1,
+        quiz_id: 1,
+        title: 'Math 1A',
+        description: 'null',
+      },
+      {
+        category_id: 1,
+        subcategory_id: 1,
+        quiz_id: 2,
+        title: 'Math 1B',
+        description: 'null',
+      },
+    ];
+    const categoryId = 1;
+    const subcategoryId = 1;
+
+    axios.get.mockResolvedValue({ data: subcategoryquizzes });
+
+    const result = await getSubCategoryQuiz(categoryId, subcategoryId);
+
+    expect(result).toEqual(subcategoryquizzes);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${process.env.REACT_APP_API_URL}/categories/${categoryId}/subcategories/${subcategoryId}/quizzes`
+    );
+  });
 });
