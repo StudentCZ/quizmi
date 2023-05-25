@@ -7,3 +7,9 @@ import {
   getQuizQuestions,
   getQuestionAnswers,
 } from './api';
+
+jest.mock('axios');
+
+afterEach(() => {
+  jest.resetAllMocks();
+});
