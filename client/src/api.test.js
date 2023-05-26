@@ -235,4 +235,20 @@ describe('API functions - Error Cases', () => {
       `${BASE_URL}/categories/${categoryId}/quizzes`
     );
   });
+  it('handle errors when getting quiz questions', async () => {
+    const errorMessage = 'Network Error';
+    axios.get.mockRejectedValue(new Error(errorMessage));
+    const quizId = 1;
+
+    try {
+      await getQuizQuestions(quizId);
+    } catch (error) {
+      expect(error).toEqual(new Error(errorMessage));
+    }
+
+    expect(console.error).toHaveBeenCalledWith(errorMessage);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${BASE_URL}/quizzes/${quizId}/questions`
+    );
+  });
 });
