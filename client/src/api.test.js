@@ -129,4 +129,37 @@ describe('API functions', () => {
       `${process.env.REACT_APP_API_URL}/quizzes/${quizId}/questions`
     );
   });
+
+  it('get questions answers', async () => {
+    const answers = [
+      {
+        question_id: 1,
+        answer_text: '4',
+        is_correct: true,
+      },
+      {
+        question_id: 1,
+        answer_text: '5',
+        is_correct: false,
+      },
+      {
+        question_id: 1,
+        answer_text: '2',
+        is_correct: false,
+      },
+      {
+        question_id: 1,
+        answer_text: '7',
+        is_correct: false,
+      },
+    ];
+    const questionId = 1;
+    axios.get.mockResolvedValue({ data: answers });
+    const result = await getQuestionAnswers(questionId);
+
+    expect(result).toEqual(answers);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${process.env.REACT_APP_API_URL}/questions/${questionId}/answers`
+    );
+  });
 });
