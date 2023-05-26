@@ -200,4 +200,22 @@ describe('API functions - Error Cases', () => {
       `${BASE_URL}/categories/${categoryId}/subcategories`
     );
   });
+
+  it('handles errors when getting subcatgories quiz', async () => {
+    const errorMessage = 'Network Error';
+    axios.get.mockRejectedValue(new Error(errorMessage));
+    const categoryId = 1;
+    const subcategoryId = 1;
+
+    try {
+      await getSubCategoryQuiz(categoryId, subcategoryId);
+    } catch (error) {
+      expect(error).toEqual(new Error(errorMessage));
+    }
+
+    expect(console.error).toHaveBeenCalledWith(errorMessage);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${BASE_URL}/categories/${categoryId}/subcategories/${subcategoryId}/quizzes`
+    );
+  });
 });
