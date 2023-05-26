@@ -14,7 +14,7 @@ afterEach(() => {
   jest.resetAllMocks();
 });
 
-describe('API functions', () => {
+describe('API functions - success cases', () => {
   const BASE_URL = process.env.REACT_APP_API_URL;
   it('gets categories', async () => {
     const categories = [
