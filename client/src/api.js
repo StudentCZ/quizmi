@@ -47,7 +47,7 @@ export const getNoSubCategoryQuiz = async (categoryId) => {
 export const getQuizQuestions = async (quizId) => {
   try {
     const { data } = await axios.get(`${BASE_URL}/quizzes/${quizId}/questions`);
-    return data;
+    return data || [];
   } catch (error) {
     console.error(error.message);
   }
@@ -58,7 +58,7 @@ export const getQuestionAnswers = async (questionId) => {
     const { data } = await axios.get(
       `${BASE_URL}/questions/${questionId}/answers`
     );
-    return data;
+    return data || [];
   } catch (error) {
     console.error(error.message);
   }
