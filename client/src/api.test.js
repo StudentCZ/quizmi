@@ -166,7 +166,10 @@ describe('API functions - Success Cases', () => {
 
 describe('API functions - Error Cases', () => {
   const BASE_URL = process.env.REACT_APP_API_URL;
-  console.error = jest.fn();
+
+  beforeEach(() => {
+    console.error = jest.fn();
+  });
 
   it('handle errors when getting categories', async () => {
     const errorMessage = 'Network Error';
