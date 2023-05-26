@@ -32,9 +32,7 @@ describe('API functions', () => {
     const result = await getCategories();
 
     expect(result).toEqual(categories);
-    expect(axios.get).toHaveBeenCalledWith(
-      `${process.env.REACT_APP_API_URL}/categories`
-    );
+    expect(axios.get).toHaveBeenCalledWith(`${BASE_URL}/categories`);
   });
 
   it('get subcategories', async () => {
@@ -55,7 +53,7 @@ describe('API functions', () => {
     const result = await getSubCategories(categoryId);
     expect(result).toEqual(subcategories);
     expect(axios.get).toHaveBeenCalledWith(
-      `${process.env.REACT_APP_API_URL}/categories/${categoryId}/subcategories`
+      `${BASE_URL}/categories/${categoryId}/subcategories`
     );
   });
 
@@ -85,7 +83,7 @@ describe('API functions', () => {
 
     expect(result).toEqual(subcategoryquizzes);
     expect(axios.get).toHaveBeenCalledWith(
-      `${process.env.REACT_APP_API_URL}/categories/${categoryId}/subcategories/${subcategoryId}/quizzes`
+      `${BASE_URL}/categories/${categoryId}/subcategories/${subcategoryId}/quizzes`
     );
   });
 
@@ -105,7 +103,7 @@ describe('API functions', () => {
     const result = await getNoSubCategoryQuiz(categoryId);
     expect(result).toEqual(categoryquiz);
     expect(axios.get).toHaveBeenCalledWith(
-      `${process.env.REACT_APP_API_URL}/categories/${categoryId}/quizzes`
+      `${BASE_URL}/categories/${categoryId}/quizzes`
     );
   });
 
@@ -127,7 +125,7 @@ describe('API functions', () => {
 
     expect(result).toEqual(questions);
     expect(axios.get).toHaveBeenCalledWith(
-      `${process.env.REACT_APP_API_URL}/quizzes/${quizId}/questions`
+      `${BASE_URL}/quizzes/${quizId}/questions`
     );
   });
 
@@ -160,7 +158,7 @@ describe('API functions', () => {
 
     expect(result).toEqual(answers);
     expect(axios.get).toHaveBeenCalledWith(
-      `${process.env.REACT_APP_API_URL}/questions/${questionId}/answers`
+      `${BASE_URL}/questions/${questionId}/answers`
     );
   });
 });
