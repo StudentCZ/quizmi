@@ -87,4 +87,24 @@ describe('API functions', () => {
       `${process.env.REACT_APP_API_URL}/categories/${categoryId}/subcategories/${subcategoryId}/quizzes`
     );
   });
+
+  it('get no subcategory quiz', async () => {
+    const categoryquiz = [
+      {
+        category_id: 15,
+        quiz_id: 15,
+        title: 'Trivia 1A',
+        description: 'null',
+      },
+    ];
+    const categoryId = 15;
+
+    axios.get.mockResolvedValue({ data: categoryquiz });
+
+    const result = await getNoSubCategoryQuiz(categoryId);
+    expect(result).toEqual(categoryquiz);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${process.env.REACT_APP_API_URL}/categories/${categoryId}/quizzes`
+    );
+  });
 });
