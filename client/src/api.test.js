@@ -15,6 +15,7 @@ afterEach(() => {
 });
 
 describe('API functions', () => {
+  const BASE_URL = process.env.REACT_APP_API_URL;
   it('gets categories', async () => {
     const categories = [
       {
