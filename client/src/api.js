@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL;
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 export const getCategories = async () => {
   try {
-    const { data } = await axios.get(`${API_URL}/categories`);
+    const { data } = await axios.get(`${BASE_URL}/categories`);
     return data || [];
   } catch (error) {
     console.error(error.message);
@@ -14,7 +14,7 @@ export const getCategories = async () => {
 export const getSubCategories = async (categoryId) => {
   try {
     const { data } = await axios.get(
-      `${API_URL}/categories/${categoryId}/subcategories`
+      `${BASE_URL}/categories/${categoryId}/subcategories`
     );
     return data || [];
   } catch (error) {
@@ -25,7 +25,7 @@ export const getSubCategories = async (categoryId) => {
 export const getSubCategoryQuiz = async (categoryId, subcategoryId) => {
   try {
     const { data } = await axios.get(
-      `${API_URL}/categories/${categoryId}/subcategories/${subcategoryId}/quizzes`
+      `${BASE_URL}/categories/${categoryId}/subcategories/${subcategoryId}/quizzes`
     );
     return data || [];
   } catch (error) {
@@ -36,7 +36,7 @@ export const getSubCategoryQuiz = async (categoryId, subcategoryId) => {
 export const getNoSubCategoryQuiz = async (categoryId) => {
   try {
     const { data } = await axios.get(
-      `${API_URL}/categories/${categoryId}/quizzes`
+      `${BASE_URL}/categories/${categoryId}/quizzes`
     );
     return data || [];
   } catch (error) {
@@ -46,7 +46,7 @@ export const getNoSubCategoryQuiz = async (categoryId) => {
 
 export const getQuizQuestions = async (quizId) => {
   try {
-    const { data } = await axios.get(`${API_URL}/quizzes/${quizId}/questions`);
+    const { data } = await axios.get(`${BASE_URL}/quizzes/${quizId}/questions`);
     return data;
   } catch (error) {
     console.error(error.message);
@@ -56,7 +56,7 @@ export const getQuizQuestions = async (quizId) => {
 export const getQuestionAnswers = async (questionId) => {
   try {
     const { data } = await axios.get(
-      `${API_URL}/questions/${questionId}/answers`
+      `${BASE_URL}/questions/${questionId}/answers`
     );
     return data;
   } catch (error) {
