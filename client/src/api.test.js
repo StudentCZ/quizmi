@@ -107,4 +107,26 @@ describe('API functions', () => {
       `${process.env.REACT_APP_API_URL}/categories/${categoryId}/quizzes`
     );
   });
+
+  it('get quiz questions', async () => {
+    const questions = [
+      {
+        quiz_id: 1,
+        subject: 'Mathematics',
+        question_text: '2+2 = ?',
+        image_url: '',
+        audio_url: '',
+      },
+    ];
+    const quizId = 1;
+
+    axios.get.mockResolvedValue({ data: questions });
+
+    const result = await getQuizQuestions(quizId);
+
+    expect(result).toEqual(questions);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${process.env.REACT_APP_API_URL}/quizzes/${quizId}/questions`
+    );
+  });
 });
