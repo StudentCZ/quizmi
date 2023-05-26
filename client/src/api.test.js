@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-conditional-expect */
 import axios from 'axios';
 import {
   getCategories,
@@ -14,7 +15,7 @@ afterEach(() => {
   jest.resetAllMocks();
 });
 
-describe('API functions - success cases', () => {
+describe('API functions - Success Cases', () => {
   const BASE_URL = process.env.REACT_APP_API_URL;
   it('gets categories', async () => {
     const categories = [
@@ -160,5 +161,23 @@ describe('API functions - success cases', () => {
     expect(axios.get).toHaveBeenCalledWith(
       `${BASE_URL}/questions/${questionId}/answers`
     );
+  });
+});
+
+describe('API functions - Error Cases', () => {
+  const BASE_URL = process.env.REACT_APP_API_URL;
+  console.error = jest.fn();
+
+  it('handle errors when getting categories', async () => {
+    const errorMessage = 'Network Error';
+    axios.get.mockRejectedValue(new Error(errorMessage));
+
+    try {
+      await getCategories();
+    } catch (error) {
+      expect(error).toEqual(new Error(errorMessage));
+    }
+    expect(console.error).toHaveBeenCalledWith(errorMessage);
+    expect(axios.get).toHaveBeenCalledWith(`${BASE_URL}/categories`);
   });
 });
