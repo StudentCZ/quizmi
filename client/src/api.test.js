@@ -183,4 +183,21 @@ describe('API functions - Error Cases', () => {
     expect(console.error).toHaveBeenCalledWith(errorMessage);
     expect(axios.get).toHaveBeenCalledWith(`${BASE_URL}/categories`);
   });
+
+  it('handles errors when getting subcategories', async () => {
+    const errorMessage = 'NetWork Error';
+    axios.get.mockRejectedValue(new Error(errorMessage));
+    const categoryId = 1;
+
+    try {
+      await getSubCategories(categoryId);
+    } catch (error) {
+      expect(error).toEqual(new Error(errorMessage));
+    }
+
+    expect(console.error).toHaveBeenCalledWith(errorMessage);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${BASE_URL}/categories/${categoryId}/subcategories`
+    );
+  });
 });
