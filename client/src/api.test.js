@@ -184,7 +184,7 @@ describe('API functions - Error Cases', () => {
     expect(axios.get).toHaveBeenCalledWith(`${BASE_URL}/categories`);
   });
 
-  it('handles errors when getting subcategories', async () => {
+  it('handle errors when getting subcategories', async () => {
     const errorMessage = 'NetWork Error';
     axios.get.mockRejectedValue(new Error(errorMessage));
     const categoryId = 1;
@@ -201,7 +201,7 @@ describe('API functions - Error Cases', () => {
     );
   });
 
-  it('handles errors when getting subcatgories quiz', async () => {
+  it('handle errors when getting subcatgories quiz', async () => {
     const errorMessage = 'Network Error';
     axios.get.mockRejectedValue(new Error(errorMessage));
     const categoryId = 1;
@@ -219,7 +219,7 @@ describe('API functions - Error Cases', () => {
     );
   });
 
-  it('handles errors when getting no subcategories quiz', async () => {
+  it('handle errors when getting no subcategories quiz', async () => {
     const errorMessage = 'Network Error';
     axios.get.mockRejectedValue(new Error(errorMessage));
     const categoryId = 1;
