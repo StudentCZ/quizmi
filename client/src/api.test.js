@@ -286,7 +286,16 @@ describe('API functions - Edge Cases', () => {
 
     const result = await getCategories();
 
-    expect(result).toEqual(null);
+    expect(result).toEqual([]);
+    expect(axios.get).toHaveBeenCalledWith(`${BASE_URL}/categories`);
+  });
+
+  it('When getCatgegories return undefined', async () => {
+    axios.get.mockResolvedValue({ data: undefined });
+
+    const result = await getCategories();
+
+    expect(result).toEqual([]);
     expect(axios.get).toHaveBeenCalledWith(`${BASE_URL}/categories`);
   });
 });
