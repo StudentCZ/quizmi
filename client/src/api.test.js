@@ -269,3 +269,16 @@ describe('API functions - Error Cases', () => {
     );
   });
 });
+
+describe('API functions - Edge Cases', () => {
+  const BASE_URL = process.env.REACT_APP_API_URL;
+
+  it('When getCategories returns an empty array', async () => {
+    axios.get.mockResolvedValue({ data: [] });
+
+    const result = await getCategories();
+
+    expect(result).toEqual([]);
+    expect(axios.get).toHaveBeenCalledWith(`${BASE_URL}/categories`);
+  });
+});
