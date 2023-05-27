@@ -310,4 +310,16 @@ describe('API functions - Edge Cases', () => {
       `${BASE_URL}/categories/${categoryId}/subcategories`
     );
   });
+
+  it('When getSubCategories returns null', async () => {
+    axios.get.mockResolvedValue({ data: null });
+    const categoryId = 1;
+
+    const result = await getSubCategories(categoryId);
+
+    expect(result).toEqual([]);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${BASE_URL}/categories/${categoryId}/subcategories`
+    );
+  });
 });
