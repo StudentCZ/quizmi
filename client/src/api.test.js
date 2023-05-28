@@ -373,4 +373,40 @@ describe('API functions - Edge Cases', () => {
       `${BASE_URL}/categories/${categoryId}/subcategories/${subcategoryId}/quizzes`
     );
   });
+
+  it('When getNoSubCategoryQuiz returns an empty array', async () => {
+    axios.get.mockResolvedValue({ data: [] });
+    const categoryId = 1;
+
+    const result = await getNoSubCategoryQuiz(categoryId);
+
+    expect(result).toEqual([]);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${BASE_URL}/categories/${categoryId}/quizzes`
+    );
+  });
+
+  it('When getNoSubCategoryQuiz returns null', async () => {
+    axios.get.mockResolvedValue({ data: null });
+    const categoryId = 1;
+
+    const result = await getNoSubCategoryQuiz(categoryId);
+
+    expect(result).toEqual([]);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${BASE_URL}/categories/${categoryId}/quizzes`
+    );
+  });
+
+  it('When getNoSubCategoryQuiz returns undefined', async () => {
+    axios.get.mockResolvedValue({ data: undefined });
+    const categoryId = 1;
+
+    const result = await getNoSubCategoryQuiz(categoryId);
+
+    expect(result).toEqual([]);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${BASE_URL}/categories/${categoryId}/quizzes`
+    );
+  });
 });
