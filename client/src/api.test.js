@@ -409,4 +409,16 @@ describe('API functions - Edge Cases', () => {
       `${BASE_URL}/categories/${categoryId}/quizzes`
     );
   });
+
+  it('When getQuizQuestions returns an empty array', async () => {
+    axios.get.mockResolvedValue({ data: [] });
+    const quizId = 1;
+
+    const result = await getQuizQuestions(quizId);
+
+    expect(result).toEqual([]);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${BASE_URL}/quizzes/${quizId}/questions`
+    );
+  });
 });
