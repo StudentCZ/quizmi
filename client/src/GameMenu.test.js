@@ -2,11 +2,13 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { createMemoryHistory } from 'history';
-import { Router, MemoryRouter, Route, Routes } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  MemoryRouter,
+  Route,
+  Routes,
+} from 'react-router-dom';
 import GameMenu from './GameMenu';
-import NewGame from './NewGame';
-import Settings from './Settings';
 
 test('renders GameMenu component QuizMi', () => {
   render(
@@ -50,9 +52,9 @@ test('renders Continue Button', () => {
 
 test('Navigate to correct route when clicking New Game button', () => {
   render(
-    <MemoryRouter>
+    <Router>
       <GameMenu />
-    </MemoryRouter>
+    </Router>
   );
   const newGameButton = screen.getByText('New Game');
 
@@ -88,9 +90,9 @@ test('Navigate to correct route when clicking Continue Game button', () => {
 
 test('Navigate to correct route when clicking Settings button', () => {
   render(
-    <MemoryRouter>
+    <Router>
       <GameMenu />
-    </MemoryRouter>
+    </Router>
   );
 
   const settingsButton = screen.getByText('Settings');
