@@ -12,9 +12,9 @@ import GameMenu from './GameMenu';
 
 test('renders GameMenu component QuizMi', () => {
   render(
-    <Router>
+    <MemoryRouter>
       <GameMenu />
-    </Router>
+    </MemoryRouter>
   );
 
   const headingElement = screen.getByText('QuizMi');
