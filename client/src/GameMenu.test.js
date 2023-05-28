@@ -2,12 +2,8 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import {
-  BrowserRouter as Router,
-  MemoryRouter,
-  Route,
-  Routes,
-} from 'react-router-dom';
+import { createMemoryHistory } from 'history';
+import { Router, MemoryRouter, Route, Routes } from 'react-router-dom';
 import GameMenu from './GameMenu';
 import NewGame from './NewGame';
 import Settings from './Settings';
