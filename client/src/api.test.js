@@ -360,4 +360,17 @@ describe('API functions - Edge Cases', () => {
       `${BASE_URL}/categories/${categoryId}/subcategories/${subcategoryId}/quizzes`
     );
   });
+
+  it('When getSubCategoriesQuiz returns undefined', async () => {
+    axios.get.mockResolvedValue({ data: undefined });
+    const categoryId = 1;
+    const subcategoryId = 1;
+
+    const result = await getSubCategoryQuiz(categoryId, subcategoryId);
+
+    expect(result).toEqual([]);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${BASE_URL}/categories/${categoryId}/subcategories/${subcategoryId}/quizzes`
+    );
+  });
 });
