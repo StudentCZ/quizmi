@@ -457,4 +457,28 @@ describe('API functions - Edge Cases', () => {
       `${BASE_URL}/questions/${questionId}/answers`
     );
   });
+
+  it('When getQuestionAnswers returns null', async () => {
+    axios.get.mockResolvedValue({ data: null });
+    const questionId = 1;
+
+    const result = await getQuestionAnswers(questionId);
+
+    expect(result).toEqual([]);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${BASE_URL}/questions/${questionId}/answers`
+    );
+  });
+
+  it('When getQuestionAnswers returns undefined', async () => {
+    axios.get.mockResolvedValue({ data: undefined });
+    const questionId = 1;
+
+    const result = await getQuestionAnswers(questionId);
+
+    expect(result).toEqual([]);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${BASE_URL}/questions/${questionId}/answers`
+    );
+  });
 });
