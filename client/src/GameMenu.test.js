@@ -23,9 +23,9 @@ test('renders GameMenu component QuizMi', () => {
 
 test('renders New Game Button', () => {
   render(
-    <Router>
+    <MemoryRouter>
       <GameMenu />
-    </Router>
+    </MemoryRouter>
   );
 
   const newGameButton = screen.getByText('New Game');
@@ -34,9 +34,9 @@ test('renders New Game Button', () => {
 
 test('renders Continue Button', () => {
   render(
-    <Router>
+    <MemoryRouter>
       <GameMenu />
-    </Router>
+    </MemoryRouter>
   );
   const continueButton = screen.getByText('Continue Game');
 
@@ -52,9 +52,9 @@ test('renders Continue Button', () => {
 
 test('Navigate to correct route when clicking New Game button', () => {
   render(
-    <Router>
+    <MemoryRouter>
       <GameMenu />
-    </Router>
+    </MemoryRouter>
   );
   const newGameButton = screen.getByText('New Game');
 
@@ -90,9 +90,9 @@ test('Navigate to correct route when clicking Continue Game button', () => {
 
 test('Navigate to correct route when clicking Settings button', () => {
   render(
-    <Router>
+    <MemoryRouter>
       <GameMenu />
-    </Router>
+    </MemoryRouter>
   );
 
   const settingsButton = screen.getByText('Settings');
@@ -106,9 +106,9 @@ test('renders disabled Continue Button when there is no saved progress', () => {
   localStorage.setItem('quiz-progress', null);
 
   render(
-    <Router>
+    <MemoryRouter>
       <GameMenu />
-    </Router>
+    </MemoryRouter>
   );
   const continueButton = screen.getByText('Continue Game');
 
@@ -124,9 +124,9 @@ test('component updates based on localstorage changes', () => {
   localStorage.setItem('quiz-progress', JSON.stringify(savedProgress));
 
   render(
-    <Router>
+    <MemoryRouter>
       <GameMenu />
-    </Router>
+    </MemoryRouter>
   );
 
   const continueButton = screen.getByText('Continue Game');
