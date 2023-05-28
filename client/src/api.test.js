@@ -328,9 +328,23 @@ describe('API functions - Edge Cases', () => {
     const categoryId = 1;
 
     const result = await getSubCategories(categoryId);
+
     expect(result).toEqual([]);
     expect(axios.get).toHaveBeenCalledWith(
       `${BASE_URL}/categories/${categoryId}/subcategories`
+    );
+  });
+
+  it('When getSubCategoriesQuiz returns an empty array', async () => {
+    axios.get.mockResolvedValue({ data: [] });
+    const categoryId = 1;
+    const subcategoryId = 1;
+
+    const result = await getSubCategoryQuiz(categoryId, subcategoryId);
+
+    expect(result).toEqual([]);
+    expect(axios.get).toHaveBeenCalledWith(
+      `${BASE_URL}/categories/${categoryId}/subcategories/${subcategoryId}/quizzes`
     );
   });
 });
