@@ -19,10 +19,17 @@ test('display a list of sucategories', async () => {
   getSubCategories.mockResolvedValueOnce(mockSubCategories);
 
   render(
-    <MemoryRouter>
+    <MemoryRouter initialEntries={['/category/1/subcategories']}>
       <Routes>
-        <Route />
+        <Route
+          path='category/:categoryId/subcategories'
+          element={<SubCategories />}
+        />
       </Routes>
     </MemoryRouter>
   );
+
+  const subCategoryItems = await waitFor(() => screen.getAllByRole('listitem'));
+
+  expect(subCategoryItems).toHaveLength(mockSubCategories.length);
 });
