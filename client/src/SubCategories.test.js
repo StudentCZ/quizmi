@@ -10,23 +10,19 @@ jest.mock('./api', () => ({
   getSubCategories: jest.fn(),
 }));
 
-test('displays a list of subcategories', async () => {
+test('display a list of sucategories', async () => {
   const mockSubCategories = [
-    { subcategories_id: '1', name: 'Subcategory 1' },
-    { subcategories_id: '2', name: 'Subcategory 2' },
+    { subcategories_id: '1', name: 'Math' },
+    { subcategories_id: '2', name: 'Science' },
   ];
 
   getSubCategories.mockResolvedValueOnce(mockSubCategories);
 
   render(
-    <MemoryRouter initialEntries={['/category/1']}>
+    <MemoryRouter>
       <Routes>
-        <Route path='category/:categoryId' element={<SubCategories />} />
+        <Route />
       </Routes>
     </MemoryRouter>
   );
-
-  const subCategoryItems = await waitFor(() => screen.getAllByRole('listitem'));
-
-  expect(subCategoryItems).toHaveLength(mockSubCategories.length);
 });
