@@ -33,3 +33,10 @@ test('display a list of sucategories', async () => {
 
   expect(subCategoryItems).toHaveLength(mockSubCategories.length);
 });
+
+test('displays the correct subcategory names', async () => {
+  const mockSubCategories = [
+    { subcategories_id: '1', name: 'Math' },
+    { subcategories_id: '2', name: 'Science' },
+  ];
+});
