@@ -39,4 +39,20 @@ test('displays the correct subcategory names', async () => {
     { subcategories_id: '1', name: 'Math' },
     { subcategories_id: '2', name: 'Science' },
   ];
+
+  getSubCategories.mockResolvedValueOnce(mockSubCategories);
+
+  render(
+    <MemoryRouter initialEntries={['/category/1/subcategories']}>
+      <Routes>
+        <Route
+          path='category/:categoryId/subcategories'
+          element={<SubCategories />}
+        />
+      </Routes>
+    </MemoryRouter>
+  );
+
+  const mathItem = await waitFor(() => screen.getByText('Math'));
+  const scienceItem = await waitFor(() => screen.getByText('Science'));
 });
