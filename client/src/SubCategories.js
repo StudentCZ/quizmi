@@ -10,8 +10,12 @@ const SubCategories = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const subCategoriesData = await getSubCategories(categoryId);
-      setSubCategories(subCategoriesData);
+      try {
+        const subCategoriesData = await getSubCategories(categoryId);
+        setSubCategories(subCategoriesData);
+      } catch (error) {
+        console.error('Failed to load subcategories');
+      }
     };
     fetchData();
   }, [categoryId]);
