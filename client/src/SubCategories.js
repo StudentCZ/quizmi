@@ -7,6 +7,7 @@ const SubCategories = () => {
   const { categoryId } = useParams();
   const navigate = useNavigate();
   const [subCategories, setSubCategories] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,7 +15,7 @@ const SubCategories = () => {
         const subCategoriesData = await getSubCategories(categoryId);
         setSubCategories(subCategoriesData);
       } catch (error) {
-        console.error('Failed to load subcategories');
+        setErrorMessage('Failed to load subcategories');
       }
     };
     fetchData();
