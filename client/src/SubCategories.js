@@ -14,6 +14,7 @@ const SubCategories = () => {
       try {
         const subCategoriesData = await getSubCategories(categoryId);
         setSubCategories(subCategoriesData);
+        setErrorMessage('');
       } catch (error) {
         setErrorMessage('Failed to load subcategories');
       }
