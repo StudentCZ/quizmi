@@ -28,6 +28,7 @@ const SubCategories = () => {
 
   return (
     <div className={style.sub_categories_menu}>
+      {errorMessage && <p>{errorMessage}</p>}
       <h1 className={style.sub_categories_heading}>Choose Sub-Category</h1>
       <ul className={style.sub_categories_unordered_list}>
         {subCategories.map((subCategory) => {
