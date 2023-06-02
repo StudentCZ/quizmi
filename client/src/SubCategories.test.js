@@ -56,3 +56,24 @@ test('displays the correct subcategory names', async () => {
   const mathItem = await waitFor(() => screen.getByText('Math'));
   const scienceItem = await waitFor(() => screen.getByText('Science'));
 });
+
+test('displays an error message when the API call fails', async () => {
+  getSubCategories.mockRejectedValueOnce(new Error('API Error'));
+
+  render(
+    <MemoryRouter initialEntries={['/category/1/subcategories']}>
+      <Routes>
+        <Route
+          path='category/:categoryId/subcategories'
+          element={<SubCategories />}
+        />
+      </Routes>
+    </MemoryRouter>
+  );
+
+  const errorMessage = await waitFor(() =>
+    screen.getByText('Failed to load subcategories')
+  );
+
+  expect(errorMessage).toBeInTheDocument();
+});
