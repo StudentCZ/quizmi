@@ -7,6 +7,7 @@ import style from './NoSubCategories.module.css';
 const NoSubCategories = () => {
   const { categoryId } = useParams();
   const [quizzes, setQuizzes] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
