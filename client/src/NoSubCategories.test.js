@@ -33,8 +33,8 @@ test('fetches for a category without subcategories', async () => {
   expect(quizItems).toHaveLength(mockQuizzes.length);
 });
 
-test('renders an error message when API call fails', async () => {
-  getNoSubCategoryQuiz.mockResolvedValueOnce(new Error('API Error'));
+test('display a "in progress" message when there are no quizzes', async () => {
+  getNoSubCategoryQuiz.mockResolvedValueOnce([]);
 
   render(
     <MemoryRouter initialEntries={['/category/1/quizzes']}>
@@ -47,7 +47,9 @@ test('renders an error message when API call fails', async () => {
     </MemoryRouter>
   );
 
-  const errorMessage = await screen.findByText('Failed to load quizzes');
+  const inProgressMessage = await waitFor(() =>
+    screen.findByText('Currently in progress, please check back later.')
+  );
 
-  expect(errorMessage).toBeInDocument();
+  expect(inProgressMessage).toBeInTheDocument();
 });

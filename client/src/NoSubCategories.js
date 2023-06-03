@@ -20,7 +20,6 @@ const NoSubCategories = () => {
 
   return (
     <div className={style.quiz_menu}>
-      {errorMessage && <p>{errorMessage}</p>}
       <h1 className={style.quiz_heading}>Choose Quiz</h1>
       {quizzes.length > 0 ? (
         <ul className={style.quiz_unordered_list}>
