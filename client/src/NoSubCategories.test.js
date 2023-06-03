@@ -59,4 +59,18 @@ test('display a "in progress" message when there are no quizzes', async () => {
   expect(inProgressMessage).toBeInTheDocument();
 });
 
-test('navigates to the correct route when the back button is clicked', async () => {});
+test('navigates to the correct route when the back button is clicked', async () => {
+  render(
+    <Router>
+      <NoSubCategories />
+    </Router>
+  );
+
+  const backButton = screen.getByText('Back');
+
+  fireEvent.click(backButton);
+
+  await waitFor(() => {
+    expect(window.location.pathname).toBe('/game/new');
+  });
+});
