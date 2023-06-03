@@ -47,7 +47,7 @@ test('renders an error message when API call fails', async () => {
     </MemoryRouter>
   );
 
-  const errorMessage = await screen.findByText('/progress/i');
+  const errorMessage = await screen.findByText('Failed to load quizzes');
 
   expect(errorMessage).toBeInDocument();
 });
