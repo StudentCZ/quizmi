@@ -1,7 +1,12 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { MemoryRouter, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  MemoryRouter,
+  Routes,
+  Route,
+} from 'react-router-dom';
 import NoSubCategories from './NoSubCategories';
 import { getNoSubCategoryQuiz } from './api';
 
@@ -53,3 +58,5 @@ test('display a "in progress" message when there are no quizzes', async () => {
 
   expect(inProgressMessage).toBeInTheDocument();
 });
+
+test('navigates to the correct route when the back button is clicked', async () => {});
