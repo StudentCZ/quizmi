@@ -14,6 +14,10 @@ jest.mock('./api', () => ({
   getNoSubCategoryQuiz: jest.fn(),
 }));
 
+afterEach(() => {
+  jest.resetAllMocks();
+});
+
 test('fetches for a category without subcategories', async () => {
   const mockQuizzes = [
     { quiz_id: '15', title: 'Trivia 1A' },
