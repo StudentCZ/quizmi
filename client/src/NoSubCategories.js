@@ -14,8 +14,9 @@ const NoSubCategories = () => {
       try {
         const quizData = await getNoSubCategoryQuiz(categoryId);
         setQuizzes(quizData);
+        setErrorMessage('');
       } catch (error) {
-        console.error(error);
+        setErrorMessage('Failed to load quizzes');
       }
     };
     fetchData();
