@@ -32,3 +32,22 @@ test('fetches for a category without subcategories', async () => {
 
   expect(quizItems).toHaveLength(mockQuizzes.length);
 });
+
+test('renders an error message when API call fails', async () => {
+  getNoSubCategoryQuiz.mockResolvedValueOnce(new Error('API Error'));
+
+  render(
+    <MemoryRouter initialEntries={['/category/1/quizzes']}>
+      <Routes>
+        <Route
+          path='category/:categoryId/quizzes'
+          element={<NoSubCategories />}
+        />
+      </Routes>
+    </MemoryRouter>
+  );
+
+  const errorMessage = await screen.findByText('/progress/i');
+
+  expect(errorMessage).toBeInDocument();
+});
