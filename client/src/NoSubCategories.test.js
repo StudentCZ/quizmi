@@ -78,3 +78,24 @@ test('navigates to the correct route when the back button is clicked', async () 
     expect(window.location.pathname).toBe('/game/new');
   });
 });
+
+test('renders an error message when the API call fails', async () => {
+  getNoSubCategoryQuiz.mockRejectedValueOnce(
+    new Error('Failed to load quizzes')
+  );
+
+  render(
+    <MemoryRouter initialEntries={['/category/16/quizzes']}>
+      <Routes>
+        <Route
+          path='/category/:categoryId/quizzes'
+          element={<NoSubCategories />}
+        />
+      </Routes>
+    </MemoryRouter>
+  );
+
+  const errorMessage = await screen.findByText('Failed to load quizzes');
+
+  expect(errorMessage).toBeInTheDocument();
+});
