@@ -34,7 +34,7 @@ test('applies selected answer class when isSelected is true', () => {
   );
 });
 
-test('calls handleAnswerSelect with answerId when clicked', () => {
+test('calls handleAnswerSelect with answerId when button is clicked', () => {
   const mockHandleAnswerSelect = jest.fn();
 
   render(
