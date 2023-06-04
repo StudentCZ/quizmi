@@ -16,3 +16,20 @@ test('component is rendering correctly', () => {
 
   expect(screen.getByText('9')).toBeInTheDocument();
 });
+
+test('applies selected answer class when isSelected is true', () => {
+  render(
+    <Answers
+      answerId='1'
+      answerText='9'
+      isSelected={true}
+      handleAnswerSelect={() => {}}
+      disabled={false}
+    />
+  );
+
+  expect(screen.getByText('9')).toHaveClass(
+    'answers_button',
+    'selected_answer'
+  );
+});
