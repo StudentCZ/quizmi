@@ -35,5 +35,6 @@ VALUES (1, 'Mathematics', '2+2 = ?', '', ''),
        (3, 'History', 'In which state would you find the Grand Canyon?', '', ''),
        (3, 'History', 'Who was the first president of the United State?', '', ''),
        (3, 'History', 'What year was the Declaration Of Independence signed?', '', ''),
-       (3, 'History', 'What is the name of the U.S national anthem?', '', '')
+       (3, 'History', 'What is the name of the U.S national anthem?', '', ''),
+       (3, 'History', 'How old do you have to be to vote?', '', '')
        ;
