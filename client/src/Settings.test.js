@@ -24,3 +24,26 @@ test('component is rendering correctly', () => {
   expect(screen.getByText('Music Volume')).toBeInTheDocument();
   expect(screen.getByText('Main Menu')).toBeInTheDocument();
 });
+
+test('calls handleThemeChange when theme is selected', () => {
+  const mockHandleThemeChange = jest.fn();
+
+  render(
+    <Router>
+      <Settings
+        musicPlaying={false}
+        toggleMusic={() => {}}
+        setMusicVolume={() => {}}
+        musicVolume={0.5}
+        theme='orange'
+        handleThemeChange={mockHandleThemeChange}
+      />
+    </Router>
+  );
+
+  fireEvent.change(screen.getByLabelText('Select Theme'), {
+    target: { value: 'green' },
+  });
+
+  expect(mockHandleThemeChange).toHaveBeenCalled();
+});
