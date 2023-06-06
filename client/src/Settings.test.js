@@ -47,3 +47,24 @@ test('calls handleThemeChange when theme is selected', () => {
 
   expect(mockHandleThemeChange).toHaveBeenCalled();
 });
+
+test('calls toggleMusic when music toggle is clicked', () => {
+  const mockToggleMusic = jest.fn();
+
+  render(
+    <Router>
+      <Settings
+        musicPlaying={false}
+        toggleMusic={mockToggleMusic}
+        setMusicVolume={() => {}}
+        musicVolume={0.5}
+        theme='orange'
+        handleThemeChange={() => {}}
+      />
+    </Router>
+  );
+
+  fireEvent.click(screen.getByLabelText('Enable/Disable Music'));
+
+  expect(mockToggleMusic).toHaveBeenCalled();
+});
