@@ -7,3 +7,8 @@ jest.mock('react-router-dom', () => {
   useParams: jest.fn();
   useNavigate: jest.fn();
 });
+
+jest.mock('./api', () => {
+  getSubCategories: jest.fn();
+  getSubCategoryQuiz: jest.fn();
+});
