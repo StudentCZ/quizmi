@@ -12,3 +12,5 @@ jest.mock('./api', () => ({
   getSubCategories: jest.fn(),
   getSubCategoryQuiz: jest.fn(),
 }));
+
+describe('Select Quiz component', () => {});
