@@ -1,13 +1,7 @@
 {
-  "functions": [
-    { "src": "db.js" },
-    { "src": "index.js" },
-    { "src": "routes.js" }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/$1"
-    }
-  ]
+  "functions": {
+    "db": "db.js",
+    "index": "index.js",
+    "routes": "routes.js"
+  }
 }
