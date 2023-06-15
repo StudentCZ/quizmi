@@ -1,8 +1,6 @@
 {
   "functions": {
-    "db": {
-      "src": "db.js"
-    },
+    "db": {},
     "index": {
       "src": "index.js"
     },
