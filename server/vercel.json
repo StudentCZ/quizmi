@@ -8,8 +8,32 @@
   ],
   "routes": [
     {
+      "src": "/categories",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/categories/:category_id/subcategories",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/categories/:category_id/subcategories/:subcategory_id/quizzes",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/categories/:category_id/quizzes",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/quizzes/:quiz_id/questions",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/questions/:question_id/answers",
+      "dest": "/index.js"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "/index.js"
     }
   ]
 }
