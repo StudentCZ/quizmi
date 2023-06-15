@@ -1,7 +1,13 @@
 {
   "functions": {
-    "db": "db.js",
-    "index": "index.js",
-    "routes": "routes.js"
+    "db": {
+      "src": "db.js"
+    },
+    "index": {
+      "src": "index.js"
+    },
+    "routes": {
+      "src": "routes.js"
+    }
   }
 }
