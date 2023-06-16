@@ -13,4 +13,9 @@ jest.mock('./api', () => ({
   getSubCategoryQuiz: jest.fn(),
 }));
 
-describe('Select Quiz component', () => {});
+describe('Select Quiz component', () => {
+  let useParamsMock,
+    useNavigateMock,
+    getSubCategoryQuizMock,
+    getSubCategoriesMock;
+});
