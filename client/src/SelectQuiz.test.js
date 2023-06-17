@@ -18,4 +18,8 @@ describe('Select Quiz component', () => {
     useNavigateMock,
     getSubCategoryQuizMock,
     getSubCategoriesMock;
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 });
