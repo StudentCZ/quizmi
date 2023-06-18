@@ -29,5 +29,10 @@ describe('Select Quiz component', () => {
 
     useParamsMock.mockReturnValue({ categoryId: 1, subcategoryId: 1 });
     useNavigateMock.mockReturnValue(jest.fn());
+    getSubCategoryQuizMock.mockResolvedValue([
+      { quiz_id: '1', title: 'Math 1A' },
+      { quiz_id: '2', title: 'Science 1A' },
+    ]);
+    getSubCategoriesMock.mockResolvedValue([]);
   });
 });
