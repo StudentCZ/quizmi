@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getSubCategoryQuiz, getSubCategories } from './api';
@@ -19,20 +20,20 @@ describe('Select Quiz component', () => {
     getSubCategoryQuizMock,
     getSubCategoriesMock;
 
-  beforeEach(() => {
-    jest.clearAllMocks();
+  useParamsMock = useParams;
+  useNavigateMock = useNavigate;
+  getSubCategoriesMock = getSubCategories;
+  getSubCategoryQuizMock = getSubCategoryQuiz;
 
-    useParamsMock = useParams;
-    useNavigateMock = useNavigate;
-    getSubCategoriesMock = getSubCategories;
-    getSubCategoryQuizMock = getSubCategoryQuiz;
+  useParamsMock.mockReturnValue({ categoryId: 1, subcategoryId: 1 });
+  useNavigateMock.mockReturnValue(jest.fn());
+  getSubCategoryQuizMock.mockResolvedValue([
+    { quiz_id: '1', title: 'Math 1A' },
+    { quiz_id: '2', title: 'Science 1A' },
+  ]);
+  getSubCategoriesMock.mockResolvedValue([]);
+});
 
-    useParamsMock.mockReturnValue({ categoryId: 1, subcategoryId: 1 });
-    useNavigateMock.mockReturnValue(jest.fn());
-    getSubCategoryQuizMock.mockResolvedValue([
-      { quiz_id: '1', title: 'Math 1A' },
-      { quiz_id: '2', title: 'Science 1A' },
-    ]);
-    getSubCategoriesMock.mockResolvedValue([]);
-  });
+it('renders without crashing', () => {
+  render(<SelectQuiz />);
 });
