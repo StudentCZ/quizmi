@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/no-unnecessary-act */
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getSubCategoryQuiz, getSubCategories } from './api';
 import SelectQuiz from './SelectQuiz';
@@ -44,7 +44,6 @@ describe('Select Quiz component', () => {
   });
 
   it('renders without crashing', async () => {
-    // eslint-disable-next-line no-undef
     await act(async () => {
       render(<SelectQuiz />);
     });
