@@ -26,5 +26,8 @@ describe('Select Quiz component', () => {
     useNavigateMock = useNavigate;
     getSubCategoriesMock = getSubCategories;
     getSubCategoryQuizMock = getSubCategoryQuiz;
+
+    useParamsMock.mockReturnValue({ categoryId: 1, subcategoryId: 1 });
+    useNavigateMock.mockReturnValue(jest.fn());
   });
 });
