@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/no-unnecessary-act */
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -30,14 +31,22 @@ describe('Select Quiz component', () => {
 
     useParamsMock.mockReturnValue({ categoryId: 1, subcategoryId: 1 });
     useNavigateMock.mockReturnValue(jest.fn());
-    getSubCategoryQuizMock.mockResolvedValue([
+
+    const quizPromise = Promise.resolve([
       { quiz_id: '1', title: 'Math 1A' },
       { quiz_id: '2', title: 'Science 1A' },
     ]);
+
+    getSubCategoryQuizMock.mockResolvedValue(quizPromise);
     getSubCategoriesMock.mockResolvedValue([]);
+
+    return quizPromise;
   });
 
-  it('renders without crashing', () => {
-    render(<SelectQuiz />);
+  it('renders without crashing', async () => {
+    // eslint-disable-next-line no-undef
+    await act(async () => {
+      render(<SelectQuiz />);
+    });
   });
 });
