@@ -48,4 +48,5 @@ describe('Select Quiz component', () => {
       render(<SelectQuiz />);
     });
   });
+  it('renders quizzes from API', async () => {});
 });
