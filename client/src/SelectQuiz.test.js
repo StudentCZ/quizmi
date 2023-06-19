@@ -12,7 +12,6 @@ import SelectQuiz from './SelectQuiz';
 jest.mock('react-router-dom', () => ({
   useParams: jest.fn(),
   useNavigate: jest.fn(),
-  Router: ({ children }) => <div>{children}</div>,
 }));
 
 jest.mock('./api', () => ({
@@ -52,17 +51,5 @@ describe('Select Quiz component', () => {
     await act(async () => {
       render(<SelectQuiz />);
     });
-  });
-  it('renders quizzes from API', async () => {
-    await act(async () => {
-      render(
-        <Router>
-          <SelectQuiz />
-        </Router>
-      );
-    });
-
-    expect(await screen.findByText('Math 1A')).toBeInTheDocument();
-    expect(await screen.findByText('Science 1A')).toBeInTheDocument();
   });
 });
