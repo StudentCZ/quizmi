@@ -1,7 +1,11 @@
 /* eslint-disable testing-library/no-unnecessary-act */
 import React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { render, fireEvent, act, screen } from '@testing-library/react';
+import {
+  useParams,
+  useNavigate,
+  BrowserRouter as Router,
+} from 'react-router-dom';
 import { getSubCategoryQuiz, getSubCategories } from './api';
 import SelectQuiz from './SelectQuiz';
 
@@ -48,5 +52,14 @@ describe('Select Quiz component', () => {
       render(<SelectQuiz />);
     });
   });
-  it('renders quizzes from API', async () => {});
+  it('renders quizzes from API', async () => {
+    render(
+      <Router>
+        <SelectQuiz />
+      </Router>
+    );
+
+    expect(await screen.findByText('Math 1A')).toBeInTheDocument();
+    expect(await screen.findByText('Science 1A')).toBeInTheDocument();
+  });
 });
