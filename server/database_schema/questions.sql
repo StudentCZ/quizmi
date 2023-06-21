@@ -39,5 +39,6 @@ VALUES (1, 'Mathematics', '2+2 = ?', '', ''),
        (3, 'History', 'How old do you have to be to vote?', '', ''),
        (3, 'History', 'What ship did the pilgrims sail on to America', '', ''),
        (3, 'History', 'Who said this famous quote "The British are coming!"', '', ''),
-       (3, 'History', 'Who is the 16th president of the US?', '', '')
+       (3, 'History', 'Who is the 16th president of the US?', '', ''),
+       (3, 'History', 'What is the largest U.S. state by size?', '', '')
        ;
