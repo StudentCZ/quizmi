@@ -8,6 +8,7 @@
   height: 100vh;
   background-color: var(--background-color);
   color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
 }
 
 .game_menu_heading {
