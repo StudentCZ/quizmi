@@ -28,6 +28,7 @@
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  font-family: 'Lato', sans-serif;
 }
 
 .settings_button:hover {
@@ -38,6 +39,7 @@
 .settings_label {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  font-family: 'Lato', sans-serif;
 }
 
 .settings_input_checkbox {
