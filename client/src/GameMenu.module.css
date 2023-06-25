@@ -28,7 +28,7 @@
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  font-family: 'Lato', sans-serif;
+  font-family: var(--font-family);
 }
 
 .game_menu_button:hover {
