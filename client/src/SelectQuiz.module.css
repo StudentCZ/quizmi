@@ -15,6 +15,7 @@
   margin-bottom: 2rem;
   border-bottom: var(--border-bottom);
   padding-bottom: 0.5rem;
+  font-family: var(--font-family);
 }
 
 .quiz_unordered_list {
@@ -37,6 +38,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-family: var(--font-family);
 }
 
 .quiz_list_item:hover {
@@ -54,6 +56,7 @@
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  font-family: var(--font-family);
 }
 
 .quiz_button:hover {
