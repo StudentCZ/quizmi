@@ -61,7 +61,7 @@ const SelectQuiz = () => {
   return (
     <div className={style.quiz_menu}>
       {countdown > 0 && startGameClicked ? (
-        <h1 className={style.quiz_heading}>Game starts in {countdown}</h1>
+        <h1 className={style.quiz_heading}>Game Starts In {countdown}</h1>
       ) : quizzes.length > 0 ? (
         <>
           <h1 className={style.quiz_heading}>Choose Quiz</h1>
